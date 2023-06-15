@@ -38,6 +38,6 @@ public class CartCompare implements Command {
 
 			cs.cartInsert(vo);
 		}
-		return "producForm.do";
+		return "productForm.do";
 	}
 }
