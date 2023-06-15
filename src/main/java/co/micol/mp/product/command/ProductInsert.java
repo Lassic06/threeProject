@@ -40,8 +40,6 @@ public class ProductInsert implements Command {
 												new DefaultFileRenamePolicy());
 			String pfile = multi.getFilesystemName("pfile");
 			System.out.println(pfile);
-			 
-			System.out.println(pfile);
 			String ofile = multi.getOriginalFileName("pfile");
 			System.out.println(ofile);
 			vo.setProductId(multi.getParameter("productId"));

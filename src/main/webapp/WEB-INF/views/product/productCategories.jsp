@@ -37,7 +37,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-product-item">
                         <figure>
-                            <img src="img/product/main.jpg" alt="">
+                            <img src="img/products/img-9.jpg" alt="" width ="100" height="80">
                             <div class="p-status">new</div>
                             <div class="hover-icon">
                                 <a href="img/product/main.jpg" class="pop-up"><img src="img/product/main.jpg"

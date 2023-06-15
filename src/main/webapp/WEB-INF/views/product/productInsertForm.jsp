@@ -74,7 +74,7 @@ input[type=file]::file-selector-button {
 				<div class="col-md-12">
 					<div class="well well-sm">
 						<form id="frm" class="form-horizontal"
-							enctype="multipart/form-data" action="memberInsert.do"
+							enctype="multipart/form-data" action="productInsert.do"
 							method="post">
 							<fieldset>
 								<!-- 제품아이디 -->
@@ -105,7 +105,7 @@ input[type=file]::file-selector-button {
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>
 									<div class="col-md-8">
-										<input id="productImg" name="productImg" type="file" class="form-control">
+										<input id="pfile" name="pfile" type="file" class="form-control">
 									</div>
 								</div>
 								<!-- 제품설명 -->
