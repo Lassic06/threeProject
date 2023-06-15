@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
     <!-- Page Add Section Begin -->
     <section class="page-add">
         <div class="container">
@@ -78,7 +77,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="single-product-item">
                                 <figure>
-                                    <img src="img/product/img.PNG" alt="" width="210" height="350.63">
+                                    <img src="images/${product.productImg }" alt="img" width="210" height="350.63">
                                     <div class="p-status sale">sale</div>
                                 </figure>
                                 <div class="product-text">

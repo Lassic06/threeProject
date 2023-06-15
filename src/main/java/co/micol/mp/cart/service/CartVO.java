@@ -1,4 +1,4 @@
-package co.micol.pj.cart.service;
+package co.micol.mp.cart.service;
 
 import lombok.Getter;
 import lombok.Setter;
