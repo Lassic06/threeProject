@@ -13,14 +13,24 @@
 			<div class="container-fluid">
 				<div class="inner-header">
 					<div class="logo">
-						<a href="./index.html"><img src="img/logo.png" alt=""></a>
+					  <a href="main.do"><img src="img/logo.png" alt=""></a>
 					</div>
 					<div class="header-right">
 						<img src="img/icons/search.png" alt="" class="search-trigger">
-						<img src="img/icons/man.png" alt=""> 
+						 <c:if test="${not empty id}">
+                     <a href="myPage.do">
+                    <img src="img/icons/man.png" alt="">
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </c:if>
+                    <c:if test="${empty id}">
+                     <a href="main.do">
+                    <img src="img/icons/man.png" alt="">
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </c:if>
 						<c:if test="${not empty id }"> <!-- 로그인 시 장바구니 호출 -->
 						<a href="cartList.do">
-							<img src="img/icons/bag.png" alt=""> <span>2</span>
+							<img src="img/icons/bag.png" alt=""> 
+              <span>2</span>
 						</a>
 						</c:if>
 						<c:if test="${empty id }"><!-- 로그인 안할 시 로그인 호출 -->
@@ -30,18 +40,18 @@
 						</c:if>
 					</div>
 
-					<c:if test="${empty id }">
-						<div class="user-access">
-							<a href="register.do">Register</a> <a href="memberLoginForm.do"
-								class="in">Sign in</a>
-						</div>
-					</c:if>
-					<c:if test="${not empty id }">
-						<div class="user-access">
-							<a href="#">${name }님</a> <a href="memberLogOut.do" class="in">Sign
-								out</a>
-						</div>
-					</c:if>
+				<c:if test="${empty id }">
+	                <div class="user-access">
+	                    <a href="register.do">Register</a>
+	                    <a href="memberLoginForm.do" class="in">Sign in</a>
+	                </div>
+                </c:if>
+                <c:if test="${not empty id }">
+                	<div class="user-access">
+	                    <a href="#">${name }님</a>
+	                    <a href="memberLogOut.do" class="in">Sign out</a>
+	                </div>
+				</c:if>
 
 					<nav class="main-menu mobile-menu">
 						<ul>

@@ -17,17 +17,17 @@
                                 <form action="#">
                                     <select class="sort">
                                         <option value="">Sort by</option>
-                                        <option value="">Orders</option>
-                                        <option value="">Newest</option>
-                                        <option value="">Price</option>
+                                        <option value="">Name</option>
+                                        <option value="">HighPrice</option>
+                                        <option value="">LowPrice</option>
                                     </select>
                                 </form>
                             </div>
                             <div class="cf-right">
                                 <span>20 Products</span>
-                                <a href="#">2</a>
-                                <a href="#" class="active">4</a>
-                                <a href="#">6</a>
+                                <a href="#">1</a>
+                                <a href="#" class="active">2</a>
+                                <a href="#">3</a>
                             </div>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="single-product-item">
                         <figure>
-                            <img src="img/products/img-9.jpg" alt="">
+                            <img src="img/product/main.jpg" alt="">
                             <div class="p-status">new</div>
                             <div class="hover-icon">
-                                <a href="img/products/img-9.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
+                                <a href="img/product/main.jpg" class="pop-up"><img src="img/product/main.jpg"
                                         alt=""></a>
                             </div>
                         </figure>
