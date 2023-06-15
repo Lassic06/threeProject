@@ -50,7 +50,7 @@
                         </div>
                         <p>${product.productText }</p>
                         <ul class="tags">
-                            <li><span>Category :</span> Men’s Wear</li>
+                            <li><span>Category :</span> dresses</li>
                         </ul>
                         <div class="product-quantity">
                             <div class="pro-qty">

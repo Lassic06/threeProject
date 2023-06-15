@@ -20,6 +20,7 @@ import co.micol.mp.member.command.MemberInsert;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MyPage;
 import co.micol.mp.member.command.RegisterForm;
 
 import co.micol.mp.notice.command.NoticeDelete;
@@ -63,6 +64,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogOut.do", new MemberLogOut());
 		
+		//공지사항
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 게시판
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 인서트 기능
@@ -78,6 +80,9 @@ public class FrontController extends HttpServlet {
 
 		//장바구니 폼
 		map.put("/cartInsert.do", new cartInsert());
+		
+		//마이페이지
+		map.put("/myPage.do", new MyPage());
 
 		
 	}
