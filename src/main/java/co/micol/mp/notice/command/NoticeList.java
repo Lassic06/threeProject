@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.micol.mp.common.Command;
 import co.micol.mp.notice.service.NoticeService;
@@ -18,12 +17,8 @@ public class NoticeList implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		NoticeService ns = new NoticeServiceImpl();
 		List<NoticeVO> notices = new ArrayList<>();
-		HttpSession session = request.getSession();
 		notices = ns.noticeSelectList();
-		
-		session.getAttribute("memberAuth");
 
-		
 		request.setAttribute("notices", notices);
 		
 		return "notice/noticeList";

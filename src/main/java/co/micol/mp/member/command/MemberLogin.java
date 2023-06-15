@@ -25,6 +25,7 @@ public class MemberLogin implements Command {
 		if(vo != null) {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
+			session.setAttribute("auth", vo.getMemberAuth()); // 관리자 데이터 가져오기
 			
 		}
 		return "main/main";

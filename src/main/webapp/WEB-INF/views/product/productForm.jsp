@@ -17,13 +17,13 @@
                 <a href="#">Previous</a>
                 <a href="#">Next</a>
             </div>
+            <form id = "frm" action="cartCompare.do" method="post"> <!-- 카다 담기위한 FORM -->
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product-slider owl-carousel">
                         <div class="product-img">
                             <figure>
-                                <img src="images/${product.productImg }" alt="img">
-                                <div class="p-status">new</div>
+                                <img src="images/${product.productImg }" alt="img">                                <div class="p-status">new</div>
                             </figure>
                         </div>
                         <div class="product-img">
@@ -54,10 +54,23 @@
                         </ul>
                         <div class="product-quantity">
                             <div class="pro-qty">
-                                <input type="text" value="1">
+                                <input type="text" id = "productAmount" name = "productAmount" value="1"> <!-- 데이터 값 가져오는 ID, NAME -->
                             </div>
                         </div>
-                        <a href="#" class="primary-btn pc-btn">Add to cart</a>
+                        <!-- 데이터 값 가져오는 기능 -->>
+                        <input type="hidden" id = "memberId" name = "memberId" value="${id }">
+                        <input type="hidden" id = "productId" name = "productId" value = ${product.productId }>
+                        <input type="hidden" id = "productName" name = "productName" value = ${product.productName }>
+                        <input type="hidden" id = "productPrice" name = "productPrice" value = ${product.productPrice }>
+                        <input type="hidden" id = "productImg" name = "productImg" value = ${product.productImg }>
+                        <input type="hidden">
+                        <c:if test="${not empty id }">
+                        <button type="submit" class="primary-btn pc-btn">Add to cart</button>
+                        </c:if>
+                        
+                        <c:if test="${empty id }">
+                        <a href="memberLoginForm.do" class="primary-btn pc-btn">Add to cart</a>
+                        </c:if>
                         <ul class="p-info">
                             <li>Product Information</li>
                             <li>Reviews</li>
@@ -72,6 +85,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </section>
     <form name="reviewFrm">
