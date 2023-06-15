@@ -6,6 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.container{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+.item {
+  width: 30%; 
+  margin-bottom: 10px; 
+}
+</style>
 </head>
 <body>
 
@@ -52,260 +63,30 @@
                     </div>
                 </div>
             </div>
-            <!-- 상품1 -->
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <img src="img/product/main.jpg" alt="" width="561" height="836">
-                            <div class="p-status">new</div>
-                            <div class="hover-icon">
-                                <a href="img/product/main.jpg" class="pop-up"><img src="img/product/main.jpg"
-                                        alt=""></a>
-                            </div>
-                        </figure>
-                        <div class="product-text">
-                            <a href="#">
-                                <h6>Green Dress with details</h6>
-                            </a>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 상품2 -->
-                <div class="col-lg-6 col-md-6">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/product/img.PNG" alt="" width="210" height="350.63">
-                                    <div class="p-status sale">sale</div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>Yellow Maxi Dress</h6>
-                                    </a>
-                                    <p>$25.90</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 상품3 -->
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-3.jpg" alt="">
-                                    <div class="p-status">new</div>
-                                    <div class="hover-icon">
-                                        <a href="img/products/img-3.jpg" class="pop-up"><img
-                                                src="img/icons/zoom-plus.png" alt=""></a>
-                                    </div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>One piece bodysuit</h6>
-                                    </a>
-                                    <p>$19.90</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 상품4 -->
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-6.jpg" alt="">
-                                    <div class="p-status sale">sale</div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>Yellow Maxi Dress</h6>
-                                    </a>
-                                    <p>$25.90</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 상품5 -->
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-1.jpg" alt="">
-                                    <div class="hover-icon">
-                                        <a href="img/products/img-1.jpg" class="pop-up"><img
-                                                src="img/icons/zoom-plus.png" alt=""></a>
-                                    </div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>One piece bodysuit</h6>
-                                    </a>
-                                    <p>$19.90</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 상품6 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <img src="img/products/img-5.jpg" alt="">
-                            <div class="p-status">new</div>
-                            <div class="hover-icon">
-                                <a href="img/products/img-5.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
-                                        alt=""></a>
-                            </div>
-                        </figure>
-                        <div class="product-text">
-                            <a href="#">
-                                <h6>Green Dress with details</h6>
-                            </a>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 상품7 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <img src="img/products/img-4.jpg" alt="">
-                            <div class="p-status popular">popular</div>
-                            <div class="hover-icon">
-                                <a href="img/products/img-4.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
-                                        alt=""></a>
-                            </div>
-                        </figure>
-                        <div class="product-text">
-                            <a href="#">
-                                <h6>Blue Dress with details</h6>
-                            </a>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 상품8 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <img src="img/products/img-8.jpg" alt="">
-                            <div class="p-status popular">popular</div>
-                            <div class="hover-icon">
-                                <a href="img/products/img-8.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
-                                        alt=""></a>
-                            </div>
-                        </figure>
-                        <div class="product-text">
-                            <a href="#">
-                                <h6>Blue Dress with details</h6>
-                            </a>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 상품9 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <img src="img/products/img-10.jpg" alt="">
-                            <div class="p-status popular">popular</div>
-                            <div class="hover-icon">
-                                <a href="img/products/img-10.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
-                                        alt=""></a>
-                            </div>
-                        </figure>
-                        <div class="product-text">
-                            <a href="#">
-                                <h6>Blue Dress with details</h6>
-                            </a>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 상품10 -->
-                <div class="col-lg-6 col-md-6">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-11.jpg" alt="">
-                                    <div class="p-status sale">sale</div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>Yellow Maxi Dress</h6>
-                                    </a>
-                                    <p>$25.50</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-12.jpg" alt="">
-                                    <div class="p-status">new</div>
-                                    <div class="hover-icon">
-                                        <a href="img/products/img-12.jpg" class="pop-up"><img
-                                                src="img/icons/zoom-plus.png" alt=""></a>
-                                    </div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>One piece bodysuit</h6>
-                                    </a>
-                                    <p>$19.90</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-14.jpg" alt="">
-                                    <div class="p-status sale">sale</div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>Yellow Maxi Dress</h6>
-                                    </a>
-                                    <p>$25.90</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single-product-item">
-                                <figure>
-                                    <img src="img/products/img-15.jpg" alt="">
-                                    <div class="hover-icon">
-                                        <a href="img/products/img-15.jpg" class="pop-up"><img
-                                                src="img/icons/zoom-plus.png" alt=""></a>
-                                    </div>
-                                </figure>
-                                <div class="product-text">
-                                    <a href="#">
-                                        <h6>One piece bodysuit</h6>
-                                    </a>
-                                    <p>$19.90</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <img src="img/products/img-13.jpg" alt="">
-                            <div class="p-status">new</div>
-                            <div class="hover-icon">
-                                <a href="img/products/img-13.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
-                                        alt=""></a>
-                            </div>
-                        </figure>
-                        <div class="product-text">
-                            <a href="#">
-                                <h6>Green Dress with details</h6>
-                            </a>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      
+              <!-- 상품6 -->
+            <c:forEach items="${products }" var="p">
+              <div class="container">
+	              <div class="item">
+	                  <div class="single-product-item">
+	                      <figure>
+	                          <img src="images/${p.productDir }" alt="">
+	                          <div class="p-status">new</div>
+	                          <div class="hover-icon">
+	                              <a href="img/products/img-5.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
+	                                      alt=""></a>
+	                          </div>
+	                      </figure>
+	                      <div class="product-text">
+	                          <a href="#">
+	                              <h6>Green Dress with details</h6>
+	                          </a>
+	                          <p>${p.productPrice }</p>
+	                      </div>
+	                  </div>
+	              </div>
+              </div>
+            </c:forEach>
             <div class="more-product">
                 <div class="row">
                     <div class="col-lg-12 text-center">

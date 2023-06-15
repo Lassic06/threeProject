@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
 	<section class="product-page">
@@ -80,11 +81,66 @@
 	    		<textarea cols="100" name="reviewSubject" id="reviewSubject"></textarea>
 	    	</div>
 	    	<div>
-	    		<button type="button" onclick="reviewInsert()" >후기등록</button>
+	    		<button type="button" class="reviewInsert" >후기등록</button>
 	    	</div>
 	    	<input type="hidden" id="reviewCheck" name="productId" value="${product.productId }">
+	    	
+	    </div>
+	  	<div align="center" id ="reviewList">
+	    	
 	    </div>
     </form>
+<script type="text/javascript">
+$(".reviewInsert").click(function(){	
+	if(${id == null} ){
+		alert("로그인 하셔야 합니다.");
+		return;
+	}	
+	//리뷰 내용
+	var reviewSubject = $("#reivewSubject").val();
+	
+	var queryString = $("form[name=reviewFrm]").serialize();
+	$.ajax({
+		url:"reviewInsert.do",
+		type:"POST",
+		data:queryString,
+		success:function(){
+			alert("성공");
+			$("#reviewSubject").val("").focus;
+			
+			location.reload();
+		},
+		error: function(request, status, error){
+			alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
+		}
+	});
+	
+});
+reviewList();
+ function reviewList(){
+	let url = "ajaxReivewList.do"
+	fetch(url)
+		.then(response => response.json())
+		.then(json => HtmlConvert(json));
+} 
+ 
+ function HtmlConvert(datas){
+	 const container = document.createElement('table');//<table>태그 생성
+	 container.innerHTML = datas.map(data => createHTMLString(data)).join("");
+	 document.querySelector('#reviewList').appendChild(container);//화면에 추가
+ }
+ function createHTMLString(data){
+	let str ="<tr>";
+		str+="<td>"+ data.memberName+"</td>";
+		str+="<td>"+ data.reviewSubject+"</td></tr>";
+	
+	return str;
+	
+ }
+ 
+ 
+ 
+</script>
 </body>
 
 </html>
