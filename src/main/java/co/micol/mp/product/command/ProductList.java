@@ -15,9 +15,10 @@ public class ProductList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		ProductService ps =new ProductServiceImpl();
+		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
 		products = ps.productList();
+		
 		request.setAttribute("products", products);
 		
 		return "product/productList";

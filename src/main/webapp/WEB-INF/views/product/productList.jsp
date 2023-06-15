@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -19,7 +19,6 @@ flex-wrap:wrap;
 </style>
 </head>
 <body>
-
     <!-- Page Add Section Begin -->
     <section class="page-add">
         <div class="container">
@@ -63,7 +62,6 @@ flex-wrap:wrap;
                     </div>
                 </div>
             </div>
-      
               <!-- 상품6 -->
             <c:forEach items="${products }" var="p">
               <div class="container">
@@ -87,6 +85,7 @@ flex-wrap:wrap;
 	              </div>
               </div>
             </c:forEach>
+
             <div class="more-product">
                 <div class="row">
                     <div class="col-lg-12 text-center">

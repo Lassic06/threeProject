@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.mp.cart.service.CartMapper">
+	<select id="cartList"
+		resultType="co.micol.mp.cart.service.CartVO">
+		SELECT*FROM CART WHERE MEMBER_ID = #{memberId}
+	</select>
+	<select id="cartSelect" resultType="co.micol.mp.cart.service.CartVO">
+		SELECT MEMBER_ID, PRODUCT_ID FROM cart where member_id = #{memberId} AND product_id = #{productId}
+	
+	</select>
+	<insert id="cartInsert"
+		parameterType="co.micol.mp.cart.service.CartVO">
+		INSERT INTO CART
+		VALUES(#{memberId},#{productId},#{productPrice},#{productAmount},#{productImg},#{productName})
+	</insert>
+	<update id="cartUpdate"
+	parameterType="co.micol.mp.cart.service.CartVO">
+		<selectKey keyProperty = "productAmount" resultType="String" order = "BEFORE">
+			SELECT PRODUCT_AMOUNT + #{productAmount} AS productAmount 
+			FROM cart
+			WHERE PRODUCT_ID = #{productId} AND MEMBER_ID = #{memberId}
+		</selectKey>
+		UPDATE CART
+		<set>
+			<if test="productId != null">PRODUCT_AMOUNT = #{productAmount},</if>
+		</set>
+		WHERE PRODUCT_ID = #{productId} AND MEMBER_ID = #{memberId}
+	</update>
+	<delete id="cartDelete">
+		DELETE FROM CART
+		WHERE PRODUCT_ID = #{productId}
+	</delete>
+</mapper>

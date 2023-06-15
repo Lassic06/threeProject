@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.micol.mp.cart.command.cartInsert;
+import co.micol.mp.auction.command.AuctionList;
+import co.micol.mp.cart.command.CartCompare;
+import co.micol.mp.cart.command.CartList;
 import co.micol.mp.common.Command;
 import co.micol.mp.main.command.MainCommand;
 import co.micol.mp.member.command.AjaxCheckId;
@@ -20,14 +22,13 @@ import co.micol.mp.member.command.MemberInsert;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MyPage;
 import co.micol.mp.member.command.RegisterForm;
-
 import co.micol.mp.notice.command.NoticeDelete;
 import co.micol.mp.notice.command.NoticeInsert;
 import co.micol.mp.notice.command.NoticeInsertForm;
 import co.micol.mp.notice.command.NoticeList;
 import co.micol.mp.notice.command.NoticeSelect;
-
 import co.micol.mp.product.command.ProductCategory;
 import co.micol.mp.product.command.ProductForm;
 import co.micol.mp.product.command.ProductInsert;
@@ -65,6 +66,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogOut.do", new MemberLogOut());
 		
+		//공지사항
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 게시판
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 인서트 기능
@@ -83,7 +85,21 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxReivewList.do", new AjaxReviewList());
 		
 		//장바구니 폼
+
 		map.put("/cartInsert.do", new cartInsert());
+		
+		//마이페이지
+		map.put("/myPage.do", new MyPage());
+
+
+		map.put("/cartCompare.do", new CartCompare()); // 장바구니 담기
+		map.put("/cartList.do", new CartList());
+	
+		
+		//경매폼
+		map.put("/auctionList.do", new AuctionList());
+
+
 
 		
 	}
