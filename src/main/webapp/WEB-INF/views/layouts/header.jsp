@@ -51,7 +51,7 @@
                                 </c:if>
                             </ul>
                         </li>
-                        <li><a href="./product-page.html">About</a></li>
+                        <li><a href="auctionList.do">Auction</a></li>
                         <li><a href="noticeList.do">Blog</a></li>
                         <li><a href="./contact.html">Contact</a></li>
                     </ul>
