@@ -21,17 +21,22 @@ import co.micol.mp.cart.command.CartList;
 import co.micol.mp.common.Command;
 import co.micol.mp.main.command.MainCommand;
 import co.micol.mp.member.command.AjaxCheckId;
+import co.micol.mp.member.command.MemberDelete;
 import co.micol.mp.member.command.MemberInsert;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MemberUpdate;
+import co.micol.mp.member.command.MemberUpdateForm;
 import co.micol.mp.member.command.MyPage;
 import co.micol.mp.member.command.RegisterForm;
 import co.micol.mp.notice.command.NoticeDelete;
+import co.micol.mp.notice.command.NoticeEdit;
 import co.micol.mp.notice.command.NoticeInsert;
 import co.micol.mp.notice.command.NoticeInsertForm;
 import co.micol.mp.notice.command.NoticeList;
 import co.micol.mp.notice.command.NoticeSelect;
+import co.micol.mp.notice.command.NoticeUpdate;
 import co.micol.mp.product.command.ProductCategory;
 import co.micol.mp.product.command.ProductForm;
 import co.micol.mp.product.command.ProductInsert;
@@ -68,13 +73,17 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogOut.do", new MemberLogOut());
-		
+		map.put("/memberUpdateForm.do", new MemberUpdateForm()); //회원정보수정 폼 호출
+		map.put("/memberUpdate.do", new MemberUpdate()); //회원정보수정 실행
+		map.put("/memberDelete.do", new MemberDelete()); //회원탈퇴
 		//공지사항
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 게시판
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 인서트 기능
 		map.put("/noticeSelect.do", new NoticeSelect()); //공지사항 상세보기
-		map.put("/noticeDelete", new NoticeDelete());
+		map.put("/noticeDelete.do", new NoticeDelete());
+		map.put("/noticeEdit.do", new NoticeEdit());
+		map.put("/noticeUpdate.do", new NoticeUpdate());
 		
 		//제품등록 폼
 		map.put("/productList.do", new ProductList());
@@ -87,7 +96,6 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/ajaxReivewList.do", new AjaxReviewList());
 		
-	
 		//마이페이지
 		map.put("/myPage.do", new MyPage());
 

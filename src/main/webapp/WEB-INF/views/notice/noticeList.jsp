@@ -208,7 +208,6 @@ section.notice {
 </style>
 </head>
 <body>
-
 	<section class="notice">
 		<div class="page-title">
 			<div class="container">
