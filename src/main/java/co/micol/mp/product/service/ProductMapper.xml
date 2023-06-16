@@ -12,6 +12,7 @@
 	
 	<select id="product"
 		resultType="co.micol.mp.product.service.ProductVO">
+
 		SELECT * FROM PRODUCT WHERE PRODUCT_ID = #{productId}
 	</select>
 	
@@ -20,5 +21,6 @@
 		SELECT * 
 		FROM (SELECT * FROM PRODUCT ORDER BY PRODUCT_DATE DESC)
 		WHERE ROWNUM <![CDATA[<=]]> 6
+
 	</select>
 </mapper>

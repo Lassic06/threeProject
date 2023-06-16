@@ -17,11 +17,19 @@ public class AuctionServiceImpl implements AuctionService {
 		// TODO Auto-generated method stub
 		return map.auctionList();
 	}
+	
 
 	@Override
 	public AuctionVO auction(AuctionVO vo) {
 		// TODO Auto-generated method stub
 		return map.auction(vo);
+	}
+
+
+	@Override
+	public int auctionInsert(AuctionVO vo) {
+		// TODO Auto-generated method stub
+		return map.auctionInsert(vo);
 	}
 
 }

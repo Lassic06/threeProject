@@ -29,6 +29,6 @@
 	</update>
 	<delete id="cartDelete">
 		DELETE FROM CART
-		WHERE PRODUCT_ID = #{productId}
+		WHERE PRODUCT_ID = #{productId} AND MEMBER_ID = #{memberId}
 	</delete>
 </mapper>

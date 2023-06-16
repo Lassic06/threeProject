@@ -5,6 +5,16 @@
 		resultType="co.micol.mp.auction.service.AuctionVO">
 		SELECT * FROM auction	
 	</select>
-
+	
+	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
+		SELECT * 
+		FROM auction
+		WHERE AUCTION_ID = #{auctionId}
+	</select>
+	
+	<insert id = "auctionInsert">
+	INSERT INTO PRODUCT VALUES(#{auctionId},#{auctionName},#{auctionPrice},
+		#{auctionImg},#{auctionText},#{auctionMax},SYSDATE,#{auctionReview},#{auctionSeller},#{auctionBuyer},#{auctionCount})
+	</insert>
 
 </mapper>
