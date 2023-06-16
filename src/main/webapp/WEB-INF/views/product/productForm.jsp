@@ -60,10 +60,10 @@
                         </div>
                         <!-- 데이터 값 가져오는 기능 -->>
                         <input type="hidden" id = "memberId" name = "memberId" value="${id }">
-                        <input type="hidden" id = "productId" name = "productId" value = ${product.productId }>
-                        <input type="hidden" id = "productName" name = "productName" value = ${product.productName }>
-                        <input type="hidden" id = "productPrice" name = "productPrice" value = ${product.productPrice }>
-                        <input type="hidden" id = "productImg" name = "productImg" value = ${product.productImg }>
+                        <input type="hidden" id = "productId" name = "productId" value = "${product.productId }">
+                        <input type="hidden" id = "productName" name = "productName" value = "${product.productName }">
+                        <input type="hidden" id = "productPrice" name = "productPrice" value = "${product.productPrice }">
+                        <input type="hidden" id = "productImg" name = "productImg" value = "${product.productImg }">
                         <input type="hidden">
                         <c:if test="${not empty id }">
                         <button type="submit" class="primary-btn pc-btn">Add to cart</button>

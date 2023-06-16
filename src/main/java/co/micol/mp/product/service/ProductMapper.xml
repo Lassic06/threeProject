@@ -12,6 +12,6 @@
 	
 	<select id="product"
 		resultType="co.micol.mp.product.service.ProductVO">
-		SELECT * FROM PRODUCT WHERE PRODUCT_ID ='asdasd'
+		SELECT * FROM PRODUCT WHERE PRODUCT_ID ='p001'
 	</select>
 </mapper>
