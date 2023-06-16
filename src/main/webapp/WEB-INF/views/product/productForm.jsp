@@ -24,7 +24,8 @@
                     <div class="product-slider owl-carousel">
                         <div class="product-img">
                             <figure>
-                                <img src="images/${product.productImg }" alt="img">                                <div class="p-status">new</div>
+                                <img src="images/${product.productImg }" alt="img">                                
+                                <div class="p-status">new</div>
                             </figure>
                         </div>
                         <div class="product-img">

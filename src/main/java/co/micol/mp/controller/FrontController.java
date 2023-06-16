@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.micol.mp.auction.command.AuctionForm;
+import co.micol.mp.auction.command.AuctionInsert;
+import co.micol.mp.auction.command.AuctionInsertForm;
 import co.micol.mp.auction.command.AuctionList;
 import co.micol.mp.buyList.command.BuyListInsert;
 import co.micol.mp.cart.command.CartCompare;
@@ -20,10 +23,13 @@ import co.micol.mp.cart.command.CartList;
 import co.micol.mp.common.Command;
 import co.micol.mp.main.command.MainCommand;
 import co.micol.mp.member.command.AjaxCheckId;
+import co.micol.mp.member.command.MemberDelete;
 import co.micol.mp.member.command.MemberInsert;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MemberUpdate;
+import co.micol.mp.member.command.MemberUpdateForm;
 import co.micol.mp.member.command.MyPage;
 import co.micol.mp.member.command.RegisterForm;
 import co.micol.mp.notice.command.NoticeDelete;
@@ -69,12 +75,15 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLogOut.do", new MemberLogOut());
-		
+		map.put("/memberUpdateForm.do", new MemberUpdateForm()); //회원정보수정 폼 호출
+		map.put("/memberUpdate.do", new MemberUpdate()); //회원정보수정 실행
+		map.put("/memberDelete.do", new MemberDelete()); //회원탈퇴
 		//공지사항
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 게시판
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 인서트 기능
 		map.put("/noticeSelect.do", new NoticeSelect()); //공지사항 상세보기
+
 		//23.06.16 -> 공지사항 등록 폼 다 빠져있음 채워야함
 		map.put("/noticeDelete.do", new NoticeDelete()); // 공지사항 삭제
 		map.put("/noticeEdit.do", new NoticeEdit());  // 공지사항 업데이트 호출 폼
@@ -90,9 +99,7 @@ public class FrontController extends HttpServlet {
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/ajaxReivewList.do", new AjaxReviewList());
-		
 
-		
 		//마이페이지
 		map.put("/myPage.do", new MyPage());
 
@@ -105,8 +112,9 @@ public class FrontController extends HttpServlet {
 		
 		//경매폼
 		map.put("/auctionList.do", new AuctionList());
-		
-		
+		map.put("/auctionForm.do", new AuctionForm());
+		map.put("/auctionInsert.do", new AuctionInsert());
+		map.put("/auctionInsertForm.do", new AuctionInsertForm());
 
 
 
