@@ -18,9 +18,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return map.insertReview(vo);
 	}
 	@Override
-	public List<ReviewVO> reviewList(String string, List<ReviewVO> list) {
+	public List<ReviewVO> reviewList(String string) {
 		// TODO Auto-generated method stub
-		return map.reviewList(string, list);
+		return map.reviewList(string);
 	}
 
 	

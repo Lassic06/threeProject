@@ -61,8 +61,7 @@
 									<li><a href="productList.do">Product Page</a></li>
 									<li><a href="shopping-cart.html">Shopping Card</a></li>
 									<li><a href="productForm.do">Check out</a></li>
-									<li><a href="productInsertForm.do">Product Insert</a></li>
-									<c:if test="${memberAuth eq 'A'}">
+									<c:if test="${auth eq 'A'}">
 										<li><a href="productInsertForm.do">Product Insert</a></li>
 									</c:if>
 								</ul></li>

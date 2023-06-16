@@ -26,6 +26,7 @@ public class ProductVO {
 	private int productCount;
 	private Date productDate;
 	private int productAmount;
+	private String productCategory;
 	
 	
 }

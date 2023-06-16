@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,111 +58,31 @@
                         </div>
                         <ul class="product-controls">
                             <li data-filter="*">All</li>
-                            <li data-filter=".dresses">Dresses</li>
-                            <li data-filter=".bags">Bags</li>
-                            <li data-filter=".shoes">Shoes</li>
-                            <li data-filter=".accesories">Accesories</li>
+                            <li data-filter=".상의">상의</li>
+                            <li data-filter=".하의">하의</li>
+                            <li data-filter=".아우터">아우터</li>
+                            <li data-filter=".신발">신발</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="row" id="product-list">
-                <div class="col-lg-3 col-sm-6 mix all dresses ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-1.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Green Dress with details</h6>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all dresses bags">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-2.jpg" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Yellow Maxi Dress</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all shoes accesories">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-3.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all shoes accesories">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-4.jpg" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Blue Dress with details</h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all dresses shoes">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-5.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Green Dress with details</h6>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all accesories bags">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-6.jpg" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Yellow Maxi Dress</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all dresses bags">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-7.jpg" alt=""></a>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all accesories bags">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="img/products/img-8.jpg" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Blue Dress with details</h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+            <div class="row" id="product-list">         
+            	<c:forEach items="${product }" var="p">
+	                <div class="col-lg-3 col-sm-6 mix all ${p.productCategory } ">
+	                    <div class="single-product-item">
+	                        <figure>
+	                            <a href="#"><img src="images/${p.productDir }" alt=""></a>
+	                            <div class="p-status">new</div>
+	                        </figure>
+	                        <div class="product-text">
+	                            <h6>${p.productName } with details</h6>
+	                            <p><fmt:formatNumber value="${p.productPrice}" pattern="#,###원" /></p>
+	                        </div>
+	                    </div>
+	                </div>
+                </c:forEach>
+	        </div>
         </div>
     </section>
     <!-- Latest Product End -->

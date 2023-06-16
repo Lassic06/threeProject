@@ -34,6 +34,7 @@ import co.micol.mp.product.command.ProductForm;
 import co.micol.mp.product.command.ProductInsert;
 import co.micol.mp.product.command.ProductInsertForm;
 import co.micol.mp.product.command.ProductList;
+import co.micol.mp.product.command.ProductRecentList;
 import co.micol.mp.review.command.AjaxReviewList;
 import co.micol.mp.review.command.ReviewInsert;
 
@@ -79,6 +80,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productInsert.do", new ProductInsert());
 		map.put("/productForm.do", new ProductForm());
 		map.put("/productCategory.do", new ProductCategory());
+		map.put("/productRecentList.do", new ProductRecentList());
 		
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());
@@ -86,7 +88,6 @@ public class FrontController extends HttpServlet {
 		
 		//장바구니 폼
 
-		map.put("/cartInsert.do", new cartInsert());
 		
 		//마이페이지
 		map.put("/myPage.do", new MyPage());

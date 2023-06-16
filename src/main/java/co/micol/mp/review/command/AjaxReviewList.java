@@ -1,6 +1,5 @@
 package co.micol.mp.review.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,9 +20,10 @@ public class AjaxReviewList implements Command {
 		// TODO Auto-generated method stub
 		String str = "Ajax:";
 		ReviewService rs = new ReviewServiceImpl();
-		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		List<ReviewVO> list ;
+		String productId= request.getParameter("productId");
 		
-		list = rs.reviewList("list",list);
+		list = rs.reviewList(productId);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
