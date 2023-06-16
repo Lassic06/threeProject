@@ -7,6 +7,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
+.all{
+	width: 1100px;
+
+}
+ul {
+    list-style:none;
+}
+ 
+li {
+    display: inline-block;
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -207,69 +219,49 @@ section.notice {
 				<h2 id="notice">Cart</h2>
 			</div>
 		</div>
-		<!-- 카트목록 -->
-		<div id="board-list">
-			<div class="container">
-				<table class="board-table">
-					<thead>
-						<tr>
-							<th scope="col" class="th-num">이미지</th>
-							<th scope="col" class="th-num">상품명</th>
-							<th scope="col" class="th-num">가격</th>
-							<th scope="col" class="th-num">수량</th>
-							<th scope="col" class="th-num">총액</th>
-						</tr>
-					</thead>
-					<tbody>
-					<tbody>
-						<c:forEach items="${carts }" var="c">
-							<tr>
-								<td><img src="${c.productImg }"></td>
-								<td>${c.productName }</td>
-								<td>${c.productPrice }</td>
-								<td>${c.productPrice }</td>
-								<td>${c.productPrice * c.productPrice}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+
+		<div class = "all">
+			<ul>
+				<li>
+				<input type="checkbox">
+				상품 사진
+				상품 명
+				가격
+				수량
+				</li>
+			</ul>
+			<c:forEach items="${carts }" var="c">
+				<ul>
+					<form>
+						<li>
+							<input type="checkbox" name="checkYn" id="checkYn" onchange="YnCheck(this);"> 
+							<input type="hidden" id="productId" name="productId" value="${c.productId }">
+							<img src="images/${c.productImg }" alt="img" width="70"	height="70"> <input type="hidden" id="productImg" name="productImg" value="${c.productImg}">
+							<input type="text" id="productName" name="productName"	value="${c.productName }">
+							<input type="text" id="productPrice" name="productPrice" value="${c.productPrice }">
+							<input type="text" id="productAmount" name="productAmount" value="${c.productAmount }">
+							<button type="submit" formaction="buyListInsert.do">구매하기</button>
+							<button type="submit" formaction="cartDelete.do">삭제하기</button>
+						</li>
+					</form>
+				</ul>
+			</c:forEach>
 		</div>
-	</section>
-
-
-	<!-- 	<div align="center"> -->
-	<!-- 		<div> -->
-	<!-- 			<h1>Cart</h1> -->
-	<!-- 		</div> -->
-	<!-- 		<div> -->
-	<!-- 			<table border="1"> -->
-	<!-- 				<thead> -->
-	<!-- 					<tr> -->
-	<!-- 						<th></th> -->
-	<!-- 						<th>상품 사진</th> -->
-	<!-- 						<th>상품 명</th> -->
-	<!-- 						<th>가격</th> -->
-	<!-- 						<th>수량</th> -->
-	<!-- 						<th>총 가격</th> -->
-	<!-- 					</tr> -->
-	<!-- 				</thead> -->
-	<!-- 				<tbody> -->
-	<%-- 					<c:forEach items = "${carts }" var="c"> --%>
-	<!-- 					<tr> -->
-	<!-- 						<td></td> -->
-	<%-- 						<td>${c.productImg }</td> --%>
-	<%-- 						<td>${c.productName }</td> --%>
-	<%-- 						<td>${c.productPrice }</td> --%>
-	<%-- 						<td>${c.productPrice }</td> --%>
-	<%-- 						<td>${c.productPrice * c.productPrice}</td> --%>
-	<!-- 					</tr> -->
-	<%-- 					</c:forEach> --%>
-	<!-- 				</tbody> -->
-	<!-- 			</table> -->
-
-	<!-- 		</div> -->
-
-	<!-- 	</div> -->
+	</div>
 </body>
+<script type="text/javascript">
+
+//  function YnCheck(obj) {
+
+//     var checked = obj.checked;
+
+//     if(checked){
+//        obj.value = "Y";
+//     }else{
+//        obj.value = "N";
+//     }
+
+//  };
+
+ </script>
 </html>

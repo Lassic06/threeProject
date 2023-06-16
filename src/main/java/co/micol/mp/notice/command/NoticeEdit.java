@@ -18,6 +18,7 @@ public class NoticeEdit implements Command {
 		vo = ns.noticeSelect(vo);
 		request.setAttribute("notice", vo);
 		
+		
 		return "notice/noticeEdit";
 	}
 

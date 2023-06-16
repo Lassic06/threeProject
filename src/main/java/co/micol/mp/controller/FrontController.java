@@ -16,7 +16,9 @@ import co.micol.mp.auction.command.AuctionForm;
 import co.micol.mp.auction.command.AuctionInsert;
 import co.micol.mp.auction.command.AuctionInsertForm;
 import co.micol.mp.auction.command.AuctionList;
+import co.micol.mp.buyList.command.BuyListInsert;
 import co.micol.mp.cart.command.CartCompare;
+import co.micol.mp.cart.command.CartDelete;
 import co.micol.mp.cart.command.CartList;
 import co.micol.mp.common.Command;
 import co.micol.mp.main.command.MainCommand;
@@ -81,9 +83,11 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 인서트 기능
 		map.put("/noticeSelect.do", new NoticeSelect()); //공지사항 상세보기
-		map.put("/noticeDelete.do", new NoticeDelete());
-		map.put("/noticeEdit.do", new NoticeEdit());
-		map.put("/noticeUpdate.do", new NoticeUpdate());
+
+		//23.06.16 -> 공지사항 등록 폼 다 빠져있음 채워야함
+		map.put("/noticeDelete.do", new NoticeDelete()); // 공지사항 삭제
+		map.put("/noticeEdit.do", new NoticeEdit());  // 공지사항 업데이트 호출 폼
+		map.put("/noticeUpdate.do", new NoticeUpdate()); //공지사항 업데이트
 		
 		//제품등록 폼
 		map.put("/productList.do", new ProductList());
@@ -95,20 +99,23 @@ public class FrontController extends HttpServlet {
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/ajaxReivewList.do", new AjaxReviewList());
-		
+
 		//마이페이지
 		map.put("/myPage.do", new MyPage());
 
-
+		//장바구니 폼
 		map.put("/cartCompare.do", new CartCompare()); // 장바구니 담기
 		map.put("/cartList.do", new CartList());
-	
+		//23.06.16 - 김재운
+		map.put("/buyListInsert.do", new BuyListInsert()); // 구매내역 보내기
+		map.put("/cartDelete.do", new CartDelete());
 		
 		//경매폼
 		map.put("/auctionList.do", new AuctionList());
 		map.put("/auctionForm.do", new AuctionForm());
 		map.put("/auctionInsert.do", new AuctionInsert());
 		map.put("/auctionInsertForm.do", new AuctionInsertForm());
+
 
 
 		

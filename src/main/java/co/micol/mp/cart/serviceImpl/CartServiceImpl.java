@@ -39,7 +39,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int cartDelete(CartVO vo) {
 		// TODO Auto-generated method stub
-		return map.cartUpdate(vo);
+		return map.cartDelete(vo);
 	}
 
 }
