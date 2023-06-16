@@ -24,13 +24,13 @@
                     <div class="product-slider owl-carousel">
                         <div class="product-img">
                             <figure>
-                                <img src="images/${product.productImg }" alt="img">                                
-                                <div class="p-status">new</div>
+                                <img src="images/${product.productDir }" alt="img"> 
+								<div class="p-status">new</div>
                             </figure>
                         </div>
                         <div class="product-img">
                             <figure>
-                                <img src="images/${product.productImg }" alt="img">
+                                <img src="images/${product.productDir }" alt="img">
                                 <div class="p-status">new</div>
                             </figure>
                         </div>
@@ -52,7 +52,7 @@
                         </div>
                         <p>${product.productText }</p>
                         <ul class="tags">
-                            <li><span>Category :</span> dresses</li>
+                            <li><span>Category :</span> ${product.productCategory} </li>
                         </ul>
                         <div class="product-quantity">
                             <div class="pro-qty">
@@ -120,10 +120,12 @@ $(".reviewInsert").click(function(){
 		type:"POST",
 		data:queryString,
 		success:function(){
-			alert("성공");
+			/* alert("성공"); */
 			$("#reviewSubject").val("").focus;
+			$("#reviewList").empty();
 			
-			location.reload();
+			reviewList();
+			
 		},
 		error: function(request, status, error){
 			alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
@@ -134,7 +136,7 @@ $(".reviewInsert").click(function(){
 reviewList();
  function reviewList(){
 	let url = "ajaxReivewList.do"
-	fetch(url)
+	fetch(url+"?productId="+"${product.productId }")
 		.then(response => response.json())
 		.then(json => HtmlConvert(json));
 } 
@@ -145,10 +147,10 @@ reviewList();
 	 document.querySelector('#reviewList').appendChild(container);//화면에 추가
  }
  function createHTMLString(data){
-	let str ="<tr>";
+	let str="<tr>";
 		str+="<td>"+ data.memberName+"</td>";
-		str+="<td>"+ data.reviewSubject+"</td></tr>";
-	
+		str+="<td>"+ data.reviewSubject+"</td>";
+		str+="<td>"+ data.reviewDate+"</td></tr>";
 	return str;
 	
  }

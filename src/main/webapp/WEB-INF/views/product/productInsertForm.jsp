@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8" />
@@ -108,6 +109,19 @@ input[type=file]::file-selector-button {
 										<input id="pfile" name="pfile" type="file" class="form-control">
 									</div>
 								</div>
+								
+								<!-- 제품 종류 -->
+								<div class="form-group">
+									
+										<select id ="productCategory" name="productCategory">
+											<option value="상의">상의</option>
+											<option value="하의">하의</option>
+											<option value="아우터">아우터</option>
+											<option value="신발">신발</option>									
+										</select>
+									
+								</div>
+								
 								<!-- 제품설명 -->
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>

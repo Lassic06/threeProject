@@ -32,5 +32,11 @@ public class ProductServiceImpl implements ProductService {
 		return map.productInsert(vo);
 	}
 
+	@Override
+	public List<ProductVO> productRecentList() {
+		// TODO Auto-generated method stub
+		return map.productList();
+	}
+
 
 }

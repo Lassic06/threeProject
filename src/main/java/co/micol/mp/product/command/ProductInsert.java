@@ -3,6 +3,7 @@ package co.micol.mp.product.command;
 import java.io.File;
 import java.io.IOException;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,8 +29,6 @@ public class ProductInsert implements Command {
 		
 		saveDir += File.separator;
 		int maxSize = 100*1024*1024;
-		System.out.println(dir);
-		System.out.println(saveDir);
 		
 		try {
 			MultipartRequest multi = new MultipartRequest(
@@ -46,7 +45,7 @@ public class ProductInsert implements Command {
 			vo.setProductName(multi.getParameter("productName"));
 			vo.setProductPrice(Integer.valueOf(multi.getParameter("productPrice")));
 			vo.setProductText(multi.getParameter("productText"));
-			
+			vo.setProductCategory(multi.getParameter("productCategory"));
 			if(ofile != null) {
 				vo.setProductImg(ofile);
 				vo.setProductDir(pfile);

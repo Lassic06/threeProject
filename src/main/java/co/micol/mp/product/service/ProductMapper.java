@@ -8,4 +8,6 @@ public interface ProductMapper {
 	ProductVO product(ProductVO vo);
 	
 	int productInsert(ProductVO vo);
+	
+	List<ProductVO> productRecentList();
 }

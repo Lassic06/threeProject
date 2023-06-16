@@ -1,13 +1,14 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.container{
+.container2{
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
@@ -19,6 +20,7 @@ flex-wrap:wrap;
 </style>
 </head>
 <body>
+
     <!-- Page Add Section Begin -->
     <section class="page-add">
         <div class="container">
@@ -62,30 +64,30 @@ flex-wrap:wrap;
                     </div>
                 </div>
             </div>
+      
               <!-- 상품6 -->
-            <c:forEach items="${products }" var="p">
-              <div class="container">
-	              <div class="item">
-	                  <div class="single-product-item">
-	                      <figure>
-	                          <img src="images/${p.productDir }" alt="">
-	                          <div class="p-status">new</div>
-	                          <div class="hover-icon">
-	                              <a href="img/products/img-5.jpg" class="pop-up"><img src="img/icons/zoom-plus.png"
-	                                      alt=""></a>
-	                          </div>
-	                      </figure>
-	                      <div class="product-text">
-	                          <a href="#">
-	                              <h6>Green Dress with details</h6>
-	                          </a>
-	                          <p>${p.productPrice }</p>
-	                      </div>
-	                  </div>
-	              </div>
+              <div class="container2">
+	            <c:forEach items="${products }" var="p">
+		              <div class="item">
+		                  <div class="single-product-item">
+		                      <figure>
+		                          <img src="images/${p.productDir }" alt="">
+		                          <div class="p-status">new</div>
+		                          <div class="hover-icon">
+                                <a href="images/${p.productDir }" class="pop-up"><img src="images/${p.productDir }"
+                                        alt=""></a>
+                            </div>
+		                      </figure>
+		                      <div class="product-text">
+		                          <a href="productForm.do?productId=${p.productId }">
+		                              <h6>${p.productName} with details</h6>
+		                          </a>
+		                          <p><fmt:formatNumber value="${p.productPrice}" pattern="#,###원" /></p>
+		                      </div>
+		                  </div>
+		              </div>
+	            </c:forEach>
               </div>
-            </c:forEach>
-
             <div class="more-product">
                 <div class="row">
                     <div class="col-lg-12 text-center">
@@ -95,7 +97,11 @@ flex-wrap:wrap;
             </div>
         </div>
     </section>
-    
+    <div>
+    	<form id="frm" action="productForm.do" >
+    		<input type="hidden" id="productId" name="productId">
+    	</form>
+    </div>
 
 
 <!-- <div align="center"> -->

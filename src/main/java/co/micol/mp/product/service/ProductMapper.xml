@@ -7,11 +7,20 @@
 	</select>
 	<insert id = "productInsert">
 		INSERT INTO PRODUCT VALUES(#{productId},#{productName},#{productPrice},
-		#{productImg},#{productDir},#{productText},0,SYSDATE,#{productAmount})
+		#{productImg},#{productDir},#{productText},0,SYSDATE,#{productAmount},#{productCategory})
 	</insert>
 	
 	<select id="product"
 		resultType="co.micol.mp.product.service.ProductVO">
-		SELECT * FROM PRODUCT WHERE PRODUCT_ID ='p001'
+
+		SELECT * FROM PRODUCT WHERE PRODUCT_ID = #{productId}
+	</select>
+	
+	<select id="productRecentList"
+		resultType="co.micol.mp.product.service.ProductVO">
+		SELECT * 
+		FROM (SELECT * FROM PRODUCT ORDER BY PRODUCT_DATE DESC)
+		WHERE ROWNUM <![CDATA[<=]]> 6
+
 	</select>
 </mapper>

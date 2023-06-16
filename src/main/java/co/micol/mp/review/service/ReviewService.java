@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface ReviewService {
 	int insertReview(ReviewVO vo);
-	List<ReviewVO> reviewList(String string, List<ReviewVO> list);
+	List<ReviewVO> reviewList(String string);
 	
 }
