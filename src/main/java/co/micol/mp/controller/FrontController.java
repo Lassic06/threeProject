@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.micol.mp.auction.command.AuctionForm;
+import co.micol.mp.auction.command.AuctionInsert;
+import co.micol.mp.auction.command.AuctionInsertForm;
 import co.micol.mp.auction.command.AuctionList;
 import co.micol.mp.cart.command.CartCompare;
 import co.micol.mp.cart.command.CartList;
@@ -84,10 +87,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/ajaxReivewList.do", new AjaxReviewList());
 		
-		//장바구니 폼
-
-		map.put("/cartInsert.do", new cartInsert());
-		
+	
 		//마이페이지
 		map.put("/myPage.do", new MyPage());
 
@@ -98,7 +98,9 @@ public class FrontController extends HttpServlet {
 		
 		//경매폼
 		map.put("/auctionList.do", new AuctionList());
-
+		map.put("/auctionForm.do", new AuctionForm());
+		map.put("/auctionInsert.do", new AuctionInsert());
+		map.put("/auctionInsertForm.do", new AuctionInsertForm());
 
 
 		
