@@ -248,7 +248,10 @@ section.notice {
 						<c:if test="${auth eq 'N' }">
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('D')">회원탈퇴</button>
+					<button class="btn btn-dark" type="button"
+						onclick="callFunction('C')">구매내역 조회</button>
 						</c:if>
+
 				</div>
 			</div>
 			<div>
@@ -262,6 +265,9 @@ section.notice {
 		function callFunction(str) {
 			let frm = document.getElementById("frm");
 			if (str == 'E') {
+				frm.action = "memberUpdateform.do"
+			} else if(str == 'C'){
+				frm.action = "buyList.do"
 				frm.action = "memberUpdateForm.do"
 			} else {
 				frm.action = "memberDelete.do"

@@ -16,7 +16,9 @@ public class NoticeSelect implements Command {
 		NoticeVO vo = new NoticeVO();
 
 		vo.setNoticeId(request.getParameter("noticeId"));
+		ns.noticeCountUp(vo);
 		vo = ns.noticeSelect(vo);
+		
 		
 		request.setAttribute("notice", vo);
 

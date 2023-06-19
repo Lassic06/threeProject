@@ -15,11 +15,13 @@ public class NoticeVO {
 //	NOTICE_SUBJECT NOT NULL VARCHAR2(500) 
 //	NOTICE_DATE    NOT NULL DATE          
 //	NOTICE_WRITER  NOT NULL VARCHAR2(20) 
+//  NOTICE_COUNT            VARCHAR2(20) 
 	
 	private String noticeId;
 	private String noticeTitle;
 	private String noticeSubject;
 	private Date noticeDate;
 	private String noticeWriter;
+	private String noticeCount;
 	
 }

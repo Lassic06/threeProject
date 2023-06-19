@@ -13,8 +13,13 @@
 			SELECT MAX(NOTICE_ID) + 1 AS noticeId FROM NOTICE
 		</selectKey>
 		INSERT INTO NOTICE
-		VALUES(#{noticeId},#{noticeTitle},#{noticeSubject},Sysdate,#{noticeWriter})
+		VALUES(#{noticeId},#{noticeTitle},#{noticeSubject},Sysdate,#{noticeWriter},0)
 	</insert>
+	<update id="noticeCountUp" parameterType="co.micol.mp.notice.service.NoticeVO">
+	  UPDATE NOTICE
+	  SET NOTICE_COUNT = NOTICE_COUNT +1
+	  WHERE NOTICE_ID = #{noticeId}
+	</update>
 	<update id="noticeUpdate" parameterType="co.micol.mp.notice.service.NoticeVO">
 		UPDATE NOTICE
 		<set>

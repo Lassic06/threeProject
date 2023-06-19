@@ -229,6 +229,8 @@ section.notice {
 							<td id="sTitle">${notice.noticeTitle }</td>
 							<th scope="col" id="nBorder" class="th-title">작성자/작성일자</th>
 							<td id="nBorder">${notice.noticeWriter }/${notice.noticeDate }</td>
+							<th scope="col" id="nBorder" class="th-title">조회수</th>
+							<td id="nBorder">${notice.noticeCount }</td>
 						</tr>
 						<tr>
 							<th scope="col" class="th-title">내용</th>
@@ -263,52 +265,5 @@ section.notice {
 		</script>
 	</section>
 	
-</body>
-
-
-
-<!-- <body> -->
-<!-- 	<div align="center"> -->
-<!-- 		<div> -->
-<!-- 			<h1>공지사항</h1> -->
-<!-- 		</div> -->
-
-<!-- 		<div> -->
-<!-- 			<table> -->
-<!-- 				<tr> -->
-<%-- 					<td>${notice.noticeTitle }</td> --%>
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<%-- 					<td>${notice.noticeSubject }</td> --%>
-<!-- 				</tr> -->
-<!-- 				<tr align="right"> -->
-<%-- 					<td>${notice.noticeWriter }/${notice.noticeDate }</td> --%>
-<!-- 				</tr> -->
-<!-- 			</table> -->
-<!-- 		</div> -->
-<!-- 		<div> -->
-<%-- 			<c:if test="${auth eq 'A' }"> --%>
-<!-- 				<button type="button" onclick="callFunction('E')">수정</button>&nbsp;&nbsp; -->
-<!-- 				<button type="button" onclick="callFunction('D')">삭제</button>&nbsp;&nbsp; -->
-<%-- 			</c:if> --%>
-<!-- 			<button type="button" onclick="location.href='noticeList.do'">목록</button> -->
-<!-- 		</div> -->
-<!-- 		<div> -->
-<!-- 			<form id="frm" method="post"> -->
-<!-- 				<input type="hidden" id="noitceId" name="noticeId" -->
-<%-- 					value="${notice.noticeId }"> --%>
-<!-- 			</form> -->
-<!-- 		</div> -->
-<!-- 		<script type="text/javascript"> -->
-<!-- // 			function callFunction(str) { -->
-<!-- // 				let frm = document.getElementById("frm"); -->
-<!-- // 				if (str == 'E') { -->
-<!-- // 					frm.action = "noticeEdit.do" -->
-<!-- // 				} else { -->
-<!-- // 					frm.action = "noticeDelete.do" -->
-<!-- // 				} -->
-<!-- // 				frm.submit(); -->
-<!-- // 			} -->
-<!-- 		</script> -->
 </body>
 </html>

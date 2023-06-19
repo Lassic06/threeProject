@@ -30,6 +30,6 @@ public class BuyListVO {
 	private String auctionPrice;
 	private String productImg;
 	private String auctionImg;
-	private Date buydate;
+	private Date buyDate;
 	private String productAmount;
 }

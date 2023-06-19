@@ -38,5 +38,12 @@ public class NoticeServiceImpl implements NoticeService {
 	public int noticeDelete(NoticeVO vo) {
 		return map.noticeDelete(vo);
 	}
+	
+	@Override
+	public int noticeCountUp(NoticeVO vo) {
+		return map.noticeCountUp(vo);
+	}
+	
+	
 
 }

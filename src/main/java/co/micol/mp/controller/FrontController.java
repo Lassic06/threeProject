@@ -16,13 +16,17 @@ import co.micol.mp.auction.command.AuctionForm;
 import co.micol.mp.auction.command.AuctionInsert;
 import co.micol.mp.auction.command.AuctionInsertForm;
 import co.micol.mp.auction.command.AuctionList;
+import co.micol.mp.buyList.command.BuyList;
 import co.micol.mp.buyList.command.BuyListInsert;
+import co.micol.mp.buyList.command.ProductBuyList;
+import co.micol.mp.buyList.command.auctionBuyList;
 import co.micol.mp.cart.command.CartCompare;
 import co.micol.mp.cart.command.CartDelete;
 import co.micol.mp.cart.command.CartList;
 import co.micol.mp.common.Command;
 import co.micol.mp.main.command.MainCommand;
 import co.micol.mp.member.command.AjaxCheckId;
+import co.micol.mp.member.command.LoginAlert;
 import co.micol.mp.member.command.MemberDelete;
 import co.micol.mp.member.command.MemberInsert;
 import co.micol.mp.member.command.MemberLogOut;
@@ -123,7 +127,13 @@ public class FrontController extends HttpServlet {
 		map.put("/auctionInsert.do", new AuctionInsert());
 		map.put("/auctionInsertForm.do", new AuctionInsertForm());
 
+		//구매내역 호출 폼
+		map.put("/buyList.do", new BuyList()); //구매내역 조회
+		map.put("/productBuyList.do", new ProductBuyList());
+		map.put("/auctionBuyList.do", new auctionBuyList());
 
+		//로그인 호출
+		map.put("/loginAlert.do", new LoginAlert());
 
 		
 	}

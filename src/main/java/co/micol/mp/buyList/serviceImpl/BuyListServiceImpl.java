@@ -14,8 +14,8 @@ public class BuyListServiceImpl implements BuyListService {
 	BuyListMapper map = sqlSession.getMapper(BuyListMapper.class);
 	
 	@Override
-	public List<BuyListVO> buyList() {
-		return map.buyList();
+	public List<BuyListVO> buyList(String memberId) {
+		return map.buyList(memberId);
 	}
 
 	@Override

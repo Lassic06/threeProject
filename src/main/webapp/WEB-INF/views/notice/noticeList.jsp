@@ -241,6 +241,7 @@ section.notice {
 							<th scope="col" class="th-title">제목</th>
 							<th scope="col" class="th-writer">작성자</th>
 							<th scope="col" class="th-date">등록일</th>
+							<th scope="col" class="th-count">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -251,6 +252,7 @@ section.notice {
 								<td>${n.noticeTitle }</td>
 								<td>${n.noticeWriter }</td>
 								<td>${n.noticeDate }</td>
+								<td>${n.noticeCount }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

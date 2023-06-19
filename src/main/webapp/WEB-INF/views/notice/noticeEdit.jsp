@@ -218,37 +218,40 @@ td {
 </head>
 <body>
 	<section class="notice">
-		<div class="page-title">
-			<div class="container">
-				<h2 id="title">Notice Edit</h2>
+		<form id="frm" action="noticeUpdate.do" method="post">
+			<div class="page-title">
+			
+				<div class="container">
+					<h2 id="title">Notice Edit</h2>
+				</div>
 			</div>
-		</div>
-
-		<!-- board list area -->
-		<div id="board-list">
-			<div class="container">
-				<table class="board-table">
-					<thead>
-						<tr>
-							<th scope="col" id="nBorder" class="th-title">제목</th>
-							<td><input type="text" id="noticeTitle" name="noticeTitle"></input></td>
-							<th scope="col" id="nBorder" class="th-title">작성자/작성일자</th>
-							<td id="nBorder">${notice.noticeWriter }/${notice.noticeDate }</td>
-						</tr>
-						<tr>
-							<th scope="col" class="th-title">내용</th>
-							<td colspan="3"><textarea rows="1" cols="108" id="noticeSubject" name="noticeSubject"></textarea></td>
-						</tr>
-				</table>
+	
+			<!-- board list area -->
+			<div id="board-list">
+				<div class="container">
+					<table class="board-table">
+						<thead>
+							<tr>
+								<th scope="col" id="nBorder" class="th-title">제목</th>
+								<td><input type="text" id="noticeTitle" name="noticeTitle"></input></td>
+								<th scope="col" id="nBorder" class="th-title">작성자/작성일자</th>
+								<td id="nBorder">${notice.noticeWriter }/${notice.noticeDate }</td>
+							</tr>
+							<tr>
+								<th scope="col" class="th-title">내용</th>
+								<td colspan="3"><textarea rows="1" cols="108" id="noticeSubject" name="noticeSubject"></textarea></td>
+							</tr>
+					</table>
+				</div>
 			</div>
-		</div>
-		<div>
-			<input type="hidden" name="noticeId" value="${notice.noticeId }">
-		</div>
-		<div id="btn" align="center">
-			<input type="submit" class="btn btn-dark" value="등록">&nbsp;&nbsp; <input type="reset" class="btn btn-dark" value="취소">&nbsp;&nbsp;
-			<button type="button" class="btn btn-dark" onclick="location.href='noticeList.do'">목록</button>
-		</div>
+			<div>
+				<input type="hidden" name="noticeId" value="${notice.noticeId }">
+			</div>
+			<div id="btn" align="center">
+				<input type="submit" class="btn btn-dark" value="등록">&nbsp;&nbsp; <input type="reset" class="btn btn-dark" value="취소">&nbsp;&nbsp;
+				<button type="button" class="btn btn-dark" onclick="location.href='noticeList.do'">목록</button>
+			</div>
+		</form>
 	</section>
 </body>
 

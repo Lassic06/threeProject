@@ -21,8 +21,9 @@ public class NoticeUpdate implements Command {
 		
 		ns.noticeUpdate(vo);
 		
-		
-		return "noticeList.do";
+		request.setAttribute("msg", "수정이 완료되었습니다.");
+		request.setAttribute("url", "noticeList.do");
+		return "alert/alert";
 	}
 
 }

@@ -38,6 +38,9 @@ public class CartCompare implements Command {
 
 			cs.cartInsert(vo);
 		}
-		return "productForm.do";
+		
+		request.setAttribute("msg", "장바구니에 담았습니다.");
+		request.setAttribute("url", "productList.do");
+		return "alert/alert";
 	}
 }
