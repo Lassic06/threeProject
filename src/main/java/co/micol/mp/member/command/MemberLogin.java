@@ -28,7 +28,7 @@ public class MemberLogin implements Command {
 			session.setAttribute("auth", vo.getMemberAuth()); // 관리자 데이터 가져오기
 			
 		}
-		return "main/main";
+		return "productRecentList.do";
 	}
 
 }

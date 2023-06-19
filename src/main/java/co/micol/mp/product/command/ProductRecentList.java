@@ -18,7 +18,7 @@ public class ProductRecentList implements Command {
 		// TODO Auto-generated method stub
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> product = new ArrayList<ProductVO>();
-		product=ps.productRecentList();
+		product = ps.productRecentList();
 	 
 		request.setAttribute("product", product);
 		
