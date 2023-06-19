@@ -8,10 +8,12 @@
 <title>Insert title here</title>
 <style type="text/css">
 
+
 .all{
 	width: 1100px;
 
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -200,16 +202,13 @@ section.notice {
 	height: 1px;
 }
 
-#notice {
-	text-align: center;
-}
 </style>
 </head>
 <body>
-	<section class="notice">
+	<section id="nSection" class="notice">
 		<div class="page-title">
 			<div class="container">
-				<h2 id="notice">Cart</h2>
+				<h2 id="cart" align="center">Cart</h2>
 			</div>
 		</div>
 	<div>
@@ -249,12 +248,8 @@ section.notice {
 					</tbody>
 				</table>
 			</div>
+
 		</div>
 	</section>
 </body>
-
-
-
-
-
 </html>

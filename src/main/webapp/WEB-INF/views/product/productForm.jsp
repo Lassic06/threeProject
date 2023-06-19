@@ -10,6 +10,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style type="text/css">
+	textarea {
+		
+		padding: 10px;
+		box-sizing: border-box;
+		border: solid 1px #708090;
+		border-radius: 5px;
+		font-size: 16px;
+		resize: both;
+		}
+		
+#rDiv{
+	border-top: 2px solid #ccc;
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+		
+#rTitle{
+	font-size: 30px;
+	margin-left: 120px;
+}
+
+#reviewInsert{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#reviewList{
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+td{
+	border-top: 2px solid #ccc;
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+	padding: 5px;
+	}
+</style>
 </head>
 <body>
 	<section class="product-page">
@@ -73,37 +116,44 @@
                         <c:if test="${empty id }">
                         <a href="loginAlert.do" class="primary-btn pc-btn">Add to cart</a>
                         </c:if>
+                       <!-- 장바구니 가는 역할 -->
                         <ul class="p-info">
                             <li>Product Information</li>
                             <li>Reviews</li>
                             <li>Product Care</li>
                         </ul>
-                       <!-- 장바구니 가는 역할 -->
-						            <ul class="p-info">
-						              	<li>Product Information</li>
-							              <li>Reviews</li>
-							              <li>Product Care</li>
-						            </ul>
+						<c:if test="${auth eq 'A' }">
+							<button type = "button" onclick="clickBtn('D')" class="primary-btn pc-btn">상품 삭제</button>
+							<button type = "button" onclick="clickBtn('U')" class="primary-btn pc-btn">상품 수정</button>
+						</c:if> 
+						
                     </div>
                 </div>
             </div>
             </form>
+            <form id="frm" method="post">
+				<input type="hidden" id="productId" name="productId" 
+					   value="${product.productId }">
+			</form>
         </div>
     </section>
     <form name="reviewFrm">
+    <div id="rDiv">
+    	<p id="rTitle">Review</p>
+    </div>
 	    <div align="center">
 	    	<div>
-	    		<textarea cols="100" name="reviewSubject" id="reviewSubject"></textarea>
+	    		<textarea rows="2" cols="100" name="reviewSubject" id="reviewSubject"></textarea>
 	    	</div>
 	    	<div>
-	    		<button type="button" class="reviewInsert" >후기등록</button>
+	    		<button type="button" id="reviewInsert" name="reviewInsert" class="btn btn-dark">Submit</button>
 	    	</div>
 	    	<input type="hidden" id="reviewCheck" name="productId" value="${product.productId }">
-	    	
 	    </div>
 	  	<div align="center" id ="reviewList">
 	    	
 	    </div>
+	    
     </form>
 <script type="text/javascript">
 $(".reviewInsert").click(function(){	
@@ -155,9 +205,23 @@ reviewList();
 	
  }
  
- 
- 
+ function clickBtn(str){
+	 let frm = document.getElementById("frm");
+	 if(str=='D'){
+		 if(confirm("정말 삭제하시겠습니까?")==true){
+			 frm.action="productDelete.do" 
+		 }
+		 else{
+			 return;
+		 }
+	 }else{
+		 frm.action="productUpdate.do"
+	 }
+	 frm.submit();
+ }
+
 </script>
+
 </body>
 
 </html>

@@ -43,7 +43,9 @@ import co.micol.mp.notice.command.NoticeInsertForm;
 import co.micol.mp.notice.command.NoticeList;
 import co.micol.mp.notice.command.NoticeSelect;
 import co.micol.mp.notice.command.NoticeUpdate;
+import co.micol.mp.product.command.ProductCateList;
 import co.micol.mp.product.command.ProductCategory;
+import co.micol.mp.product.command.ProductDelete;
 import co.micol.mp.product.command.ProductForm;
 import co.micol.mp.product.command.ProductInsert;
 import co.micol.mp.product.command.ProductInsertForm;
@@ -101,6 +103,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productForm.do", new ProductForm());
 		map.put("/productCategory.do", new ProductCategory());
 		map.put("/productRecentList.do", new ProductRecentList());
+		map.put("/productDelete.do", new ProductDelete());
+		map.put("/productCateList.do", new ProductCateList());
 		
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());

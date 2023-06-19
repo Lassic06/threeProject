@@ -32,9 +32,7 @@ public class MemberLogin implements Command {
 			request.setAttribute("url", "memberLoginForm.do");
 			return "alert/alert";
 		}
-		
-		
-		return "main/main";
+		return "productRecentList.do";
 	}
 
 }

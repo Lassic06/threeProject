@@ -245,18 +245,21 @@ section.notice {
 				<div align="center">
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('E')">회원정보 수정</button>
+						<c:if test="${auth eq 'N' }">
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('D')">회원탈퇴</button>
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('C')">구매내역 조회</button>
+						</c:if>
+
 				</div>
 			</div>
 			<div>
-			<form id="frm" method="post">
-				<input type="hidden" id="memberId" name="memberId"
-					value="${member.memberId }">
-			</form>
-		</div>
+				<form id="frm" method="post">
+					<input type="hidden" id="memberId" name="memberId"
+						value="${member.memberId }">
+				</form>
+			</div>
 		</div>
 	<script type="text/javascript">
 		function callFunction(str) {
@@ -265,6 +268,7 @@ section.notice {
 				frm.action = "memberUpdateform.do"
 			} else if(str == 'C'){
 				frm.action = "buyList.do"
+				frm.action = "memberUpdateForm.do"
 			} else {
 				frm.action = "memberDelete.do"
 			}

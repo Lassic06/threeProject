@@ -30,7 +30,6 @@
 						<c:if test="${not empty id }"> <!-- 로그인 시 장바구니 호출 -->
 						<a href="cartList.do">
 							<img src="img/icons/bag.png" alt=""> 
-              <span>2</span>
 						</a>
 						</c:if>
 						<c:if test="${empty id }"><!-- 로그인 안할 시 로그인 호출 -->
@@ -55,12 +54,14 @@
 
 					<nav class="main-menu mobile-menu">
 						<ul>
-							<li><a class="active" href="main.do">Home</a></li>
-							<li><a href="productCategory.do">Shop</a>
+							<li><a class="active" href="productRecentList.do">Home</a></li>
+							<li><a href="productList.do">Shop</a>
 								<ul class="sub-menu">
-									<li><a href="productList.do">Product Page</a></li>
-									<li><a href="shopping-cart.html">Shopping Card</a></li>
-									<li><a href="productForm.do">Check out</a></li>
+									<li><a href="productCateList.do?productCategory=상의" >상의</a></li>
+									<li><a href="productCateList.do?productCategory=하의">하의</a></li>
+									<li><a href="productCateList.do?productCategory=아우터">아우터</a></li>
+									<li><a href="productCateList.do?productCategory=신발">신발</a></li>
+								
 									<c:if test="${auth eq 'A'}">
 										<li><a href="productInsertForm.do">Product Insert</a></li>
 									</c:if>
@@ -71,8 +72,7 @@
 									<li><a href="auctionForm.do">경매임시상세보기</a></li>
 									<li><a href="auctionInsertForm.do">경매임시입력폼</a></li>
 								</ul></li>
-							<li><a href="noticeList.do">Blog</a></li>
-							<li><a href="./contact.html">Contact</a></li>
+							<li><a href="noticeList.do">Notice</a></li>
 						</ul>
 					</nav>
 				</div>

@@ -19,6 +19,7 @@ public class AuctionVO {
 //  AUCTION_SELLER  VARCHAR2(20 BYTE)
 //  AUCTION_BUYER   VARCHAR2(20 BYTE)
 //  AUCTION_COUNT   NUMBER
+//  AUCTION_DIR     VARCHAR2(1024 BYTE)
 
 	private String auctionId;
 	private String auctionName;
@@ -31,5 +32,6 @@ public class AuctionVO {
 	private String auctionSeller;
 	private String auctionBuyer;
 	private int auctionCount;
+	private String auctionDir;
 	
 }

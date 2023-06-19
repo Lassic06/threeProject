@@ -40,7 +40,7 @@
 }
 
 input[type=file]::file-selector-button {
-  width: 150px;
+  width: 100px;
   height: 37px;
   background: #007BFF;
   border: 1px solid #007BFF;
@@ -52,12 +52,52 @@ input[type=file]::file-selector-button {
     color: #fff;
   }
 }
-
-#productImg{
-	padding-left: 0px;
-	padding-top: 0px;
+input#pfile.form-control{
+	padding: 0px;
 }
 
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+  font-family: "Noto Sansf KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: #444;
+  background-color: #fff;
+
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  margin: 0;
+
+  border: 1px solid #aaa;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+select:disabled {
+  opacity: 0.5;
+}
+
+h2{
+	margin-bottom: 20px;
+}
 </style>
 </head>
 
@@ -78,6 +118,17 @@ input[type=file]::file-selector-button {
 							enctype="multipart/form-data" action="productInsert.do"
 							method="post">
 							<fieldset>
+								<!-- 제품 종류 -->
+										<form>
+										  <label for="clothes"> Category </label>
+										  <select id="clothes" name="clothes">
+										    <option value="">✨Select✨</option>
+										      <option value="top">👚top👚</option>
+										      <option value="bottom">👖bottom👖</option>
+										      <option value="outer">🥼outer🥼</option>
+										      <option value="shoes">👠shoes👠</option>
+										  </select>
+										</form>
 								<!-- 제품아이디 -->
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>
@@ -109,19 +160,6 @@ input[type=file]::file-selector-button {
 										<input id="pfile" name="pfile" type="file" class="form-control">
 									</div>
 								</div>
-								
-								<!-- 제품 종류 -->
-								<div class="form-group">
-									
-										<select id ="productCategory" name="productCategory">
-											<option value="상의">상의</option>
-											<option value="하의">하의</option>
-											<option value="아우터">아우터</option>
-											<option value="신발">신발</option>									
-										</select>
-									
-								</div>
-								
 								<!-- 제품설명 -->
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>

@@ -10,4 +10,8 @@ public interface ProductMapper {
 	int productInsert(ProductVO vo);
 	
 	List<ProductVO> productRecentList();
+	
+	int productDelete(ProductVO vo);
+	
+	List<ProductVO> productCateList(ProductVO vo);
 }
