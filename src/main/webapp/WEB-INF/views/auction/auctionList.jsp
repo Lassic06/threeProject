@@ -6,6 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.container{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+.auctionList {
+  width: 30%; 
+  margin-bottom: 10px; 
+}
+</style>
 </head>
 <body>
 	<div align="center">
@@ -24,14 +35,14 @@
 					</div>
 				</div>
 			</div>
-		<c:forEach items="${auctions }" var="a">
-			<table border="0" cellpadding="0" cellsapcing="0" style="margin-bottom:40px;width:1018px;">
-				<tbody>
+		
+			<div class="container">
+				<c:forEach items="${auctions }" var="a">
 					<div class="auctionList" onclick="auctionChois(${a.auctionId }">
 						<ul>
 							<li>
 							<div class="aution-img">
-								<a href="img/products/img-5.jpg" class="pop-up">${a.auctionImg}<img src="img/icons/zoom-plus.png"
+								<a href="AuctionForm.do?AuctionId=${a.auctionId }" class="pop-up">${a.auctionImg}<img src="img/icons/zoom-plus.png"
 	                                      alt=""></a>
 	                        </div>
 	                        <div class="aution-text">
@@ -65,9 +76,8 @@
 							</li>
 						</ul>
 					</div>
-				</tbody>
-				</table>
 				</c:forEach>
+			</div>
 				
 			<div>
 				<form id="frm" action="auctionSelect.do" method="post">
