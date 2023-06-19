@@ -4,7 +4,17 @@
 	<select id="productList" 
 		resultType="co.micol.mp.product.service.ProductVO">
 		SELECT * FROM product
+		
 	</select>
+	
+	<select id ="productCateList"
+		resultType="co.micol.mp.product.service.ProductVO">
+		SELECT * 
+		FROM PRODUCT
+		WHERE PRODUCT_CATEGORY = #{productCategory}
+	
+	</select>
+	
 	<insert id = "productInsert">
 		INSERT INTO PRODUCT VALUES(#{productId},#{productName},#{productPrice},
 		#{productImg},#{productDir},#{productText},0,SYSDATE,#{productAmount},#{productCategory})
@@ -13,14 +23,22 @@
 	<select id="product"
 		resultType="co.micol.mp.product.service.ProductVO">
 
-		SELECT * FROM PRODUCT WHERE PRODUCT_ID = #{productId}
+		SELECT * 
+		FROM PRODUCT 
+		WHERE PRODUCT_ID = #{productId}
 	</select>
 	
 	<select id="productRecentList"
 		resultType="co.micol.mp.product.service.ProductVO">
-		SELECT * 
+		SELECT *  
 		FROM (SELECT * FROM PRODUCT ORDER BY PRODUCT_DATE DESC)
-		WHERE ROWNUM <![CDATA[<=]]> 6
+		WHERE ROWNUM <![CDATA[<=]]> 8
 
 	</select>
+	
+	<delete id="productDelete">
+		DELETE 
+		FROM PRODUCT
+		WHERE PRODUCT_ID = #{productId}
+	</delete>
 </mapper>

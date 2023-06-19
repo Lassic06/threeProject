@@ -15,7 +15,7 @@ public class MemberLogOut implements Command {
 		
 		session.invalidate(); //세션 삭제
 		
-		return "main/main" ;
+		return "productRecentList.do" ;
 	}
 
 }
