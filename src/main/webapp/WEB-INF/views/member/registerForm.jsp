@@ -94,8 +94,8 @@
                                 
                                 <input type="text" id="memberAddrNumber" name="memberAddrNumber" class="form-control" readonly>
 								<input type="button" id="searchBtn" value="Search" onclick="sample6_execDaumPostcode()" class="btn btn-primary btn-lg"><br>
-								<input type="text" id="memberAddr" name="memberAddr" placeholder="Address" class="form-control" required="required" readonly><br>
-								<input type="text" id="memberAddrDetail" name="memberAddrDetail" placeholder="Detail Address" class="form-control" required="required">
+								<input type="text" id="memberAddrT" name="memberAddrT" placeholder="Address" class="form-control" required="required" readonly><br>
+								<input type="text" id="memberAddr" name="memberAddr" placeholder="Detail Address" class="form-control" required="required">
 								
 	
                             </div>

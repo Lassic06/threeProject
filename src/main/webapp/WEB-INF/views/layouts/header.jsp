@@ -23,7 +23,7 @@
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </c:if>
                     <c:if test="${empty id}">
-                     <a href="main.do">
+                     <a href="loginAlert.do">
                     <img src="img/icons/man.png" alt="">
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </c:if>
@@ -34,7 +34,7 @@
 						</a>
 						</c:if>
 						<c:if test="${empty id }"><!-- 로그인 안할 시 로그인 호출 -->
-						<a href="memberLogin.do">
+						<a href="loginAlert.do">
 							<img src="img/icons/bag.png" alt=""> <span>2</span>
 						</a>
 						</c:if>

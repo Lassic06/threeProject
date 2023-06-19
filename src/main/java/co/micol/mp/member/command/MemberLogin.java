@@ -22,12 +22,18 @@ public class MemberLogin implements Command {
 		vo.setMemberPw(request.getParameter("memberPw"));
 		
 		vo = ms.memberLogin(vo);
+		
 		if(vo != null) {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
 			session.setAttribute("auth", vo.getMemberAuth()); // 관리자 데이터 가져오기
-			
+		}else {
+			request.setAttribute("msg", "아이디 또는 비밀번호를 확인해주세요");
+			request.setAttribute("url", "memberLoginForm.do");
+			return "alert/alert";
 		}
+		
+		
 		return "main/main";
 	}
 

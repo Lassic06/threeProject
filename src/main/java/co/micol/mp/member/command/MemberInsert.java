@@ -16,18 +16,22 @@ public class MemberInsert implements Command {
 		MemberService ms = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		vo.setMemberId(request.getParameter("memberId"));
-		vo.setMemberPw(request.getParameter("memberPassword"));
+		vo.setMemberPw(request.getParameter("memberPw"));
 		vo.setMemberName(request.getParameter("memberName"));
 		vo.setMemberAddr(request.getParameter("memberAddr"));
 		vo.setMemberTel(request.getParameter("memberTel"));
 		vo.setMemberAuth(request.getParameter("memberAuth"));
 
-		ms.memberInsert(vo);
-//		if (n != 0) {
-//			request.setAttribute("message", "회원가입 성공");
-//		} else {
-//			request.setAttribute("message", "회원가입 실패! 다시 가입하세요");
-//		}
-		return "main/main";
+		int n = ms.memberInsert(vo);
+		if (n != 0) {
+			request.setAttribute("msg", "🎊가입이 완료되었습니다🎊");
+			request.setAttribute("url", "memberLoginForm.do");
+			return "alert/alert";
+			
+		} else {
+			request.setAttribute("msg", "회원가입이 실패되었습니다.");
+			request.setAttribute("url", "register.do");
+			return "alert/alert";
+		}
 	}
 }

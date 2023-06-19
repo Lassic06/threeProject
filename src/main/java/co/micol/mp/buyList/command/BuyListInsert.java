@@ -33,7 +33,7 @@ public class BuyListInsert implements Command {
 		co.setMemberId(String.valueOf(session.getAttribute("id")));		
 		
 		bs.buyListInsert(vo);
-//		cs.cartDelete(co); 카트 담기 후 삭제기능 -> 상세보기 설정 끝나면 살릴 예정
+		cs.cartDelete(co);
 		
 		return "cartList.do";
 	}
