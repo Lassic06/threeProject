@@ -72,11 +72,11 @@
 	                <div class="col-lg-3 col-sm-6 mix all ${p.productCategory } ">
 	                    <div class="single-product-item">
 	                        <figure>
-	                            <a href="#"><img src="images/${p.productDir }" alt=""></a>
+	                            <a href="productForm.do?productId=${p.productId }"><img src="images/${p.productDir }" alt=""></a>
 	                            <div class="p-status">new</div>
 	                        </figure>
 	                        <div class="product-text">
-	                            <h6>${p.productName } with details</h6>
+	                            <h6>${p.productName }</h6>
 	                            <p><fmt:formatNumber value="${p.productPrice}" pattern="#,###원" /></p>
 	                        </div>
 	                    </div>

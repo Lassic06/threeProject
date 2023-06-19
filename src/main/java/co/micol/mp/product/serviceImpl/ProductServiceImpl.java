@@ -35,7 +35,19 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductVO> productRecentList() {
 		// TODO Auto-generated method stub
-		return map.productList();
+		return map.productRecentList();
+	}
+
+	@Override
+	public int productDelete(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productDelete(vo);
+	}
+
+	@Override
+	public List<ProductVO> productCateList(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productCateList(vo);
 	}
 
 

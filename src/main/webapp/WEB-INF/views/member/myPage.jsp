@@ -252,11 +252,11 @@ section.notice {
 				</div>
 			</div>
 			<div>
-			<form id="frm" method="post">
-				<input type="hidden" id="memberId" name="memberId"
-					value="${member.memberId }">
-			</form>
-		</div>
+				<form id="frm" method="post">
+					<input type="hidden" id="memberId" name="memberId"
+						value="${member.memberId }">
+				</form>
+			</div>
 		</div>
 	<script type="text/javascript">
 		function callFunction(str) {

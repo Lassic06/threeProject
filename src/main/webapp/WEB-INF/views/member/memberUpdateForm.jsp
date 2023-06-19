@@ -238,7 +238,7 @@ td {
 								<td><div class="col-md-8">
 										<input id="memberId" name="memberId" type="text"
 											placeholder="ID" class="form-control">
-									</div></td>
+									</div><button type="button" id="checkId" value="No" onclick="idCheck()">중복체크</button></td>
 							</tr>
 							<tr>
 								<!-- 멤버비밀번호 수정 -->
@@ -291,6 +291,43 @@ td {
 			</div>
 		</form>
 	</section>
+	<script type="text/javascript">
+	function formCheck(){
+		let frm = document.getElementById("frm");
+		if(frm.memberPassword.value != frm.passwordcheck.value){
+			alert("패스워드가 일치 하지 않습니다.");
+			frm.memberPassword.value = "";
+			frm.passwordcheck.value = "";
+			frm.memberPassword.focus();
+			return false;
+		}else if(frm.checkId.value != "Yes") {
+			alert("아이디 중복체크를 수행하세요.");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	function idCheck() {
+		let id = document.getElementById("memberId").value;
+		let url = "ajaxCheckId.do?id="+id;
+		fetch(url)  //ajax 호출
+			.then(response => response.text())
+			.then(text => htmlProcess(text));
+	}
+	
+	function htmlProcess(data){
+		if(data == 'Yes'){
+			alert(document.getElementById("memberId").value + "\n 사용가능한 아이디 입니다.");
+			document.getElementById("checkId").value = 'Yes';
+		}else {
+			alert(document.getElementById("memberId").value + "\n 이미사용하는 아이디 입니다.");
+			document.getElementById("memberId").value ="";
+			document.getElementById("memberId").focus();
+		}
+	}
+</script>
+	
 <!-- 	<script -->
 <!-- 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
 <!-- 	<script> -->

@@ -116,21 +116,25 @@ td{
                         <c:if test="${empty id }">
                         <a href="memberLoginForm.do" class="primary-btn pc-btn">Add to cart</a>
                         </c:if>
+                       <!-- 장바구니 가는 역할 -->
                         <ul class="p-info">
                             <li>Product Information</li>
                             <li>Reviews</li>
                             <li>Product Care</li>
                         </ul>
-                       <!-- 장바구니 가는 역할 -->
-						            <ul class="p-info">
-						              	<li>Product Information</li>
-							              <li>Reviews</li>
-							              <li>Product Care</li>
-						            </ul>
+						<c:if test="${auth eq 'A' }">
+							<button type = "button" onclick="clickBtn('D')" class="primary-btn pc-btn">상품 삭제</button>
+							<button type = "button" onclick="clickBtn('U')" class="primary-btn pc-btn">상품 수정</button>
+						</c:if> 
+						
                     </div>
                 </div>
             </div>
             </form>
+            <form id="frm" method="post">
+				<input type="hidden" id="productId" name="productId" 
+					   value="${product.productId }">
+			</form>
         </div>
     </section>
     <form name="reviewFrm">
@@ -200,6 +204,22 @@ reviewList();
 	return str;
 	
  }
+ 
+ function clickBtn(str){
+	 let frm = document.getElementById("frm");
+	 if(str=='D'){
+		 if(confirm("정말 삭제하시겠습니까?")==true){
+			 frm.action="productDelete.do" 
+		 }
+		 else{
+			 return;
+		 }
+	 }else{
+		 frm.action="productUpdate.do"
+	 }
+	 frm.submit();
+ }
+
 </script>
 
 </body>

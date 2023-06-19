@@ -70,6 +70,7 @@
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
                                 <input id="memberId" name="memberId" type="text" placeholder="ID" class="form-control" required="required">
+                                <button type="button" id="checkId" value="No" onclick="idCheck()">중복체크</button>
                             </div>
                         </div>
                         <div class="form-group">
@@ -94,8 +95,8 @@
                                 
                                 <input type="text" id="memberAddrNumber" name="memberAddrNumber" class="form-control" readonly>
 								<input type="button" id="searchBtn" value="Search" onclick="sample6_execDaumPostcode()" class="btn btn-primary btn-lg"><br>
-								<input type="text" id="memberAddr" name="memberAddr" placeholder="Address" class="form-control" required="required" readonly><br>
-								<input type="text" id="memberAddrDetail" name="memberAddrDetail" placeholder="Detail Address" class="form-control" required="required">
+								<input type="text" id="memberAddrTest" name="memberAddrTest" placeholder="Address" class="form-control" required="required" readonly><br>
+								<input type="text" id="memberAddr" name="memberAddr" placeholder="Detail Address" class="form-control" required="required">
 								
 	
                             </div>
