@@ -39,7 +39,7 @@
 }
 
 input[type=file]::file-selector-button {
-  width: 150px;
+  width: 100px;
   height: 37px;
   background: #007BFF;
   border: 1px solid #007BFF;
@@ -52,9 +52,8 @@ input[type=file]::file-selector-button {
   }
 }
 
-#productImg{
-	padding-left: 0px;
-	padding-top: 0px;
+input#pfile.form-control{
+	padding: 0px;
 }
 
 </style>

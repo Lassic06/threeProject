@@ -245,8 +245,10 @@ section.notice {
 				<div align="center">
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('E')">회원정보 수정</button>
+						<c:if test="${auth eq 'N' }">
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('D')">회원탈퇴</button>
+						</c:if>
 				</div>
 			</div>
 			<div>

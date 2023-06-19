@@ -10,6 +10,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style type="text/css">
+	textarea {
+		
+		padding: 10px;
+		box-sizing: border-box;
+		border: solid 1px #708090;
+		border-radius: 5px;
+		font-size: 16px;
+		resize: both;
+		}
+		
+#rDiv{
+	border-top: 2px solid #ccc;
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+		
+#rTitle{
+	font-size: 30px;
+	margin-left: 120px;
+}
+
+#reviewInsert{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#reviewList{
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+td{
+	border-top: 2px solid #ccc;
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+	padding: 5px;
+	}
+</style>
 </head>
 <body>
 	<section class="product-page">
@@ -95,19 +138,22 @@
         </div>
     </section>
     <form name="reviewFrm">
+    <div id="rDiv">
+    	<p id="rTitle">Review</p>
+    </div>
 	    <div align="center">
 	    	<div>
-	    		<textarea cols="100" name="reviewSubject" id="reviewSubject"></textarea>
+	    		<textarea rows="2" cols="100" name="reviewSubject" id="reviewSubject"></textarea>
 	    	</div>
 	    	<div>
-	    		<button type="button" class="reviewInsert" >후기등록</button>
+	    		<button type="button" id="reviewInsert" name="reviewInsert" class="btn btn-dark">Submit</button>
 	    	</div>
 	    	<input type="hidden" id="reviewCheck" name="productId" value="${product.productId }">
-	    	
 	    </div>
 	  	<div align="center" id ="reviewList">
 	    	
 	    </div>
+	    
     </form>
 <script type="text/javascript">
 $(".reviewInsert").click(function(){	
@@ -173,8 +219,9 @@ reviewList();
 	 }
 	 frm.submit();
  }
- 
+
 </script>
+
 </body>
 
 </html>

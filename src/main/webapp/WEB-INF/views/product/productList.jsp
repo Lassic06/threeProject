@@ -17,6 +17,10 @@ flex-wrap:wrap;
   width: 30%; 
   margin-bottom: 10px; 
 }
+#img{
+	width: 333px;
+	height: 333px;
+}
 </style>
 </head>
 <body>
@@ -71,7 +75,7 @@ flex-wrap:wrap;
 		              <div class="item">
 		                  <div class="single-product-item">
 		                      <figure>
-		                          <img src="images/${p.productDir }" alt="">
+		                          <img id="img" src="images/${p.productDir }" alt="">
 		                          <div class="p-status">new</div>
 		                          <div class="hover-icon">
                                 <a href="images/${p.productDir }" class="pop-up"><img src="images/${p.productDir }"
@@ -88,13 +92,7 @@ flex-wrap:wrap;
 		              </div>
 	            </c:forEach>
               </div>
-            <div class="more-product">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <a href="#" class="primary-btn">Load More</a>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </section>
     <div>

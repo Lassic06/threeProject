@@ -7,18 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-.all{
-	width: 1100px;
-
-}
-ul {
-    list-style:none;
-}
- 
-li {
-    display: inline-block;
-
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -207,21 +195,18 @@ section.notice {
 	height: 1px;
 }
 
-#notice {
-	text-align: center;
-}
 </style>
 </head>
 <body>
-	<section class="notice">
+	<section id="nSection" class="notice">
 		<div class="page-title">
 			<div class="container">
-				<h2 id="notice">Cart</h2>
+				<h2 id="cart" align="center">Cart</h2>
 			</div>
 		</div>
 
-		<div class = "all">
-			<ul>
+		<div id="all" class = "all">
+			<ul id="myList">
 				<li>
 				<input type="checkbox">
 				상품 사진
@@ -247,7 +232,7 @@ section.notice {
 				</ul>
 			</c:forEach>
 		</div>
-	</div>
+	</section>
 </body>
 <script type="text/javascript">
 
