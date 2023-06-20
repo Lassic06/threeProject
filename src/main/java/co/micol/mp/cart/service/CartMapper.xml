@@ -6,7 +6,8 @@
 		SELECT*FROM CART WHERE MEMBER_ID = #{memberId}
 	</select>
 	<select id="cartSelect" resultType="co.micol.mp.cart.service.CartVO">
-		SELECT MEMBER_ID, PRODUCT_ID FROM cart where member_id = #{memberId} AND product_id = #{productId}
+		SELECT MEMBER_ID, PRODUCT_ID FROM cart 
+		where member_id = #{memberId} AND product_id = #{productId}
 	
 	</select>
 	<insert id="cartInsert"

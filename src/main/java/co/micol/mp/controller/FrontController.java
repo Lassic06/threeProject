@@ -16,6 +16,7 @@ import co.micol.mp.auction.command.AuctionForm;
 import co.micol.mp.auction.command.AuctionInsert;
 import co.micol.mp.auction.command.AuctionInsertForm;
 import co.micol.mp.auction.command.AuctionList;
+import co.micol.mp.auction.command.AuctionPriceInsert;
 import co.micol.mp.buyList.command.BuyList;
 import co.micol.mp.buyList.command.BuyListInsert;
 import co.micol.mp.buyList.command.ProductBuyList;
@@ -54,6 +55,8 @@ import co.micol.mp.product.command.ProductInsert;
 import co.micol.mp.product.command.ProductInsertForm;
 import co.micol.mp.product.command.ProductList;
 import co.micol.mp.product.command.ProductRecentList;
+import co.micol.mp.product.command.ProductUpdate;
+import co.micol.mp.product.command.ProductEdit;
 import co.micol.mp.review.command.AjaxReviewList;
 import co.micol.mp.review.command.ReviewInsert;
 
@@ -111,6 +114,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productRecentList.do", new ProductRecentList());
 		map.put("/productDelete.do", new ProductDelete());
 		map.put("/productCateList.do", new ProductCateList());
+		map.put("/productEdit.do", new ProductEdit());
+		map.put("/productUpdate.do", new ProductUpdate());
 		
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());
@@ -132,6 +137,7 @@ public class FrontController extends HttpServlet {
 		map.put("/auctionForm.do", new AuctionForm());
 		map.put("/auctionInsert.do", new AuctionInsert());
 		map.put("/auctionInsertForm.do", new AuctionInsertForm());
+		map.put("/auctionPriceInsert.do", new AuctionPriceInsert());
 
 		//구매내역 호출 폼
 		map.put("/buyList.do", new BuyList()); //구매내역 조회

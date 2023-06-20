@@ -14,4 +14,6 @@ public interface ProductMapper {
 	int productDelete(ProductVO vo);
 	
 	List<ProductVO> productCateList(ProductVO vo);
+	
+	int productUpdate(ProductVO vo);
 }

@@ -58,10 +58,10 @@
                         </div>
                         <ul class="product-controls">
                             <li data-filter="*">All</li>
-                            <li data-filter=".상의">상의</li>
-                            <li data-filter=".하의">하의</li>
-                            <li data-filter=".아우터">아우터</li>
-                            <li data-filter=".신발">신발</li>
+                            <li data-filter=".top">top</li>
+                            <li data-filter=".bottom">bottom</li>
+                            <li data-filter=".outer">outer</li>
+                            <li data-filter=".shoes">shoes</li>
                         </ul>
                     </div>
                 </div>

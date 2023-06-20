@@ -272,8 +272,10 @@ section.notice {
 				frm.action = "memberUpdateForm.do"
 			} else if(str == 'C'){
 				frm.action = "buyList.do"
+
 			} else if(str == "G"){
 				frm.action = "memberList.do"
+
 			} else {
 				frm.action = "memberDelete.do"
 			}
