@@ -16,8 +16,17 @@
 	</select>
 	
 	<insert id = "productInsert">
-		INSERT INTO PRODUCT VALUES(#{productId},#{productName},#{productPrice},
-		#{productImg},#{productDir},#{productText},0,SYSDATE,#{productAmount},#{productCategory})
+		INSERT INTO PRODUCT 
+		VALUES( #{productId},
+				#{productName},
+				#{productPrice},
+				#{productImg},
+				#{productDir},
+				#{productText},
+				0,
+				SYSDATE,
+				#{productAmount},
+				#{productCategory})
 	</insert>
 	
 	<select id="product"
@@ -41,4 +50,18 @@
 		FROM PRODUCT
 		WHERE PRODUCT_ID = #{productId}
 	</delete>
+	
+	<update id ="productUpdate" parameterType="co.micol.mp.product.service.ProductVO">
+		UPDATE PRODUCT
+		<set>
+			<if test="productId != null">PRODUCT_ID = #{productId},</if>
+			<if test="productName != null">PRODUCT_NAME = #{productName},</if>
+			<if test="productPrice != null">PRODUCT_PRICE = #{productPrice},</if>
+			<if test="productImg != null">PRODUCT_IMG = #{productImg},</if>
+			<if test="productDir != null">PRODUCT_DIR = #{productDir},</if>
+			<if test="productText != null">PRODUCT_TEXT = #{productText},</if>
+			<if test="productCategory != null">PRODUCT_CATEGORY = #{productCategory}</if>		
+		</set>
+		WHERE PRODUCT_ID = #{productId}
+	</update>
 </mapper>

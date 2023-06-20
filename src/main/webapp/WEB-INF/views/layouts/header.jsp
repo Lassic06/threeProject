@@ -13,7 +13,7 @@
 			<div class="container-fluid">
 				<div class="inner-header">
 					<div class="logo">
-					  <a href="main.do"><img src="img/logo.png" alt=""></a>
+					  <a href="productRecentList.do"><img src="img/logo.png" alt=""></a>
 					</div>
 					<div class="header-right">
 						<img src="img/icons/search.png" alt="" class="search-trigger">

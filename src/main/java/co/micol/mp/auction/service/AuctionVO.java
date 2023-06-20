@@ -28,7 +28,7 @@ public class AuctionVO {
 	private String auctionText;
 	private int auctionMax;
 	private Date auctionDate;
-	private String auctionReview;
+	private	String auctionLastDate;
 	private String auctionSeller;
 	private String auctionBuyer;
 	private int auctionCount;

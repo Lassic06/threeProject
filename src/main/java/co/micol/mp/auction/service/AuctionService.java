@@ -8,4 +8,6 @@ public interface AuctionService {
 	AuctionVO auction(AuctionVO vo);
 
 	int auctionInsert(AuctionVO vo);
+
+	int auctionPriceInsert(AuctionVO vo);
 }
