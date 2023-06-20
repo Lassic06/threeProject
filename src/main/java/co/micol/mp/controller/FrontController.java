@@ -25,13 +25,16 @@ import co.micol.mp.cart.command.CartDelete;
 import co.micol.mp.cart.command.CartList;
 import co.micol.mp.common.Command;
 import co.micol.mp.main.command.MainCommand;
+import co.micol.mp.member.command.AdminDelete;
 import co.micol.mp.member.command.AjaxCheckId;
 import co.micol.mp.member.command.LoginAlert;
 import co.micol.mp.member.command.MemberDelete;
 import co.micol.mp.member.command.MemberInsert;
+import co.micol.mp.member.command.MemberList;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MemberSelect;
 import co.micol.mp.member.command.MemberUpdate;
 import co.micol.mp.member.command.MemberUpdateForm;
 import co.micol.mp.member.command.MyPage;
@@ -85,6 +88,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberUpdateForm.do", new MemberUpdateForm()); //회원정보수정 폼 호출
 		map.put("/memberUpdate.do", new MemberUpdate()); //회원정보수정 실행
 		map.put("/memberDelete.do", new MemberDelete()); //회원탈퇴
+		map.put("/memberList.do", new MemberList()); //회원리스트
+		map.put("/memberSelect.do", new MemberSelect()); //관리자 회원 삭제
+		map.put("/adminDelete.do", new AdminDelete()); //어드민 회원 삭제 
 		//공지사항
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 게시판
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출

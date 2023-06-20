@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -227,6 +228,7 @@ td {
 			</div>
 		</div>
 		<!-- board list area -->
+		
 		<form id="frm" action="memberUpdate.do" method="post">
 			<div id="board-list">
 				<div class="container">
@@ -238,7 +240,7 @@ td {
 								<td><div class="col-md-8">
 										<input id="memberId" name="memberId" type="text"
 											placeholder="ID" class="form-control">
-									</div><button type="button" id="checkId" value="No" onclick="idCheck()">중복체크</button></td>
+									</div>
 							</tr>
 							<tr>
 								<!-- 멤버비밀번호 수정 -->
@@ -258,6 +260,7 @@ td {
 									</div>
 								</td>
 							</tr>
+					
 <!-- 							<tr> -->
 <!-- 								멤버주소 수정 -->
 <!-- 								<th scope="col" id="border" class="th-num">Address</th> -->
@@ -282,6 +285,7 @@ td {
 									</div></td>
 							</tr>
 						</tbody>
+					
 					</table>
 					<!-- 저장버튼 -->
 					<div align="center">
@@ -290,43 +294,9 @@ td {
 				</div>
 			</div>
 		</form>
+				
 	</section>
-	<script type="text/javascript">
-	function formCheck(){
-		let frm = document.getElementById("frm");
-		if(frm.memberPassword.value != frm.passwordcheck.value){
-			alert("패스워드가 일치 하지 않습니다.");
-			frm.memberPassword.value = "";
-			frm.passwordcheck.value = "";
-			frm.memberPassword.focus();
-			return false;
-		}else if(frm.checkId.value != "Yes") {
-			alert("아이디 중복체크를 수행하세요.");
-			return false;
-		}
-		
-		return true;
-	}
-	
-	function idCheck() {
-		let id = document.getElementById("memberId").value;
-		let url = "ajaxCheckId.do?id="+id;
-		fetch(url)  //ajax 호출
-			.then(response => response.text())
-			.then(text => htmlProcess(text));
-	}
-	
-	function htmlProcess(data){
-		if(data == 'Yes'){
-			alert(document.getElementById("memberId").value + "\n 사용가능한 아이디 입니다.");
-			document.getElementById("checkId").value = 'Yes';
-		}else {
-			alert(document.getElementById("memberId").value + "\n 이미사용하는 아이디 입니다.");
-			document.getElementById("memberId").value ="";
-			document.getElementById("memberId").focus();
-		}
-	}
-</script>
+
 	
 <!-- 	<script -->
 <!-- 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
