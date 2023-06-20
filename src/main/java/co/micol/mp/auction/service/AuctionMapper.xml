@@ -37,20 +37,19 @@
 				)
 	</insert>
 	
-	<insert id ="auctionPriceInsert">
-		INSERT INTO AUCTION(auction_price,
-							auction_buyer
-							)
-		VALUES( #{auctionPrice},
-				#{auctionBuyer}
-				)
-		WHERE AUCTION_ID = #{auction_id}
-	</insert>
+
+	<update id="auctionPriceInsert" parameterType="co.micol.mp.auction.service.AuctionVO">
+		UPDATE AUCTION
+		SET AUCTION_PRICE = #{auctionPrice}, AUCTION_BUYER = #{auctionBuyer}
+		WHERE AUCTION_ID = #{auctionId}
+	</update>
 	
-	<!-- 옥션 페이지 번호 정하는 곳 -->
-	<select id="listPage" resultType="int">
-		SELECT COUNT(*)
-		FROM auction
+	<select id="auctionPriceSelect" resultType="co.micol.mp.auction.service.AuctionVO">
+		SELECT AUCTION_BUYER, AUCTION_PRICE
+		FROM AUCTION
+		WHERE AUCTION_ID = #{auctionId}
+		
+	
 	</select>
 
 </mapper>

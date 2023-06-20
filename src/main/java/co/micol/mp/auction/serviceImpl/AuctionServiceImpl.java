@@ -45,4 +45,11 @@ public class AuctionServiceImpl implements AuctionService {
 
 	}
 
+
+	@Override
+	public AuctionVO auctionPriceSelect(String string) {
+		// TODO Auto-generated method stub
+		return map.auctionPriceSelect(string);
+	}
+
 }
