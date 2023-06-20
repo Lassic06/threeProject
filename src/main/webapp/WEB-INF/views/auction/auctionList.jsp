@@ -21,6 +21,9 @@ flex-wrap:wrap;
 	width: 333px;
 	height: 333px;
 }
+#pagination{
+	padding-left: 45%;
+}
 </style>
 </head>
 <body>
@@ -37,6 +40,7 @@ flex-wrap:wrap;
 							</div>
 						<div id="textBox" class="product-text">						
 							<h6>${a.auctionId }</h6>			
+
 							<p>
 								<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
 							</p>
@@ -56,11 +60,52 @@ flex-wrap:wrap;
 				</c:forEach>
 			</div>
 		</div>
-		<div>
+
+		<!-- 페이징 -->
+		<nav aria-label="Page navigation example">
+		<ul id ="pagination" class="pagination">
+			<c:if test="${paging.startPage>1 }">
+				<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.startPage-1 })">이전</a>
+			</c:if>
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
+					var="i">
+					<c:if test="${i != paging.page}">
+						<li class="page-item"><a class="page-link" href="javascript:gopage(${i})">${i}</a>
+					</c:if>
+					<c:if test="${i == paging.page}">
+						<li class="page-item active"><a class="page-link" href="#">${i}</a>
+					</c:if>
+				</c:forEach>
+				<c:if test="${paging.endPage<paging.totalPageCount}">
+					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.endPage+1})">다음</a>
+				</c:if>
+			</ul>
+		</nav>
+	</section>
+	<form id="frm" action="auctionSelect.do" method="post">
+		<input type="hidden" id="auctionId" name="auctionId">
+	</form>
+  	<div>
 			<form id="frm" action="auctionForm.do" method="post">
 				<input type="hidden" id="auctionId" name="auctionId">
 			</form>
 		</div>
+  
+	</div>
+	</div>
+	<script type="text/javascript">
+	function auctionChois(id){
+			let frm = document.getElemntById("frm");
+ 			frm.auctionId.value = id; 
+			frm.submit(); 
+		}
+		</script>
+	<script type="text/javascript">
+	function gopage(p){
+		location.href="auctionList.do?page="+p
+	}
+	</script>
+
 		<script type="text/javascript">
 			function auctionChois(id){
 				let frm = document.getElementById("frm");
@@ -69,6 +114,7 @@ flex-wrap:wrap;
 			}
 		</script>
 	</section>	
+
 </body>
 </html>
 

@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-
 .all{
 	width: 1100px;
 
@@ -202,24 +200,36 @@ section.notice {
 	height: 1px;
 }
 
+#board-table{
+	margin: 0 auto;
+	width:1400px;
+}
+td{
+	width: 300px;
+}
+
+#productPrice, #productAmount{
+	width: 224px;
+	margin: 0 auto;
+}
+
 </style>
 </head>
 <body>
 	<section id="nSection" class="notice">
 		<div class="page-title">
 			<div class="container">
-				<h2 id="cart" align="center">Cart</h2>
+				<h2 id="cart">Cart</h2>
 			</div>
 		</div>
-	<div>
 		<div>
-			<table border = "1">
+			<table id="board-table" class="board-table">
 				<thead>
 					<tr>
-						<th>상품 사진</th>
-						<th>상품 명</th>
-						<th>가격</th>
-						<th>수량</th>
+						<th scope="col" class="th-num">상품사진</th>
+						<th scope="col" class="th-num">상품명</th>
+						<th scope="col" class="th-num">가격</th>
+						<th scope="col" class="th-num">수량</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -227,20 +237,20 @@ section.notice {
 							<form>
 								<tr>
 									<td>
-										<input type="hidden" id="productId" name="productId" value="${c.productId }">
+										<input type="hidden" id="productId" name="productId" class="form-control" value="${c.productId }">
 										<img src="images/${c.productImg }" alt="img" width="70"	height="70">
-										<input type="hidden" id="productImg" name="productImg" value="${c.productImg}">
+										<input type="hidden" id="productImg" name="productImg" class="form-control" value="${c.productImg}">
 									</td>
 									<td>
 									<a href="productForm.do?productId=${c.productId }">
-									<input type="text" id="productName" name="productName"	value="${c.productName }">
+									<input type="text" id="productName" name="productName" class="form-control"	value="${c.productName }">
 									</a>
 									</td>
-									<td><input type="text" id="productPrice" name="productPrice" value="${c.productPrice }"></td>
-									<td><input type="text" id="productAmount" name="productAmount" value="${c.productAmount }"></td>
+									<td><input type="text" id="productPrice" name="productPrice" class="form-control" value="${c.productPrice }"></td>
+									<td><input type="text" id="productAmount" name="productAmount" class="form-control" value="${c.productAmount }"></td>
 									<td>
-										<button type="submit" formaction="buyListInsert.do">구매하기</button>
-										<button type="submit" formaction="cartDelete.do">삭제하기</button>
+										<button type="submit" class="btn btn-dark" formaction="buyListInsert.do">구매하기</button>
+										<button type="submit" class="btn btn-dark" formaction="cartDelete.do">삭제하기</button>
 									</td>
 								</tr>
 							</form>
@@ -248,8 +258,6 @@ section.notice {
 					</tbody>
 				</table>
 			</div>
-
-		</div>
 	</section>
 </body>
 </html>

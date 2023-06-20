@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.mp.product.service.ProductMapper">
+
+	<!-- 제품 몇 개씩 불러올지 정하는곳 -->
 	<select id="productList" 
 		resultType="co.micol.mp.product.service.ProductVO">
-		SELECT * FROM product	
+
+	select * from(   select rownum  rn,a.* from(
+
+            SELECT * FROM product
+            order by product_date desc
+            
+ )  a   )where rn between #{first}  and #{last} 
+
 	</select>
 	
 	<select id ="productCateList"
@@ -38,7 +47,6 @@
 	
 	<select id="product"
 		resultType="co.micol.mp.product.service.ProductVO">
-
 		SELECT * 
 		FROM PRODUCT 
 		WHERE PRODUCT_ID = #{productId}
@@ -57,6 +65,12 @@
 		FROM PRODUCT
 		WHERE PRODUCT_ID = #{productId}
 	</delete>
+
+	<!-- 제품 페이지 번호 정하는 곳 -->
+	<select id="listPage" resultType="int">
+		SELECT COUNT(*)
+		FROM product
+	</select>
 	
 	<update id ="productUpdate" parameterType="co.micol.mp.product.service.ProductVO">
 		UPDATE PRODUCT
@@ -71,4 +85,5 @@
 		</set>
 		WHERE PRODUCT_ID = #{productId}
 	</update>
+
 </mapper>

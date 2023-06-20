@@ -205,6 +205,9 @@ section.notice {
 #notice{
 	text-align: center;
 }
+#pagination{
+	padding-left: 45%;
+}
 </style>
 </head>
 <body>
@@ -266,6 +269,26 @@ section.notice {
 				<button id="wBtn" class="btn btn-dark" type="button" onclick="location.href = 'noticeInsertForm.do'">게시글작성</button>
 			</c:if>
 		</div>
+		<!-- 페이징 -->
+		<nav aria-label="Page navigation example">
+			<ul id ="pagination" class="pagination">
+				<c:if test="${paging.startPage>1}">
+					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.startPage-1})">이전</a>
+				</c:if>
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
+					var="i">
+					<c:if test="${i != paging.page}">
+						<li class="page-item"><a class="page-link" href="javascript:gopage(${i})">${i}</a>
+					</c:if>
+					<c:if test="${i == paging.page}">
+						<li class="page-item active"><a class="page-link" href="#">${i}</a>
+					</c:if>
+				</c:forEach>
+				<c:if test="${paging.endPage<paging.totalPageCount}">
+					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.endPage+1})">다음</a>
+				</c:if>
+			</ul>
+		</nav>
 		<div>
 			<form id="frm" action="noticeSelect.do" method="post">
 				<input type="hidden" id="noticeId" name="noticeId">
@@ -279,6 +302,12 @@ section.notice {
 		frm.submit();
 	}
 	</script>
+	<script type="text/javascript">
+	function gopage(p){
+		location.href="noticeList.do?page="+p
+	}
+	</script>
+	
 	</section>
 </body>
 </html>

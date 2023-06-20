@@ -15,9 +15,9 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public List<ProductVO> productList() {
+	public List<ProductVO> productList(ProductVO vo) {
 		// TODO Auto-generated method stub
-		return map.productList();
+		return map.productList(vo);
 	}
 
 	@Override
@@ -57,10 +57,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public int listPage() {
+		// TODO Auto-generated method stub
+		return map.listPage();
+	}
+
 	public int productUpdate(ProductVO vo) {
 		// TODO Auto-generated method stub
 		return map.productUpdate(vo);
 	}
-
 
 }

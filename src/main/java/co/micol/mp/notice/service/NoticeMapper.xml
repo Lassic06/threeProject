@@ -2,8 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.mp.notice.service.NoticeMapper">
 	<select id="noticeSelectList" resultType="co.micol.mp.notice.service.NoticeVO">
-		SELECT * FROM NOTICE 
-		ORDER BY NOTICE_ID DESC
+
+			select * from(   select rownum  rn,a.* from(
+
+            SELECT * FROM notice
+            order by notice_date desc
+            
+ )  a   )where rn between #{first}  and #{last} 
+
 	</select>
 	
 	<select id="noticeSerchList" parameterType="co.micol.mp.notice.service.NoticeVO"	resultType="co.micol.mp.notice.service.NoticeVO">
@@ -38,4 +44,8 @@
 		DELETE FROM NOTICE
 		WHERE NOTICE_ID = #{noticeId}
 	</delete>
+	<select id="listPage" resultType="int">
+		SELECT COUNT(*)
+		FROM notice
+	</select>
 </mapper>
