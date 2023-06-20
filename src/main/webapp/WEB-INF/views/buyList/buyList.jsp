@@ -12,7 +12,7 @@
 
 <button type="button" onclick="location.href='productBuyList.do'">일반상품 구매 목록</button>
 <button type="button" onclick="location.href='auctionBuyList.do'">경매상품 구매 목록</button>
-
+<button type="button" onclick="location.href='myPage.do'">뒤로가기</button>
 
 </body>
 </html>

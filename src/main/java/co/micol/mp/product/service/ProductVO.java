@@ -28,5 +28,7 @@ public class ProductVO {
 	private int productAmount;
 	private String productCategory;
 	
+	private String productSearch; // 상품 검색기능
+	
 	
 }

@@ -20,7 +20,7 @@ public class BuyList implements Command {
 		
 		String memberId = String.valueOf(session.getAttribute("id"));
 		
-		List<BuyListVO> buyList = bs.buyList(memberId);
+		List<BuyListVO> buyList = bs.productBuyList(memberId);
 		request.setAttribute("buyLists", buyList );
 		
 		return "buyList/buyList";

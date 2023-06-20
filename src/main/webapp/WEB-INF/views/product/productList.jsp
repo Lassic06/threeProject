@@ -40,6 +40,12 @@ flex-wrap:wrap;
             </div>
         </div>
     </section>
+    
+	<form>
+		<input id="search" type="search" name="search" placeholder="상품 검색">
+		<button type="submit" class="btn btn-dark" formaction="productCateSerch.do">검색</button>
+	</form>
+    
     <!-- Page Add Section End -->
 
     <section class="categories-page spad">
@@ -101,26 +107,5 @@ flex-wrap:wrap;
     	</form>
     </div>
 
-
-<!-- <div align="center"> -->
-<!-- 		<table border="1"> -->
-<!-- 			<thead> -->
-<!-- 				<tr> -->
-<!-- 					<th width="400">제품이미지</th> -->
-<!-- 					<th width="200">제품명</th> -->
-<!-- 					<th width="200">제품가격</th> -->
-<!-- 				</tr> -->
-<!-- 			</thead> -->
-<!-- 			<tbody> -->
-<%-- 				<c:forEach items="${products}" var="p" > --%>
-<!-- 					<tr> -->
-<%-- 						<td>${p.productImg}</td> --%>
-<%-- 						<td align="center">${p.productName }</td> --%>
-<%-- 						<td>${p.productPrice }</td> --%>
-<!-- 					</tr> -->
-<%-- 				</c:forEach> --%>
-<!-- 			</tbody> -->
-<!-- 		</table> -->
-<!-- 	</div><br> -->
 </body>
 </html>

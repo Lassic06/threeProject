@@ -18,6 +18,13 @@ public class NoticeServiceImpl implements NoticeService {
 	public List<NoticeVO> noticeSelectList() {
 		return map.noticeSelectList();
 	}
+	
+	
+
+	@Override
+	public List<NoticeVO> noticeSerchList(String serch) {
+		return map.noticeSerchList(serch);
+	}
 
 	@Override
 	public NoticeVO noticeSelect(NoticeVO vo) {

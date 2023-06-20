@@ -273,6 +273,7 @@ section.notice {
 			} else if(str == 'C'){
 				frm.action = "buyList.do"
 
+
 			} else if(str == "G"){
 				frm.action = "memberList.do"
 

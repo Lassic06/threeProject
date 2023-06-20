@@ -13,6 +13,9 @@
 	</select>
 	
 	<insert id = "auctionInsert">
+
+
+
 		INSERT INTO AUCTION 
 		VALUES( #{auctionId},
 				#{auctionName},
