@@ -20,16 +20,16 @@
 						enctype="multipart/form-data" action="productUpdate.do" method="post">
 						<fieldset>
 							<!-- 제품 종류 -->
-									<form>
+								
 									  <label for="clothes"> Category </label>
-									  <select id="clothes" name="clothes">
+									  <select id="productCategory" name="productCategory">
 									    <option value="">✨Select✨</option>
 									      <option value="top">👚top👚</option>
 									      <option value="bottom">👖bottom👖</option>
 									      <option value="outer">🥼outer🥼</option>
 									      <option value="shoes">👠shoes👠</option>
 									  </select>
-									</form>
+									
 							<!-- 제품아이디 -->
 							<div class="form-group">
 								<span class="col-md-1 col-md-offset-2 text-center"></span>

@@ -11,4 +11,6 @@ public interface AuctionMapper {
 	
 	int auctionPriceInsert(AuctionVO vo);
 	
+	AuctionVO auctionPriceSelect(String string);
+	
 }

@@ -42,7 +42,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/mixitup.min.js"></script>
-    <script src="js/main.js"></script>
+
     
 </head>
 
@@ -66,14 +66,14 @@
     <!-- Header Section Begin -->
    	<tiles:insertAttribute name="header"></tiles:insertAttribute>
  
-  <tiles:insertAttribute name="body"></tiles:insertAttribute>
+  	<tiles:insertAttribute name="body"></tiles:insertAttribute>
 	
 
     <!-- Footer Section Begin -->
     <tiles:insertAttribute name="footer"></tiles:insertAttribute>
     <!-- Footer Section End -->
 
-  
+      <script src="js/main.js"></script>
     <script>
       $( document ).ready( function() {
         $( window ).scroll( function() {

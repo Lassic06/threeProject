@@ -58,11 +58,11 @@
             <form name="auctionFrm">
 				<div align="center">
 					<div>
-						<textarea cols="100" name="auctionPrice" id="auctionPrice"></textarea>
+						<textarea rows="2" cols="30" name="auctionPrice" id="auctionPrice"></textarea>
 					</div>
 					<div>
 						<c:if test="${not empty id }">
-			            	<button type="button" class="primary-btn pc-btn" onclick="auciotnPriceInsert()">후기 등록</button>
+			            	<button type="button" class="primary-btn pc-btn" onclick="auciotnPriceInsert()">금액 입력</button>
 			            </c:if>			            
 			            <c:if test="${empty id }">
 			            	<a href="memberLoginForm.do" class="primary-btn pc-btn">Add to cart</a>
@@ -95,22 +95,26 @@ function auciotnPriceInsert(){
 	var auctionPrice = $("#auctionPrice").val();
 	
 	var queryString = $("form[name=auctionFrm]").serialize();
-	$.ajax({
-		url:"auctionPriceInsert.do",
-		type:"POST",
-		data:queryString,
-		success:function(){
-			alert("성공"); 
-			$("#auctionPrice").val("").focus;
-			$("#auctionPriceSelect").empty();
-			
-			auctionPriceSelect();
-			
-		},
-		error: function(request, status, error){
-			alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
-		}
-	});
+	if(${auction.auctionPrice} < auctionPrice){		
+		$.ajax({
+			url:"auctionPriceInsert.do",
+			type:"POST",
+			data:queryString,
+			success:function(){			
+					alert("성공"); 
+					$("#auctionPrice").val("").focus();
+					$("#auctionPriceSelect").empty();				
+					auctionPriceSelect();		
+			},
+			error: function(request, status, error){
+				alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
+			}
+		});
+	}else{
+		alert("현재 금액보다 높은 금액을 입력하세요");
+		$("#auctionPrice").val("").focus();
+		return;
+	}
 	
 }
 auctionPriceSelect();
@@ -123,12 +127,14 @@ auctionPriceSelect();
  
  function HtmlConvert(datas){
 	 const container = document.createElement('table');//<table>태그 생성
+	 console.log(datas);
 	 container.innerHTML = datas.map(data => createHTMLString(data)).join("");
+	 
 	 document.querySelector('#auctionPrice').appendChild(container);//화면에 추가
  }
  function createHTMLString(data){
 	let str="<tr>";
-		str+="<td>"+ data.memberName+"</td>";
+		str+="<td>"+ data.auctionBuyer+"</td>";
 		str+="<td>"+ data.auctionPrice+"</td></tr>";
 	return str;
 	
