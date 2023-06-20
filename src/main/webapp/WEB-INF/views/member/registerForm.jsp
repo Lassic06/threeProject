@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<div align="center">
-<!DOCTYPE html>
-<html>
-<head>
     <meta charset="utf-8" />
     <title>Contact Form Template | PrepBootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -125,7 +117,6 @@
 </div>
 </body>
 </html>
-</div>
 <script type="text/javascript">
 	function formCheck(){
 		let frm = document.getElementById("frm");

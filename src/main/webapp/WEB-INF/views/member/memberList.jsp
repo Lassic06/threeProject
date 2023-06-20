@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@ table {
 	border-spacing: 0;
 }
 
-section.notice {
+section.member {
 	padding: 80px 0;
 }
 
@@ -195,92 +195,61 @@ section.notice {
 	height: 1px;
 }
 
-#border {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+#wBtn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
-#cborder {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+#notice{
 	text-align: center;
 }
 </style>
 </head>
 <body>
-	<section class="notice">
-		<div class="page-title">
-			<div class="container">
-				<h3>My Page</h3>
-			</div>
+<section class="member">
+	<div class="page-title">
+		<div class="container">
+			<h2 id="member">Member</h2>
 		</div>
-		<!-- board list area -->
-		<div id="board-list">
-			<div class="container">
-				<table class="board-table">
-					<thead>
-						<tr>
-							<th scope="col" id="border" class="th-num">ID</th>
-							<td id="cborder">${member.memberId }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">PW</th>
-							<td id="cborder">${member.memberPw }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">Name</th>
-							<td id="cborder">${member.memberName }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">Address</th>
-							<td id="cborder">${member.memberAddr }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">TEL</th>
-							<td id="cborder">${member.memberTel }</td>
-						</tr>
-					</tbody>
-				</table>
-				<br>
-				<div align="center">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('E')">회원정보 수정</button>
-						<c:if test="${auth eq 'N' }">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('D')">회원탈퇴</button>
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('C')">구매내역 조회</button>
-						</c:if>
-						<c:if test="${auth eq 'A' }">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('G')">회원관리</button>	
-						</c:if>
-
-				</div>
-			</div>
-			<div>
-				<form id="frm" method="post">
-					<input type="hidden" id="memberId" name="memberId"
-						value="${member.memberId }">
-				</form>
-			</div>
-		</div>
+	</div>
+	<div id="board-list">
+		<div class="container">
+		<table class="board-table">
+			<thead>
+				<tr>
+					<th scope="col" class="ml-id">아이디</th>
+					<th scope="col" class="ml-pw">비밀번호</th>
+					<th scope="col" class="ml-name">이 름</th>
+					<th scope="col" class="ml-addr">주 소</th>
+					<th scope="col" class="ml-tel">전화번호</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${members }" var="m" >
+					<tr onclick="memberChois('${m.memberId }')">
+						<td>${m.memberId }</td>
+						<td>${m.memberPw }</td>
+						<td>${m.memberName }</td>
+						<td>${m.memberAddr }</td>
+						<td>${m.memberTel }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<div>
+			<form id="frm" action="memberSelect.do" method="post">
+					<input type="hidden" id="memberId" name="memberId">
+			</form>
+	</div>
 	<script type="text/javascript">
-		function callFunction(str) {
-			let frm = document.getElementById("frm");
-			if (str == 'E') {
-				frm.action = "memberUpdateForm.do"
-			} else if(str == 'C'){
-				frm.action = "buyList.do"
-
-			} else if(str == "G"){
-				frm.action = "memberList.do"
-
-			} else {
-				frm.action = "memberDelete.do"
-			}
-			frm.submit();
-		}
+	function memberChois(id){
+		let frm = document.getElementById("frm");
+		frm.memberId.value = id;
+		frm.submit();
+	}
 	</script>
 	</section>
 </body>

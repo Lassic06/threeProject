@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
+<style>
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
-section.notice {
+section.member {
 	padding: 80px 0;
 }
 
@@ -195,93 +195,75 @@ section.notice {
 	height: 1px;
 }
 
-#border {
-	border-top: 1px solid #ccc;
+#nBorder{
 	border-bottom: 1px solid #ccc;
 }
 
-#cborder {
-	border-top: 1px solid #ccc;
+#sTitle{
 	border-bottom: 1px solid #ccc;
+	width: 300px;
 	text-align: center;
+}
+
+#button{
+	margin-top: 20px;
 }
 </style>
 </head>
 <body>
-	<section class="notice">
+<section class="member">
 		<div class="page-title">
 			<div class="container">
-				<h3>My Page</h3>
+				<h2>Member</h2>
 			</div>
 		</div>
+
 		<!-- board list area -->
 		<div id="board-list">
 			<div class="container">
 				<table class="board-table">
 					<thead>
 						<tr>
-							<th scope="col" id="border" class="th-num">ID</th>
-							<td id="cborder">${member.memberId }</td>
+							<th scope="col" id="nBorder" class="th-title">회원 ID</th>
+							<td id="sTitle">${member.memberId }</td>
+							<th scope="col" id="nBorder" class="th-title">회원 비밀번호</th>
+							<td id="nBorder">${member.memberPw }</td>
+							<th scope="col" id="nBorder" class="th-title">회원 이름</th>
+							<td id="nBorder">${member.memberName }</td>
 						</tr>
 						<tr>
-							<th scope="col" id="border" class="th-num">PW</th>
-							<td id="cborder">${member.memberPw }</td>
+							<th scope="col" class="th-title">회원 주소</th>
+							<td>${member.memberAddr }</td>
+							<th scope="col" class="th-title">회원 전화번호</th>
+							<td>${member.memberTel }</td>
 						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">Name</th>
-							<td id="cborder">${member.memberName }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">Address</th>
-							<td id="cborder">${member.memberAddr }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">TEL</th>
-							<td id="cborder">${member.memberTel }</td>
-						</tr>
-					</tbody>
 				</table>
-				<br>
-				<div align="center">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('E')">회원정보 수정</button>
-						<c:if test="${auth eq 'N' }">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('D')">회원탈퇴</button>
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('C')">구매내역 조회</button>
-						</c:if>
-						<c:if test="${auth eq 'A' }">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('G')">회원관리</button>	
-						</c:if>
-
-				</div>
-			</div>
-			<div>
-				<form id="frm" method="post">
-					<input type="hidden" id="memberId" name="memberId"
-						value="${member.memberId }">
-				</form>
 			</div>
 		</div>
-	<script type="text/javascript">
-		function callFunction(str) {
-			let frm = document.getElementById("frm");
-			if (str == 'E') {
-				frm.action = "memberUpdateForm.do"
-			} else if(str == 'C'){
-				frm.action = "buyList.do"
-
-			} else if(str == "G"){
-				frm.action = "memberList.do"
-
-			} else {
-				frm.action = "memberDelete.do"
+		<div align="center" id="button">
+			<c:if test="${auth eq 'A' }">
+				<button type="button" class="btn btn-dark" onclick="callFunction('D')">삭제</button>&nbsp;&nbsp;
+			</c:if>
+			<button type="button" class="btn btn-dark" onclick="location.href='memberList.do'">목록</button>
+		</div>
+		<div>
+			<form id="frm" method="post">
+				<input type="hidden" id="memberId" name="memberId"
+					value="${member.memberId }">
+			</form>
+		</div>
+		<script type="text/javascript">
+			function callFunction(str) {
+				let frm = document.getElementById("frm");
+				if (str == 'D') {
+					frm.action = "adminDelete.do"
+				} else {
+					frm.action = "memberList.do"
+				}
+				frm.submit();
 			}
-			frm.submit();
-		}
-	</script>
+		</script>
 	</section>
+	
 </body>
 </html>
