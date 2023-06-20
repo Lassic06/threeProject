@@ -3,11 +3,14 @@
 <mapper namespace="co.micol.mp.member.service.MemberMapper">
 	<select id="memberSelectList"
 		resultType="co.micol.mp.member.service.MemberVO">
-		SELECT * FROM member
+		SELECT * 
+		FROM member
 	</select>
 	<select id="memberSelect"
 		resultType="co.micol.mp.member.service.MemberVO">
-		SELECT * FROM member WHERE member_id = #{memberId}
+		SELECT * 
+		FROM member 
+		WHERE member_id = #{memberId}
 	</select>
 	<insert id="memberInsert">
 		INSERT INTO member

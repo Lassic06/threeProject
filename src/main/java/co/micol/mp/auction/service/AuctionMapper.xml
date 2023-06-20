@@ -14,13 +14,37 @@
 	
 	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
 		SELECT * 
-		FROM auction
+		FROM AUCTION
 		WHERE AUCTION_ID = #{auctionId}
 	</select>
 	
 	<insert id = "auctionInsert">
-	INSERT INTO PRODUCT VALUES(#{auctionId},#{auctionName},#{auctionPrice},
-		#{auctionImg},#{auctionText},#{auctionMax},SYSDATE,#{auctionReview},#{auctionSeller},#{auctionBuyer},#{auctionCount})
+
+
+
+		INSERT INTO AUCTION 
+		VALUES( #{auctionId},
+				#{auctionName},
+				#{auctionPrice},
+				#{auctionImg},
+				#{auctionText},
+				#{auctionMax},
+				SYSDATE,
+				#{auctionReview},
+				#{auctionSeller},
+				#{auctionBuyer},
+				#{auctionCount}
+				)
+	</insert>
+	
+	<insert id ="auctionPriceInsert">
+		INSERT INTO AUCTION(auction_price,
+							auction_buyer
+							)
+		VALUES( #{auctionPrice},
+				#{auctionBuyer}
+				)
+		WHERE AUCTION_ID = #{auction_id}
 	</insert>
 	
 	<!-- 옥션 페이지 번호 정하는 곳 -->

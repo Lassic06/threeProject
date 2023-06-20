@@ -251,6 +251,10 @@ section.notice {
 					<button class="btn btn-dark" type="button"
 						onclick="callFunction('C')">구매내역 조회</button>
 						</c:if>
+						<c:if test="${auth eq 'A' }">
+					<button class="btn btn-dark" type="button"
+						onclick="callFunction('G')">회원관리</button>	
+						</c:if>
 
 				</div>
 			</div>
@@ -268,6 +272,8 @@ section.notice {
 				frm.action = "memberUpdateForm.do"
 			} else if(str == 'C'){
 				frm.action = "buyList.do"
+			} else if(str == "G"){
+				frm.action = "memberList.do"
 			} else {
 				frm.action = "memberDelete.do"
 			}

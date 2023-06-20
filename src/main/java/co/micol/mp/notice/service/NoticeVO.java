@@ -25,5 +25,7 @@ public class NoticeVO {
 	private String noticeCount;
 	private int first;
 	private int last;
+	private String noticeSerch; //게시물 검색
+
 	
 }

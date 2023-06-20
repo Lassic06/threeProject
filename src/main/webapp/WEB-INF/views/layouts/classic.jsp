@@ -5,6 +5,15 @@
 <html lang="zxx">
 
 <head>
+<style>
+  a.top {
+        position: fixed; 
+        left: 95%;
+        bottom: 50px;
+        display: inline;
+        float: right;
+      }
+</style>
     <meta charset="UTF-8">
     <meta name="description" content="Yoga Studio Template">
     <meta name="keywords" content="Yoga, unica, creative, html">
@@ -25,17 +34,20 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
+      <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/main.js"></script>
+
     
 </head>
-<style>
-  a.top {
-        position: fixed; 
-        left: 95%;
-        bottom: 50px;
-        display: inline;
-        float: right;
-      }
-</style>
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -62,16 +74,7 @@
     <!-- Footer Section Begin -->
     <tiles:insertAttribute name="footer"></tiles:insertAttribute>
     <!-- Footer Section End -->
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <script>
 
       $( document ).ready( function() {

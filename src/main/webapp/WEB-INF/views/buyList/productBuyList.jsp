@@ -223,24 +223,24 @@ section.notice {
 					<th scope="col" class="th-num">총 가격</th>
 					<th scope="col" class="th-num">구매 날짜</th>
 				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${buyLists }" var="bl">
-					<tr>
-						<td><img src="images/${bl.productImg }" alt="img" width="70"
-							height="80"></td>
-						<td><a href="productForm.do?productId=${bl.productId }">${bl.productName }</a>
-						</td>
-						<td><fmt:formatNumber value="${bl.productPrice}"
-								pattern="#,###원" /></td>
-						<td>${bl.productAmount }</td>
-						<td><fmt:formatNumber
-								value="${bl.productPrice * bl.productAmount}" pattern="#,###원" /></td>
-						<td colspan="5">${bl.buyDate }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</section>
+				</thead>
+				<tbody>
+					<c:forEach items="${buyLists }" var="bl">
+						<tr>
+							<td><img src="images/${bl.productImg }" alt="img" width="70" height="80"></td>
+							<td><a href="productForm.do?productId=${bl.productId }">${bl.productName }</a>
+							</td>
+							<td><fmt:formatNumber value="${bl.productPrice}" pattern="#,###원" /></td>
+							<td>${bl.productAmount }</td>
+							<td><fmt:formatNumber
+									value="${bl.productPrice * bl.productAmount}" pattern="#,###원" /></td>
+							<td colspan="5">${bl.buyDate }</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<button type="button" onclick="location.href='myPage.do'">마이페이지</button>
+		</div>
+	</div>
 </body>
 </html>

@@ -3,7 +3,11 @@ package co.micol.mp.notice.service;
 import java.util.List;
 
 public interface NoticeMapper {
+
 	List<NoticeVO> noticeSelectList(NoticeVO vo);  //전체조회
+
+	List<NoticeVO> noticeSerchList(String serch); // 검색기능
+
 	NoticeVO noticeSelect(NoticeVO vo); //한명조회
 	int noticeInsert(NoticeVO vo);      //입력
 	int noticeUpdate(NoticeVO vo);      //수정

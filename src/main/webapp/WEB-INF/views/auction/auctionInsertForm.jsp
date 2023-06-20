@@ -73,7 +73,7 @@ input#pfile.form-control{
 				<div class="col-md-12">
 					<div class="well well-sm">
 						<form id="frm" class="form-horizontal"
-							enctype="multipart/form-data" action="auctionInsert.do"
+							enctype="multipart/form-data" action="auctionInsert.do" onsubmit="return formCheck()"
 							method="post">
 							<fieldset>
 								<!-- 제품아이디 -->
@@ -92,12 +92,20 @@ input#pfile.form-control{
 											placeholder="Name" class="form-control" required="required">
 									</div>
 								</div>
-								<!-- 제품가격 -->
+								<!-- 제품 시작 가격 -->
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>
 									<div class="col-md-8">
 										<input id="auctionPrice" name="auctionPrice" type="number"
-											placeholder="Price" class="form-control" required="required">
+											placeholder="StartPrice (maxprice 30% down)" class="form-control" required="required">
+									</div>
+								</div>
+								<!-- 즉시구매가 -->
+								<div class="form-group">
+									<span class="col-md-1 col-md-offset-2 text-center"></span>
+									<div class="col-md-8">
+										<input id="auctionMax" name="auctionMax" type="number"
+											placeholder="MaxPrice" class="form-control" required="required">
 									</div>
 								</div>
 								<!-- 제품이미지등록 -->
@@ -105,6 +113,20 @@ input#pfile.form-control{
 									<span class="col-md-1 col-md-offset-2 text-center"></span>
 									<div class="col-md-8">
 										<input id="pfile" name="pfile" type="file" class="form-control">
+									</div>
+								</div>
+								<!-- 제품 시작시간 -->
+								<div class = "form-group">
+									<span class="col-md-1 col-md-offset-2 text-center"></span>
+									<div class="col-md-8">
+										<input id="auctionDate" name = "auctionDate" type="date" class="form-control" readonly="readonly">
+									</div>
+								</div>
+								<!-- 제품 종료시간 -->
+								<div class = "form-group">
+									<span class="col-md-1 col-md-offset-2 text-center"></span>
+									<div class="col-md-8">
+										<input id="auctionLastDate" name = "auctionLastDate" type="datetime-local" class="form-control" placeholder="종료시간" >
 									</div>
 								</div>
 								<!-- 제품설명 -->
@@ -132,3 +154,20 @@ input#pfile.form-control{
 			</div>
 		</div>
 	</div>
+</body>
+<script>
+	document.getElementById('auctionDate').valueAsDate = new Date();
+	
+	function formCheck() {
+		let frm = document.getElementById("frm");
+		if(frm.auctionPrice.value > frm.auctionMax.value*0.3){
+			alert("시작값을 다시 설정해주세요");
+			frm.auctionPrice.value = "";
+			frm.auctionPrice.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</html>

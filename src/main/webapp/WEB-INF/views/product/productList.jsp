@@ -32,6 +32,7 @@
 </head>
 <body>
 
+
 	<!-- Page Add Section Begin -->
 	<section class="page-add">
 		<div class="container">
@@ -48,6 +49,10 @@
 			</div>
 		</div>
 	</section>
+  	<form>
+		<input id="search" type="search" name="search" placeholder="상품 검색">
+		<button type="submit" class="btn btn-dark" formaction="productCateSerch.do">검색</button>
+	</form>
 	<!-- Page Add Section End -->
 
 	<section class="categories-page spad">
@@ -119,6 +124,7 @@
 			</ul>
 		</nav>
 
+
 		</div>
 	</section>
 	<div>
@@ -132,7 +138,6 @@
 		location.href="productList.do?page="+p
 	}
 	</script>
-
 
 	<!-- <div align="center"> -->
 	<!-- 		<table border="1"> -->

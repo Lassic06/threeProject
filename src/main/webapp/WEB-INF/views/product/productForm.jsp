@@ -177,8 +177,8 @@ function reviewInsert(){
 		type:"POST",
 		data:queryString,
 		success:function(){
-			/* alert("성공"); */
-			$("#reviewSubject").val("").focus;
+			/* alert("성공");  */
+			$("#reviewSubject").val("").focus();
 			$("#reviewList").empty();
 			
 			reviewList();
@@ -222,7 +222,7 @@ reviewList();
 			 return;
 		 }
 	 }else{
-		 frm.action="productUpdate.do"
+		 frm.action="productEdit.do"
 	 }
 	 frm.submit();
  }

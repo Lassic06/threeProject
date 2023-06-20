@@ -60,7 +60,7 @@ public class ProductInsert implements Command {
 		}	
 		
 		
-		return "main/main";
+		return "productRecentList.do";
 	}
 
 }

@@ -119,7 +119,7 @@ h2{
 							method="post">
 							<fieldset>
 								<!-- 제품 종류 -->
-										<form>
+										
 										  <label for="clothes"> Category </label>
 										  <select id="clothes" name="productCategory">
 										    <option value="">✨Select✨</option>
@@ -128,7 +128,7 @@ h2{
 										      <option value="outer">🥼outer🥼</option>
 										      <option value="shoes">👠shoes👠</option>
 										  </select>
-										</form>
+										
 								<!-- 제품아이디 -->
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>

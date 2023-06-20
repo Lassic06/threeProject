@@ -20,10 +20,16 @@ public class auctionBuyList implements Command {
 		
 		String memberId = String.valueOf(session.getAttribute("id"));
 		
-		List<BuyListVO> buyList = bs.buyList(memberId);
+		List<BuyListVO> buyList = bs.auctionBuyList(memberId);
 		request.setAttribute("buyLists", buyList );
 		
+		if(buyList.isEmpty()) {
+			request.setAttribute("msg", "구매내역이 없습니다.");
+			request.setAttribute("url", "myPage.do");
+			return "alert/alert";
+		}else {
 		return "buyList/auctionBuyList";
+		}
 	}
 
 }
