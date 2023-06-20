@@ -9,4 +9,6 @@ public interface AuctionMapper {
 	
 	int auctionInsert(AuctionVO vo);
 	
+	int auctionPriceInsert(AuctionVO vo);
+	
 }

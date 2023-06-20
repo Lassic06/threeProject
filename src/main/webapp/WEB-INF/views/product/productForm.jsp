@@ -146,7 +146,7 @@ td{
 	    		<textarea rows="2" cols="100" name="reviewSubject" id="reviewSubject"></textarea>
 	    	</div>
 	    	<div>
-	    		<button type="button" id="reviewInsert" name="reviewInsert" class="btn btn-dark">Submit</button>
+	    		<button type="button" class="btn btn-dark" onclick ="reviewInsert()">Submit</button>
 	    	</div>
 	    	<input type="hidden" id="reviewCheck" name="productId" value="${product.productId }">
 	    </div>
@@ -156,7 +156,8 @@ td{
 	    
     </form>
 <script type="text/javascript">
-$(".reviewInsert").click(function(){	
+/* $(".reviewInsert").click(function(){ */	
+function reviewInsert(){
 	if(${id == null} ){
 		alert("로그인 하셔야 합니다.");
 		return "memberLoginForm.do";
@@ -170,8 +171,8 @@ $(".reviewInsert").click(function(){
 		type:"POST",
 		data:queryString,
 		success:function(){
-			/* alert("성공"); */
-			$("#reviewSubject").val("").focus;
+			/* alert("성공");  */
+			$("#reviewSubject").val("").focus();
 			$("#reviewList").empty();
 			
 			reviewList();
@@ -182,7 +183,7 @@ $(".reviewInsert").click(function(){
 		}
 	});
 	
-});
+}
 reviewList();
  function reviewList(){
 	let url = "ajaxReivewList.do"
@@ -215,7 +216,7 @@ reviewList();
 			 return;
 		 }
 	 }else{
-		 frm.action="productUpdate.do"
+		 frm.action="productEdit.do"
 	 }
 	 frm.submit();
  }

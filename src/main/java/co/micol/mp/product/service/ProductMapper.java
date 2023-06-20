@@ -16,4 +16,6 @@ public interface ProductMapper {
 	List<ProductVO> productCateList(ProductVO vo);
 	
 	List<ProductVO> productSerch(String search); // 상품 검색기능
+
+	int productUpdate(ProductVO vo);
 }

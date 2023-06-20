@@ -3,7 +3,6 @@ package co.micol.mp.product.command;
 import java.io.File;
 import java.io.IOException;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +14,7 @@ import co.micol.mp.product.service.ProductService;
 import co.micol.mp.product.service.ProductVO;
 import co.micol.mp.product.serviceImpl.ProductServiceImpl;
 
-public class ProductInsert implements Command {
+public class ProductUpdate implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
@@ -23,7 +22,6 @@ public class ProductInsert implements Command {
 		ProductService ps = new ProductServiceImpl();
 		ProductVO vo = new ProductVO();
 		
-		//String dir =File.separator+ "img" +File.separator + "product" + File.separator;
 		String dir =File.separator+ "images" + File.separator;
 		String saveDir = request.getSession().getServletContext().getRealPath(dir);
 		
@@ -51,7 +49,7 @@ public class ProductInsert implements Command {
 				vo.setProductDir(pfile);
 			}
 			
-			ps.productInsert(vo);
+			ps.productUpdate(vo);
 			
 			
 		} catch (IOException e) {
@@ -60,7 +58,9 @@ public class ProductInsert implements Command {
 		}	
 		
 		
-		return "productRecentList.do";
+		return "productList.do";
+		
+		
 	}
 
 }

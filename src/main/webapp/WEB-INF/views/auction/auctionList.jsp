@@ -26,20 +26,17 @@ flex-wrap:wrap;
 <body>
 	<section class="categories-page spad">
 		<div class="container">
-			<div class="container2">
-			
+			<div class="container2">			
 				<c:forEach items="${auctions }" var="a">
 					<div class="item">
 						<div id="single-product-item" class="single-product-item">
-									                  <div class="auctionList" onclick="auctionChois(${a.auctionId }">
-							<figure>
-								<img id="img" src="images/${a.auctionImg}" alt="">
-						</div>
-						</figure>
-						<div id="textBox" class="product-text">
-							<a href="auctionChois(${a.auctionId }">
-								<h6>${a.auctionId }</h6>
-							</a>
+							<div onclick="auctionChois('${a.auctionId }')">
+								<figure>
+									<img id="img" src="images/${a.auctionDir}" alt="">
+								</figure>
+							</div>
+						<div id="textBox" class="product-text">						
+							<h6>${a.auctionId }</h6>			
 							<p>
 								<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
 							</p>
@@ -54,28 +51,24 @@ flex-wrap:wrap;
 								</span>
 							</p>
 						</div>
+						</div>
 					</div>
+				</c:forEach>
 			</div>
-			</c:forEach>
 		</div>
-		<div></div>
-	</section>
-	<form id="frm" action="auctionSelect.do" method="post">
-		<input type="hidden" id="auctionId" name="auctionId">
-	</form>
-	</div>
-	</div>
-	<script type="text/javascript">
-	function auctionChois(id){
-			let frm = document.getElemntById("frm");
- 			frm.auctionId.value = id; 
-			frm.submit(); 
-		}
+		<div>
+			<form id="frm" action="auctionForm.do" method="post">
+				<input type="hidden" id="auctionId" name="auctionId">
+			</form>
+		</div>
+		<script type="text/javascript">
+			function auctionChois(id){
+				let frm = document.getElementById("frm");
+	 			frm.auctionId.value = id; 
+				frm.submit(); 
+			}
 		</script>
-
-
-
-
+	</section>	
 </body>
 </html>
 

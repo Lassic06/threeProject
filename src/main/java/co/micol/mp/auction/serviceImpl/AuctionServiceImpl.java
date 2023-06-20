@@ -32,4 +32,11 @@ public class AuctionServiceImpl implements AuctionService {
 		return map.auctionInsert(vo);
 	}
 
+
+	@Override
+	public int auctionPriceInsert(AuctionVO vo) {
+		// TODO Auto-generated method stub
+		return map.auctionPriceInsert(vo);
+	}
+
 }

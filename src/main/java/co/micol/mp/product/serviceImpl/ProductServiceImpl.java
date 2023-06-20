@@ -56,5 +56,11 @@ public class ProductServiceImpl implements ProductService {
 		return map.productCateList(vo);
 	}
 
+	@Override
+	public int productUpdate(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productUpdate(vo);
+	}
+
 
 }
