@@ -15,8 +15,15 @@ public class NoticeServiceImpl implements NoticeService {
 	
 
 	@Override
-	public List<NoticeVO> noticeSelectList() {
-		return map.noticeSelectList();
+	public List<NoticeVO> noticeSelectList(NoticeVO vo) {
+		return map.noticeSelectList(vo);
+	}
+	
+	
+
+	@Override
+	public List<NoticeVO> noticeSerchList(String serch) {
+		return map.noticeSerchList(serch);
 	}
 
 	@Override
@@ -42,6 +49,12 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int noticeCountUp(NoticeVO vo) {
 		return map.noticeCountUp(vo);
+	}
+
+	@Override
+	public int listPage() {
+		// TODO Auto-generated method stub
+		return map.listPage();
 	}
 	
 	

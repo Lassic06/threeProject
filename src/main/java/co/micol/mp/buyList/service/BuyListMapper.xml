@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.mp.buyList.service.BuyListMapper">
-<select id = "buyList" resultType="co.micol.mp.buyList.service.BuyListVO">
-SELECT*FROM buyList 
+
+<select id = "productBuyList" resultType="co.micol.mp.buyList.service.BuyListVO">
+<if test = "productId != null">
+SELECT MEMBER_ID, PRODUCT_ID,PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_IMG, BUY_DATE
+</if>
+FROM PRODUCTBUYTABLE
 WHERE MEMBER_id = #{memberId}
 ORDER BY BUY_DATE
 </select>
+
+<select id="auctionBuyList" resultType="co.micol.mp.buyList.service.BuyListVO">
+	SELECT MEMBER_ID, AUCTION_ID, AUCTION_NAME, AUCTION_PRICE, AUCTION_IMG, BUY_DATE
+	FROM AUCTIONBUYLIST 
+	WHERE MEMBER_id = #{memberId}
+	ORDER BY BUY_DATE
+</select>
+
 <insert id="buyListInsert" parameterType="co.micol.mp.buyList.service.BuyListVO" >
-insert into buyList
-values(#{memberId },#{productId },#{auctionId },#{productName },#{auctionName },#{productPrice },#{auctionPrice },#{productImg },#{auctionImg },sysdate,#{productAmount })
+insert into PRODUCTBUYTABLE
+values(#{memberId },
+	   #{productId },
+	   #{productName },
+	   #{productPrice },
+	   #{productImg },
+	   sysdate,
+	   #{productAmount })
 </insert>
 
 

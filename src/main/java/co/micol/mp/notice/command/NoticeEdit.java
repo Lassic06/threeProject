@@ -16,8 +16,7 @@ public class NoticeEdit implements Command {
 		NoticeVO vo = new NoticeVO();
 		vo.setNoticeId(request.getParameter("noticeId"));
 		vo = ns.noticeSelect(vo);
-		request.setAttribute("notice", vo);
-		
+		request.setAttribute("notice", vo);		
 		
 		return "notice/noticeEdit";
 	}

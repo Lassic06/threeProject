@@ -233,13 +233,13 @@ td {
 						<thead>
 							<tr>
 								<th scope="col" id="nBorder" class="th-title">제목</th>
-								<td><input type="text" id="noticeTitle" name="noticeTitle"></input></td>
+								<td><input type="text" id="noticeTitle" name="noticeTitle" value ="${notice.noticeTitle}"></input></td>
 								<th scope="col" id="nBorder" class="th-title">작성자/작성일자</th>
 								<td id="nBorder">${notice.noticeWriter }/${notice.noticeDate }</td>
 							</tr>
 							<tr>
 								<th scope="col" class="th-title">내용</th>
-								<td colspan="3"><textarea rows="1" cols="108" id="noticeSubject" name="noticeSubject"></textarea></td>
+								<td colspan="3"><textarea rows="15" cols="108" id="noticeSubject" name="noticeSubject">${notice.noticeSubject}</textarea></td>
 							</tr>
 					</table>
 				</div>

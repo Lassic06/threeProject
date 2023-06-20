@@ -10,6 +10,7 @@ import co.micol.mp.auction.service.AuctionService;
 import co.micol.mp.auction.service.AuctionVO;
 import co.micol.mp.auction.serviceImpl.AuctionServiceImpl;
 import co.micol.mp.common.Command;
+import co.micol.mp.controller.Paging;
 
 public class AuctionList implements Command {
 
@@ -18,9 +19,28 @@ public class AuctionList implements Command {
 		//경매 상품 리스트
 		AuctionService as = new AuctionServiceImpl();
 		List<AuctionVO> auctions = new ArrayList<>();
-		auctions = as.auctionList();
+		
+		//페이징처리
+		Paging paging = new Paging();
+		paging.setPageUnit(6);
+		//현재 페이지 번호
+		String page = request.getParameter("page");
+		int p = 1;
+		if(page != null) 
+			p = Integer.parseInt(page);
+		paging.setPage(p);
+		//전체 건수
+		int total = as.listPage();
+		paging.setTotalRecord(total);
+		
+		AuctionVO vo = new AuctionVO();
+		vo.setFirst(paging.getFirst());
+		vo.setLast(paging.getLast());
+
+		auctions = as.auctionList(vo);
 		
 		request.setAttribute("auctions", auctions);
+		request.setAttribute("paging", paging);
 		
 		
 		return "auction/auctionList";

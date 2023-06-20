@@ -47,8 +47,10 @@ import co.micol.mp.notice.command.NoticeInsert;
 import co.micol.mp.notice.command.NoticeInsertForm;
 import co.micol.mp.notice.command.NoticeList;
 import co.micol.mp.notice.command.NoticeSelect;
+import co.micol.mp.notice.command.NoticeSerch;
 import co.micol.mp.notice.command.NoticeUpdate;
 import co.micol.mp.product.command.ProductCateList;
+import co.micol.mp.product.command.ProductCateSerch;
 import co.micol.mp.product.command.ProductCategory;
 import co.micol.mp.product.command.ProductDelete;
 import co.micol.mp.product.command.ProductForm;
@@ -100,11 +102,10 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 인서트 폼 호출
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 인서트 기능
 		map.put("/noticeSelect.do", new NoticeSelect()); //공지사항 상세보기
-
-		//23.06.16 -> 공지사항 등록 폼 다 빠져있음 채워야함
 		map.put("/noticeDelete.do", new NoticeDelete()); // 공지사항 삭제
 		map.put("/noticeEdit.do", new NoticeEdit());  // 공지사항 업데이트 호출 폼
 		map.put("/noticeUpdate.do", new NoticeUpdate()); //공지사항 업데이트
+		map.put("/noticeSerch.do", new NoticeSerch()); // 공지사항 검색
 		
 		//제품등록 폼
 		map.put("/productList.do", new ProductList());
@@ -115,9 +116,12 @@ public class FrontController extends HttpServlet {
 		map.put("/productRecentList.do", new ProductRecentList());
 		map.put("/productDelete.do", new ProductDelete());
 		map.put("/productCateList.do", new ProductCateList());
+
+		map.put("/productCateSerch.do", new ProductCateSerch());
+
 		map.put("/productEdit.do", new ProductEdit());
 		map.put("/productUpdate.do", new ProductUpdate());
-		
+
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/ajaxReivewList.do", new AjaxReviewList());

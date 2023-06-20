@@ -15,7 +15,7 @@ public class AuctionVO {
 //	AUCTION_TEXT	VARCHAR2(1024 BYTE)
 //  AUCTION_MAX     NUMBER
 //	AUCTION_DATE	DATE	
-//	AUCTION_REVIEW	VARCHAR2(512 BYTE)	
+//	AUCTION_REVIEW	VARCHAR2(512 BYTE) -> AUCTION_LASTDATE 	DATE	
 //  AUCTION_SELLER  VARCHAR2(20 BYTE)
 //  AUCTION_BUYER   VARCHAR2(20 BYTE)
 //  AUCTION_COUNT   NUMBER
@@ -33,5 +33,7 @@ public class AuctionVO {
 	private String auctionBuyer;
 	private int auctionCount;
 	private String auctionDir;
+	private int first;
+	private int last;
 	
 }
