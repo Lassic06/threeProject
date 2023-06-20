@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.micol.mp.auction.service.AuctionMapper">
+	<!-- 옥션 몇 개씩 불러올지 정하는 곳 -->
 	<select id="auctionList"
 		resultType="co.micol.mp.auction.service.AuctionVO">
-		SELECT * FROM auction	
+			select * from(   select rownum  rn,a.* from(
+
+            SELECT * FROM auction
+            order by auction_name
+            
+ )  a   )where rn between #{first}  and #{last} 
 	</select>
 	
 	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
@@ -16,5 +22,11 @@
 	INSERT INTO PRODUCT VALUES(#{auctionId},#{auctionName},#{auctionPrice},
 		#{auctionImg},#{auctionText},#{auctionMax},SYSDATE,#{auctionReview},#{auctionSeller},#{auctionBuyer},#{auctionCount})
 	</insert>
+	
+	<!-- 옥션 페이지 번호 정하는 곳 -->
+	<select id="listPage" resultType="int">
+		SELECT COUNT(*)
+		FROM auction
+	</select>
 
 </mapper>

@@ -27,6 +27,7 @@ public class ProductVO {
 	private Date productDate;
 	private int productAmount;
 	private String productCategory;
-	
+	private int first;
+	private int last;
 	
 }

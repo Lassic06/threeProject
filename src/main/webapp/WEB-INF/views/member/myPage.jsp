@@ -265,10 +265,9 @@ section.notice {
 		function callFunction(str) {
 			let frm = document.getElementById("frm");
 			if (str == 'E') {
-				frm.action = "memberUpdateform.do"
+				frm.action = "memberUpdateForm.do"
 			} else if(str == 'C'){
 				frm.action = "buyList.do"
-				frm.action = "memberUpdateForm.do"
 			} else {
 				frm.action = "memberDelete.do"
 			}

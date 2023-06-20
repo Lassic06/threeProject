@@ -121,7 +121,7 @@ h2{
 								<!-- 제품 종류 -->
 										<form>
 										  <label for="clothes"> Category </label>
-										  <select id="clothes" name="clothes">
+										  <select id="clothes" name="productCategory">
 										    <option value="">✨Select✨</option>
 										      <option value="top">👚top👚</option>
 										      <option value="bottom">👖bottom👖</option>

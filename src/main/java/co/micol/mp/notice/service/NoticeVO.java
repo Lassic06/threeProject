@@ -23,5 +23,7 @@ public class NoticeVO {
 	private Date noticeDate;
 	private String noticeWriter;
 	private String noticeCount;
+	private int first;
+	private int last;
 	
 }

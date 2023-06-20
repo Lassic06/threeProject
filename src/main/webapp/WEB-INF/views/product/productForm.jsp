@@ -29,8 +29,8 @@
 }
 		
 #rTitle{
-	font-size: 30px;
-	margin-left: 120px;
+	font-size: 40px;
+	margin-left: 60px;
 }
 
 #reviewInsert{
@@ -52,6 +52,13 @@ td{
 	text-align: center;
 	padding: 5px;
 	}
+textarea {
+    width: 1200px;
+    height: 6.25em;
+    border: none;
+    resize: none;
+    border: 2px solid #ccc;
+  }
 </style>
 </head>
 <body>
@@ -146,7 +153,7 @@ td{
 	    		<textarea rows="2" cols="100" name="reviewSubject" id="reviewSubject"></textarea>
 	    	</div>
 	    	<div>
-	    		<button type="button" id="reviewInsert" name="reviewInsert" class="btn btn-dark">Submit</button>
+	    		<button type="button" onclick="reviewInsert()" id="btnstyle" class="btn btn-dark">Submit</button>
 	    	</div>
 	    	<input type="hidden" id="reviewCheck" name="productId" value="${product.productId }">
 	    </div>
@@ -156,7 +163,7 @@ td{
 	    
     </form>
 <script type="text/javascript">
-$(".reviewInsert").click(function(){	
+function reviewInsert(){
 	if(${id == null} ){
 		alert("로그인 하셔야 합니다.");
 		return "memberLoginForm.do";
@@ -182,7 +189,7 @@ $(".reviewInsert").click(function(){
 		}
 	});
 	
-});
+}
 reviewList();
  function reviewList(){
 	let url = "ajaxReivewList.do"

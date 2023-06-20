@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    
 </head>
 <style>
   a.top {
@@ -61,7 +62,6 @@
     <!-- Footer Section Begin -->
     <tiles:insertAttribute name="footer"></tiles:insertAttribute>
     <!-- Footer Section End -->
-
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -73,6 +73,7 @@
     <script src="js/main.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+
       $( document ).ready( function() {
         $( window ).scroll( function() {
           if ( $( this ).scrollTop() > 200 ) {
