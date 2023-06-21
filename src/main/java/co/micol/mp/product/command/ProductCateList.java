@@ -17,12 +17,18 @@ public class ProductCateList implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		ProductService ps = new ProductServiceImpl();
+		
 		List<ProductVO> products = new ArrayList<>();
+		
 		ProductVO vo = new ProductVO();
+		
 		String productCategory = request.getParameter("productCategory");
 		
 		vo.setProductCategory(productCategory);
 		products = ps.productCateList(vo);
+		
+		vo = ps.productCategory(vo);
+		request.setAttribute("vo", vo);
 		
 		request.setAttribute("products", products);
 	

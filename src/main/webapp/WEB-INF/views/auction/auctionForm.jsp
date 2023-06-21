@@ -24,13 +24,13 @@
 	                    <div class="product-slider owl-carousel">
 	                        <div class="product-img">
 	                            <figure>
-	                                <img src="images/${auction.auctionDir }" alt="img"> 
+	                                <img src="images/${auction.auctionDir }" alt="img" height=500px> 
 									<div class="p-status">new</div>
 	                            </figure>
 	                        </div>
 	                        <div class="product-img">
 	                            <figure>
-	                                <img src="images/${auction.auctionDir }" alt="img">
+	                                <img src="images/${auction.auctionDir }" alt="img" height=500px>
 	                                <div class="p-status">new</div>
 	                            </figure>
 	                        </div>
@@ -41,17 +41,26 @@
 	                    <div class="product-content">
 	                        <h2>${auction.auctionName }</h2>
 	                        <div class="pc-meta">
-	                            <h5><fmt:formatNumber value="${auction.auctionPrice}" pattern="#,###원" /></h5>      
-	                            <div class="rating">
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                                <i class="fa fa-star"></i>
-	                            </div>
+	                           <h5><fmt:formatNumber value="${auction.auctionPrice}" pattern="#,###원" /></h5>   
+	                           <p>${auction.auctionText }</p>   
+                               <div class="sec7-text-box">
+								  <p class="runTimeCon">마감 날짜 : ${auction.auctionLastDate }</p>
+								  <hr/>
+								  <p class="time-title">경매 마감까지 남은 시간</p>
+								  <div class="time">
+								    <span id="d-day-hour">00</span>
+								    <span class="col">:</span>
+								    <span id="d-day-min">00</span>
+								    <span class="col">:</span>
+								    <span id="d-day-sec">00</span>
+								  </div>
+							 	</div>
+	                        	
 	                        </div>
-	                        <p>${auction.auctionText }</p>
-			              </div>
+			            </div>		           
+			            <div id ="auctionlist">
+			            	 <p>현재 경매가</p>
+			            </div>
 		            </div>
 		        </div>
             </form>
@@ -65,15 +74,17 @@
 			            	<button type="button" class="primary-btn pc-btn" onclick="auciotnPriceInsert()">금액 입력</button>
 			            </c:if>			            
 			            <c:if test="${empty id }">
-			            	<a href="memberLoginForm.do" class="primary-btn pc-btn">Add to cart</a>
+			            	<a href="memberLoginForm.do" class="primary-btn pc-btn">금액 입력</a>
 			            </c:if>
 					</div>
 					<input type="hidden" id="priceCheck" name="auctionId" value="${auction.auctionId }">	    	
+					<input type="hidden" id="maxPrice" name="auctionMax" value="${auction.auctionMax }">	
+					<input type="hidden" id = "auctionName" name = "auctionName" value = "${auction.auctionName }">    	
+					<input type="hidden" id = "acutionImg" name = "auctionImg" value = "${auction.auctionDir }">
+				   
 				</div>  	
 			</form>
-            <ul class="tags">
-               	<li><span id ="auctionPrice"></span> </li>
-            </ul>
+          
            
             <!-- 데이터 값 가져오는 기능 -->
             <input type="hidden" id = "memberId" name = "memberId" value="${id }">
@@ -87,24 +98,35 @@
    
 <script type="text/javascript">
 function auciotnPriceInsert(){
+	let today = new Date();
+	console.log(today);
+
 	if(${id == null} ){
 		alert("로그인 하셔야 합니다.");
 		return;
 	}	
 	//경매 금액
 	var auctionPrice = $("#auctionPrice").val();
-	
+	console.log(${auction.auctionMax});
 	var queryString = $("form[name=auctionFrm]").serialize();
-	if(${auction.auctionPrice} < auctionPrice){		
+	if(${auction.auctionMax} <= auctionPrice  ){
+		if(confirm("바로 구매하시겠습니까?")==true){
+			auctionFrm.action="auctionBuyInsert.do";
+		}else{
+			return;
+		}
+		auctionFrm.submit();
+	}
+	else if(${auction.auctionPrice} < auctionPrice){		
 		$.ajax({
 			url:"auctionPriceInsert.do",
 			type:"POST",
 			data:queryString,
 			success:function(){			
-					alert("성공"); 
+					/* alert("성공");  */
 					$("#auctionPrice").val("").focus();
-					$("#auctionPriceSelect").empty();				
-					auctionPriceSelect();		
+					$("#auctionlist").empty();				
+					auctionPriceSelect();					
 			},
 			error: function(request, status, error){
 				alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
@@ -114,8 +136,7 @@ function auciotnPriceInsert(){
 		alert("현재 금액보다 높은 금액을 입력하세요");
 		$("#auctionPrice").val("").focus();
 		return;
-	}
-	
+	}				
 }
 auctionPriceSelect();
  function auctionPriceSelect(){
@@ -127,20 +148,48 @@ auctionPriceSelect();
  
  function HtmlConvert(datas){
 	 const container = document.createElement('table');//<table>태그 생성
-	 console.log(datas);
-	 container.innerHTML = datas.map(data => createHTMLString(data)).join("");
-	 
-	 document.querySelector('#auctionPrice').appendChild(container);//화면에 추가
+	 container.innerHTML = createHTMLString(datas);
+	 document.querySelector("#auctionlist").appendChild(container);//화면에 추가
+	
  }
  function createHTMLString(data){
-	let str="<tr>";
-		str+="<td>"+ data.auctionBuyer+"</td>";
-		str+="<td>"+ data.auctionPrice+"</td></tr>";
+	let str="<tr>";		
+		str+="<td>"+ "구매자 : " +"</td>";
+		str+="<td>"+ data.auctionBuyer +"</td>";
+		str+="<td>"+ "최고 가격 : " +"</td>";
+		str+="<td>"+ data.auctionPrice +"</td></tr>";
 	return str;
 	
  }
  
- 
+function remaindTime() {
+	var now = new Date(); //현재시간을 구한다. 
+	var open = new Date("${auction.auctionLastDate}");
+	var nt = now.getTime(); // 현재의 시간만 가져온다
+	var ot = open.getTime(); // 오픈시간만 가져온다
+  
+    if(nt<ot){ //현재시간이 오픈시간보다 이르면 오픈시간까지의 남은 시간을 구한다.   
+		sec = parseInt(ot - nt) / 1000;
+		hour = parseInt(sec/60/60);
+		sec = (sec - (hour*60*60));
+		min = parseInt(sec/60);
+		sec = parseInt(sec-(min*60));
+  
+    if(hour<10){hour="0"+hour;}
+    if(min<10){min="0"+min;}
+    if(sec<10){sec="0"+sec;}
+		$("#d-day-hour").html(hour);
+		$("#d-day-min").html(min);
+		$("#d-day-sec").html(sec);
+    }else{ //현재시간이 종료시간보다 크면
+	    $("#d-day-hour").html('00');
+	    $("#d-day-min").html('00');
+	    $("#d-day-sec").html('00');  
+		auctionFrm.action="auctionBuyInsert.do";
+		auctionFrm.submit();
+   }
+}
+setInterval(remaindTime,1000);
  
 </script>
 </body>

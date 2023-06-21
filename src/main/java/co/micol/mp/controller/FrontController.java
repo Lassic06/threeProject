@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.mp.auction.command.AjaxAuctionSelect;
+import co.micol.mp.auction.command.AuctionBuyInsert;
 import co.micol.mp.auction.command.AuctionForm;
 import co.micol.mp.auction.command.AuctionInsert;
 import co.micol.mp.auction.command.AuctionInsertForm;
@@ -148,6 +149,7 @@ public class FrontController extends HttpServlet {
 		map.put("/auctionInsertForm.do", new AuctionInsertForm());
 		map.put("/auctionPriceInsert.do", new AuctionPriceInsert());
 		map.put("/ajaxAuctionSelect.do", new AjaxAuctionSelect());
+		map.put("/auctionBuyInsert.do", new AuctionBuyInsert());
 
 		//구매내역 호출 폼
 		map.put("/buyList.do", new BuyList()); //구매내역 조회

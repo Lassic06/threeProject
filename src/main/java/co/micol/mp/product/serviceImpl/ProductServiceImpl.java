@@ -67,4 +67,10 @@ public class ProductServiceImpl implements ProductService {
 		return map.productUpdate(vo);
 	}
 
+	@Override
+	public ProductVO productCategory(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productCategory(vo);
+	}
+
 }

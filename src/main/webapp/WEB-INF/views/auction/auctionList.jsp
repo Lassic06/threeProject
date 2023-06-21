@@ -61,7 +61,7 @@ flex-wrap:wrap;
 			</div>
 		</div>
 
-		<!-- 페이징 -->
+		<%-- <!-- 페이징 -->
 		<nav aria-label="Page navigation example">
 		<ul id ="pagination" class="pagination">
 			<c:if test="${paging.startPage>1 }">
@@ -80,39 +80,35 @@ flex-wrap:wrap;
 					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.endPage+1})">다음</a>
 				</c:if>
 			</ul>
-		</nav>
-	</section>
-	<form id="frm" action="auctionSelect.do" method="post">
+		</nav> --%>
+	
+	<!-- <form id="frm" action="auctionSelect.do" method="post">
 		<input type="hidden" id="auctionId" name="auctionId">
-	</form>
+	</form> -->
   	<div>
-			<form id="frm" action="auctionForm.do" method="post">
-				<input type="hidden" id="auctionId" name="auctionId">
-			</form>
-		</div>
+		<form id="frm" action="auctionForm.do" method="post">
+			<input type="hidden" id="auctionId" name="auctionId">
+		</form>
+	</div>
   
-	</div>
-	</div>
+	
 	<script type="text/javascript">
-	function auctionChois(id){
+		function auctionChois(id){
 			let frm = document.getElemntById("frm");
+	 		frm.auctionId.value = id; 
+			frm.submit(); 
+		}
+
+		function gopage(p){
+			location.href="auctionList.do?page="+p
+		}
+
+		function auctionChois(id){
+			let frm = document.getElementById("frm");
  			frm.auctionId.value = id; 
 			frm.submit(); 
 		}
-		</script>
-	<script type="text/javascript">
-	function gopage(p){
-		location.href="auctionList.do?page="+p
-	}
 	</script>
-
-		<script type="text/javascript">
-			function auctionChois(id){
-				let frm = document.getElementById("frm");
-	 			frm.auctionId.value = id; 
-				frm.submit(); 
-			}
-		</script>
 	</section>	
 
 </body>

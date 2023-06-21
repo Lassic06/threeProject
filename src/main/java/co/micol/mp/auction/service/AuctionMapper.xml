@@ -4,12 +4,8 @@
 	<!-- 옥션 몇 개씩 불러올지 정하는 곳 -->
 	<select id="auctionList"
 		resultType="co.micol.mp.auction.service.AuctionVO">
-			select * from(   select rownum  rn,a.* from(
-
-            SELECT * FROM auction
-            order by auction_name
-            
- )  a   )where rn between #{first}  and #{last} 
+	      SELECT * FROM auction
+           
 	</select>
 	
 	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
@@ -19,9 +15,6 @@
 	</select>
 	
 	<insert id = "auctionInsert">
-
-
-
 		INSERT INTO AUCTION 
 		VALUES( #{auctionId},
 				#{auctionName},
@@ -30,10 +23,11 @@
 				#{auctionText},
 				#{auctionMax},
 				SYSDATE,
-				#{auctionReview},
+				#{auctionLastDate},
 				#{auctionSeller},
 				#{auctionBuyer},
-				#{auctionCount}
+				#{auctionCount},
+				#{auctionDir}
 				)
 	</insert>
 	
@@ -45,11 +39,23 @@
 	</update>
 	
 	<select id="auctionPriceSelect" resultType="co.micol.mp.auction.service.AuctionVO">
-		SELECT AUCTION_BUYER, AUCTION_PRICE
+		SELECT *
 		FROM AUCTION
 		WHERE AUCTION_ID = #{auctionId}
 		
 	
 	</select>
+
+	<insert id="auctionBuyListInsert">
+		INSERT INTO AUCTIONBUYLIST
+		VALUES( #{memberId},
+				#{auctionId},
+				#{auctionName},
+				#{auctionPrice},
+				#{auctionDir},
+				SYSDATE 
+		
+			  )
+	</insert>
 
 </mapper>
