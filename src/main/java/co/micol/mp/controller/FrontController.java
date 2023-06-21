@@ -36,6 +36,7 @@ import co.micol.mp.member.command.MemberList;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MemberPw;
 import co.micol.mp.member.command.MemberPwForm;
 import co.micol.mp.member.command.MemberSelect;
 import co.micol.mp.member.command.MemberUpdate;
@@ -130,9 +131,8 @@ public class FrontController extends HttpServlet {
 
 		//마이페이지
 		map.put("/myPage.do", new MyPage());
-		
-		//내정보 수정
-		map.put("/memberPwForm", new MemberPwForm());
+		map.put("/memberPwForm.do", new MemberPwForm());
+		map.put("/memberPw.do", new MemberPw());
 
 		//장바구니 폼
 		map.put("/cartCompare.do", new CartCompare()); // 장바구니 담기

@@ -9,28 +9,22 @@ import co.micol.mp.member.service.MemberService;
 import co.micol.mp.member.service.MemberVO;
 import co.micol.mp.member.serviceImpl.MemberServiceImpl;
 
-public class MemberUpdate implements Command {
+public class MemberPw implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 회원정보수정 실행
-	
 		MemberService ms = new MemberServiceImpl();
 		HttpSession session = request.getSession();
 		MemberVO vo = new MemberVO();
 		vo.setMemberId(String.valueOf(session.getAttribute("id")));
 		vo.setMemberPw(request.getParameter("memberPw"));
-		vo.setMemberName(request.getParameter("memberName"));
-		vo.setMemberTel(request.getParameter("memberTel"));
-		vo.setMemberAddr(request.getParameter("memberAddr"));
 	
-		ms.memberUpdate(vo);
+		ms.memberPw(vo);
 		
 		request.setAttribute("member", vo);
 		//세션 삭제
 		session.invalidate();
 		
-		
 		return "main/main";
+		
 	}
-
 }
