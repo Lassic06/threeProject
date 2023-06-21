@@ -16,4 +16,6 @@ public interface MemberMapper {
 	MemberVO memberLogin(MemberVO vo);
 	
 	MemberVO member(MemberVO vo); //마이페이지
+	
+	int memberPw(MemberVO vo);
 }

@@ -5,12 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.micol.mp.common.Command;
 
+
 public class MemberPwForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	
+	return "member/memberPwForm";
 	}
-
 }
