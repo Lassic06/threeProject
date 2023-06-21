@@ -247,7 +247,13 @@ td{
 									</a>
 									</td>
 									<td><input type="text" id="productPrice" name="productPrice" class="form-control" value="${c.productPrice }"></td>
-									<td><input type="text" id="productAmount" name="productAmount" class="form-control" value="${c.productAmount }"></td>
+									<td>
+									<div class="product-quantity">
+                            		<div class="pro-qty">
+                                	<input type="text" id = "productAmount" name = "productAmount" class="form-control" value="${c.productAmount }"> <!-- 데이터 값 가져오는 ID, NAME -->
+                            		</div>
+                        			</div>
+									</td>
 									<td>
 										<button type="submit" class="btn btn-dark" formaction="buyListInsert.do">구매하기</button>
 										<button type="submit" class="btn btn-dark" formaction="cartDelete.do">삭제하기</button>

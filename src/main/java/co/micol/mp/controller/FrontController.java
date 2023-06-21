@@ -65,6 +65,7 @@ import co.micol.mp.product.command.ProductRecentList;
 import co.micol.mp.product.command.ProductUpdate;
 import co.micol.mp.product.command.ProductEdit;
 import co.micol.mp.review.command.AjaxReviewList;
+import co.micol.mp.review.command.DeleteReview;
 import co.micol.mp.review.command.ReviewInsert;
 
 /**
@@ -130,6 +131,7 @@ public class FrontController extends HttpServlet {
 		//리뷰
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/ajaxReivewList.do", new AjaxReviewList());
+		map.put("/deleteReview.do", new DeleteReview()); //리뷰삭제
 
 
 		//마이페이지

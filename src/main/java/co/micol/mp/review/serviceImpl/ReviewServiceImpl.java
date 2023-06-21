@@ -22,6 +22,11 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return map.reviewList(string);
 	}
+	@Override
+	public int deleteReview(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		return map.deleteReview(vo);
+	}
 
 	
 

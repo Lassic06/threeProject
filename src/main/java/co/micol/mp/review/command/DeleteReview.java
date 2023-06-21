@@ -9,22 +9,22 @@ import co.micol.mp.review.service.ReviewService;
 import co.micol.mp.review.service.ReviewVO;
 import co.micol.mp.review.serviceImpl.ReviewServiceImpl;
 
-public class ReviewInsert implements Command {
+public class DeleteReview implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+		// 리뷰삭제
 		ReviewService rs = new ReviewServiceImpl();
 		ReviewVO vo = new ReviewVO();
+		HttpSession session = request.getSession();
+		String memberId = String.valueOf(session.getAttribute("id"));
+//		System.out.println(request.getParameter("memberId"));
+		vo.setMemberId(memberId);
 		
-		vo.setReviewSubject((request.getParameter("reviewSubject")).replaceAll("\r\n", "<br/>"));
-		vo.setMemberId((String)session.getAttribute("id"));
-		vo.setProductId(request.getParameter("productId"));
-		vo.setMemberName(request.getParameter("memberName"));
-		rs.insertReview(vo);
+		rs.deleteReview(vo);
 		
-		return "product/productForm";
+		return "productForm.do?productId="+request.getParameter("productId");
+	
 	}
 
 }

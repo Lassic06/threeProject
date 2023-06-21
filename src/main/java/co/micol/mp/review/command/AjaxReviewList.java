@@ -35,5 +35,6 @@ public class AjaxReviewList implements Command {
 		
 		return str;
 	}
-
 }
+
+	

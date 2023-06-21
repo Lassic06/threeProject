@@ -9,8 +9,6 @@ public interface AuctionService {
 
 	int auctionInsert(AuctionVO vo);
 
-	
-
 	int auctionPriceInsert(AuctionVO vo);
 
 

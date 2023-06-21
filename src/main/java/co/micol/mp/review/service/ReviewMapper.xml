@@ -14,8 +14,10 @@
 		  FROM REVIEW R 
 		  JOIN MEMBER M ON M.MEMBER_ID=R.MEMBER_ID 
 		  JOIN PRODUCT P ON P.PRODUCT_ID = R.PRODUCT_ID  WHERE R.PRODUCT_ID=#{productId}
-		
-		 
 	</select>
+	<delete id="deleteReview" >
+		DELETE FROM review
+		WHERE member_id = #{memberId} 
+	</delete>
 	
 </mapper>
