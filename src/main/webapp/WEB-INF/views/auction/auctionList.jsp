@@ -33,25 +33,47 @@ flex-wrap:wrap;
 				<c:forEach items="${auctions }" var="a">
 					<div class="item">
 						<div id="single-product-item" class="single-product-item">
-							<div onclick="auctionChois('${a.auctionId }')">
-								<figure>
-									<img id="img" src="images/${a.auctionDir}" alt="">
-								</figure>
-							</div>
-						<div id="textBox" class="product-text">						
-							<h6>${a.auctionId }</h6>			
+							<c:choose>
+							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+							   		<div>
+										<figure>
+											<img id="img" src="images/${a.auctionDir}" alt="">
+										</figure>
+									</div>
+							    </c:when>
+							    <c:otherwise>
+									<div onclick="auctionChois('${a.auctionId }')">
+										<figure>
+											<img id="img" src="images/${a.auctionDir}" alt="">
+										</figure>
+									</div>
+							    </c:otherwise>
+							</c:choose>
 
+						<div id="textBox" class="product-text">					
 							<p>
 								<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
 							</p>
-							<p>${a.auctionName }</p>
+							<c:choose>
+							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+							   		<div>
+										<p>${a.auctionName }</p><h6>(상품이 판매되었습니다.)</h6>
+									</div>
+							    </c:when>
+							    <c:otherwise>
+									<p>${a.auctionName }</p>
+							    </c:otherwise>
+							</c:choose>
+							
 							<p>
 								<span>즉시구매</span> <span>${a.auctionMax }</span> 원
 							</p>
 							<span>입찰건수</span> ${a.auctionCount }
 							<p>
-								<span> 종료일: <span>${a.auctionDate }</span>
-								</span> <span> <span>판매자 </span> ${a.auctionSeller }
+								<span>
+								 종료일: <span>${a.auctionLastDate }</span>
+								</span> 
+								<span> <span>판매자 </span> ${a.auctionSeller }
 								</span>
 							</p>
 						</div>
@@ -60,6 +82,7 @@ flex-wrap:wrap;
 				</c:forEach>
 			</div>
 		</div>
+
 
 		<%-- <!-- 페이징 -->
 		<nav aria-label="Page navigation example">
@@ -83,6 +106,8 @@ flex-wrap:wrap;
 		</nav> --%>
 	
 	<!-- <form id="frm" action="auctionSelect.do" method="post">
+	</section>
+	<form id="frm" action="auctionSelect.do" method="post">
 		<input type="hidden" id="auctionId" name="auctionId">
 	</form> -->
   	<div>

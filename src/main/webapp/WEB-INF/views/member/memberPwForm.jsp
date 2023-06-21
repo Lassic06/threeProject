@@ -229,40 +229,101 @@ td {
 		</div>
 		<!-- board list area -->
 
-		<form id="frm" action="memberUpdate.do" method="post">
+		<form id="frm" action="memberPw.do" method="post" onsubmit="return changePwValidate()">
 			<div id="board-list">
 				<div class="container">
 					<table class="board-table">
 						<thead>
 							<tr>
-								<!-- 멤버아이디 수정 -->
-								<th scope="col" id="border" class="th-num">ID</th>
+								<!-- 비밀번호 수정 -->
+								<th scope="col" id="border" class="th-num">현재 비밀번호</th>
 								<td><div class="col-md-8">
-										<input id="memberPw" name="memberPw" type="text"
+										<input id="oldPw" name="oldPw" type="text"
 											placeholder="현재 비밀번호" class="form-control">
 									</div>
 							</tr>
 							<tr>
-								<!-- 멤버비밀번호 수정 -->
-								<th scope="col" id="border" class="th-num">PW</th>
+								<th scope="col" id="border" class="th-num">새 비밀번호</th>
 								<td><div class="col-md-8">
-										<input id="NewPw" name="NewPw" type="text"
+										<input id="newPw" name="newPw" type="text"
 											placeholder="새 비밀번호" class="form-control">
 									</div></td>
 							</tr>
 							<tr>
 							<tr>
-								<!-- 멤버비밀번호 수정 -->
-								<th scope="col" id="border" class="th-num">PW</th>
+								<th scope="col" id="border" class="th-num">새 비밀번호 확인</th>
 								<td><div class="col-md-8">
-										<input id="NewPwCheck" name="NewPwCheck" type="text"
+										<input id="memberPw" name="memberPw" type="text"
 											placeholder="새 비밀번호" class="form-control">
 									</div></td>
 							</tr>
 							<tr>
 						</tbody>
 					</table>
+					<div align="center">
+						<button id="searchBtn" type="submit" class="btn btn-dark">확인</button>
+						<td><button class="btn btn-dark" type="button"
+								onclick="location.href='myPage.do'">취소</button></td>
+								
+						<input type="hidden" id = "toPw" name = "toPw" value="${id }">
+					</div>
 				</div>
 			</div>
 		</form>
+		<script type="text/javascript">
+			/////////////////////////////////////////////////// 비밀번호 수정 
+			function printAlert(el, message) { // 매개변수 el은 요소
+				alert(message);
+				el.focus();
+				return false;
+			}
+
+			// 비밀번호 변경 제출 시 유효성 검사
+			function changePwValidate() {
+
+				// 비밀번호 변경 관련 input 요소 얻어오기
+				const toPw = document.getElementsByName("#memberPw")[0];
+				const oldPw = document.getElementsByName("oldPw")[0];
+				const newPw = document.getElementsByName("newPw")[0];
+				const memberPw = document.getElementsByName("memberPw")[0];
+
+				// 현재 비밀번호 미작성
+				if (oldPw.value.trim().length == 0) {
+					/*alert("현재 비밀번호를 입력해주세요.");
+					currentPw.focus();
+					return false;*/
+
+					return printAlert(oldPw, "현재 비밀번호를 입력해주세요.");
+				}
+		 		// 기존 비밀번호와 비교
+				if (oldPw.value != "${Pw}".value) {
+					PrintAlert(oldPw, "현재 비밀번호가 일치하지 않습니다.")
+					return false;
+				} 
+				
+				// 새 비밀번호
+				// 미작성
+				if (newPw.value.trim().length == 0) {
+					alert("새 비밀번호를 입력해주세요.");
+					newPw.focus();
+					return false;
+				}
+
+				// 새 비밀번호 확인
+				// 미작성
+				if (memberPw.value.trim().length == 0) {
+					return printAlert(memberPw, "새 비밀번호 확인을 입력해주세요.");
+				}
+
+				// 새 비밀번호 != 새 비밀번호 확인
+				if (newPw.value != memberPw.value) {
+					return printAlert(memberPw, "새 비밀번호가 일치하지 않습니다.");
+				}
+				return true; // 위 조건을 모두 수행하지 않은 경우 true 반환
+			}
+		</script>
 	</section>
+
+
+</body>
+</html>

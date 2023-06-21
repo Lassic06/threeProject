@@ -33,9 +33,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> productSerch(String search) {
+	public List<ProductVO> productSerch(ProductVO vo) {
 		// TODO Auto-generated method stub
-		return map.productSerch(search);
+		return map.productSerch(vo);
 	}
 
 	@Override
@@ -66,6 +66,19 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.productUpdate(vo);
 	}
+	
+	@Override
+	public ProductVO productCategory(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productCategory(vo);
+	}
+
+	@Override
+	public List<ProductVO> productAllSerch(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productAllSerch(vo);
+	}
+
 
 	@Override
 	public ProductVO productCategory(ProductVO vo) {

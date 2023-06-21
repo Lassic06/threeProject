@@ -5,7 +5,6 @@
 	<select id="auctionList"
 		resultType="co.micol.mp.auction.service.AuctionVO">
 	      SELECT * FROM auction
-           
 	</select>
 	
 	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
