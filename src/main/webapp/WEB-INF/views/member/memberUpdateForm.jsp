@@ -239,7 +239,7 @@ td {
 								<th scope="col" id="border" class="th-num">ID</th>
 								<td><div class="col-md-8">
 										<input id="memberId" name="memberId" type="text"
-											placeholder="${member.memberId }" class="form-control" readonly="readonly">
+											placeholder="${id }" class="form-control" readonly="readonly">
 									</div>
 							</tr>
 							<tr>
@@ -247,9 +247,9 @@ td {
 								<th scope="col" id="border" class="th-num">PW</th>
 								<td><div class="col-md-8">
 										<input id="memberPw" name="memberPw" type="text"
-											placeholder="${member.memberPw }" class="form-control" readonly="readonly">
-											<td><button class="btn btn-dark" type="button"
-											onclick="callFunction('C')">수정</button></td>
+											placeholder="Pw" class="form-control" value="${pw }">
+										<td><button class="btn btn-dark" type="button" onclick="location.href='memberPwForm.do'">수정</button></td>
+		
 									</div></td>
 							</tr>
 							<tr>
@@ -258,9 +258,8 @@ td {
 								<td>
 									<div class="col-md-8">
 										<input class="form-control" id="memberName" name="memberName"
-											type="text" placeholder="${member.memberName }" readonly="readonly">
-											<td><button class="btn btn-dark" type="button"
-											onclick="callFunction('D')">수정</button></td>
+											type="text" placeholder="Name" value="${name }">
+											
 									</div>
 								</td>
 							</tr>
@@ -270,9 +269,8 @@ td {
 								<td>
 									<div class="col-md-8">
 										<input class="form-control" id="memberAddr" name="memberAddr"
-											type="text" placeholder="${member.memberAddr }" readonly="readonly">
-											<td><button class="btn btn-dark" type="button"
-											onclick="callFunction('E')">수정</button></td>
+											type="text" placeholder="Addr" value="${addr }">
+											
 									</div>
 								</td>
 							</tr>
@@ -281,9 +279,8 @@ td {
 								<th scope="col" id="border" class="th-num">TEL</th>
 								<td><div class="col-md-8">
 										<input id="memberTel" name="memberTel" type="text"
-											placeholder="${member.memberTel }" class="form-control" readonly="readonly">
-											<td><button class="btn btn-dark" type="button"
-											onclick="callFunction('F')">수정</button></td>
+											placeholder="TEL" class="form-control" value="${tel }">
+											
 									</div></td>
 							</tr>
 							<!-- 							<tr> -->
@@ -303,38 +300,19 @@ td {
 							<!-- 							</tr> -->
 						</tbody>
 					</table>
+					<div align="center">
+						<button id="searchBtn" type="submit" class="btn btn-dark">Submit</button>
+					</div>
 				</div>
 			</div>
 		</form>
-		<div>
+	<div>
 			<form id="frm" method="post">
 				<input type="hidden" id="memberId" name="memberId"
 					value="${member.memberId }">
 			</form>
 		</div>
 	
-		<script type="text/javascript">
-			function callFunction(str) {
-				let frm = document.getElementById("frm");
-				if (str == 'C') {
-					frm.action = "memberPwForm.do"
-				} else if (str == 'D') {
-					frm.action = "buyList.do"
-				} else if (str == 'E') {
-					frm.action = ""
-				} else {
-					frm.action = "memberDelete.do"
-				}
-				frm.submit();
-			}
-		
-		</script>
-		<!-- 저장버튼 -->
-		<!-- <div align="center">
-						<button id="searchBtn" type="submit" class="btn btn-dark">Submit</button>
-					</div>  -->
-
-
 	</section>
 
 

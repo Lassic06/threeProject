@@ -3,6 +3,7 @@ package co.micol.mp.member.serviceImpl;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+
 import co.micol.mp.common.DataSource;
 import co.micol.mp.member.service.MemberMapper;
 import co.micol.mp.member.service.MemberService;
@@ -41,6 +42,13 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO memberLogin(MemberVO vo) {
 		return map.memberLogin(vo);
+	}
+
+
+	@Override
+	public int memberPw(MemberVO vo) {
+		return map.memberPw(vo);
+		
 	}
 
 }
