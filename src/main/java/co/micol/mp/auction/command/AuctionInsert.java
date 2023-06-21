@@ -25,7 +25,7 @@ public class AuctionInsert implements Command {
 				AuctionVO vo = new AuctionVO();
 				HttpSession session = request.getSession();
 				
-				//String dir =File.separator+ "img" +File.separator + "product" + File.separator;
+		
 				String dir =File.separator+ "images" + File.separator;
 				String saveDir = request.getSession().getServletContext().getRealPath(dir);
 				
@@ -41,6 +41,7 @@ public class AuctionInsert implements Command {
 														new DefaultFileRenamePolicy());
 					String pfile = multi.getFilesystemName("pfile");
 					String ofile = multi.getOriginalFileName("pfile");
+					System.out.println(pfile);
 					vo.setAuctionId(multi.getParameter("auctionId"));
 					vo.setAuctionSeller(String.valueOf(session.getAttribute("id")));
 					vo.setAuctionName(multi.getParameter("auctionName"));
@@ -54,6 +55,7 @@ public class AuctionInsert implements Command {
 					if(ofile != null) {
 						vo.setAuctionImg(ofile);
 						vo.setAuctionDir(pfile);
+						
 					}
 					
 					as.auctionInsert(vo);

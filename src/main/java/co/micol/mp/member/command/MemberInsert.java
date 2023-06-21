@@ -18,7 +18,7 @@ public class MemberInsert implements Command {
 		vo.setMemberId(request.getParameter("memberId"));
 		vo.setMemberPw(request.getParameter("memberPw"));
 		vo.setMemberName(request.getParameter("memberName"));
-		vo.setMemberAddr(request.getParameter("memberAddr"));
+		vo.setMemberAddr(request.getParameter("memberAddrTest") + " " + request.getParameter("memberAddr"));
 		vo.setMemberTel(request.getParameter("memberTel"));
 		vo.setMemberAuth(request.getParameter("memberAuth"));
 

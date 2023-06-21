@@ -20,10 +20,10 @@ public class AuctionList implements Command {
 		AuctionService as = new AuctionServiceImpl();
 		List<AuctionVO> auctions = new ArrayList<>();
 		
-
 		auctions = as.auctionList();
 		
 		request.setAttribute("auctions", auctions);
+
 		
 		return "auction/auctionList";
 	}

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.mp.auction.command.AjaxAuctionSelect;
+import co.micol.mp.auction.command.AuctionBuyInsert;
 import co.micol.mp.auction.command.AuctionForm;
 import co.micol.mp.auction.command.AuctionInsert;
 import co.micol.mp.auction.command.AuctionInsertForm;
@@ -36,6 +37,7 @@ import co.micol.mp.member.command.MemberList;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MemberPw;
 import co.micol.mp.member.command.MemberPwForm;
 import co.micol.mp.member.command.MemberSelect;
 import co.micol.mp.member.command.MemberUpdate;
@@ -50,6 +52,7 @@ import co.micol.mp.notice.command.NoticeList;
 import co.micol.mp.notice.command.NoticeSelect;
 import co.micol.mp.notice.command.NoticeSerch;
 import co.micol.mp.notice.command.NoticeUpdate;
+import co.micol.mp.product.command.ProductAllSearch;
 import co.micol.mp.product.command.ProductCateList;
 import co.micol.mp.product.command.ProductCateSerch;
 import co.micol.mp.product.command.ProductCategory;
@@ -120,6 +123,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productCateList.do", new ProductCateList());
 
 		map.put("/productCateSerch.do", new ProductCateSerch());
+		map.put("/productAllSearch.do", new ProductAllSearch());
 
 		map.put("/productEdit.do", new ProductEdit());
 		map.put("/productUpdate.do", new ProductUpdate());
@@ -132,14 +136,13 @@ public class FrontController extends HttpServlet {
 
 		//마이페이지
 		map.put("/myPage.do", new MyPage());
-		
-		//내정보 수정
-		map.put("/memberPwForm", new MemberPwForm());
+		map.put("/memberPwForm.do", new MemberPwForm());
+		map.put("/memberPw.do", new MemberPw());
 
 		//장바구니 폼
 		map.put("/cartCompare.do", new CartCompare()); // 장바구니 담기
 		map.put("/cartList.do", new CartList());
-		//23.06.16 - 김재운
+
 		map.put("/buyListInsert.do", new BuyListInsert()); // 구매내역 보내기
 		map.put("/cartDelete.do", new CartDelete());
 		
@@ -150,6 +153,7 @@ public class FrontController extends HttpServlet {
 		map.put("/auctionInsertForm.do", new AuctionInsertForm());
 		map.put("/auctionPriceInsert.do", new AuctionPriceInsert());
 		map.put("/ajaxAuctionSelect.do", new AjaxAuctionSelect());
+		map.put("/auctionBuyInsert.do", new AuctionBuyInsert());
 
 		//구매내역 호출 폼
 		map.put("/buyList.do", new BuyList()); //구매내역 조회
