@@ -26,5 +26,5 @@ public interface ProductService {
 	
 	ProductVO productCategory(ProductVO vo);
 
-
+	ProductVO productCategory(ProductVO vo);
 }

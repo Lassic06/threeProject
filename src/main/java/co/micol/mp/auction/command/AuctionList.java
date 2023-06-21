@@ -20,11 +20,24 @@ public class AuctionList implements Command {
 		AuctionService as = new AuctionServiceImpl();
 		List<AuctionVO> auctions = new ArrayList<>();
 		
-	
+
+		/*
+		 * //페이징처리 Paging paging = new Paging(); paging.setPageUnit(6); //현재 페이지 번호
+		 * String page = request.getParameter("page"); int p = 1; if(page != null) p =
+		 * Integer.parseInt(page); paging.setPage(p); //전체 건수 int total = as.listPage();
+		 * paging.setTotalRecord(total);
+		 * 
+		 * AuctionVO vo = new AuctionVO(); vo.setFirst(paging.getFirst());
+		 * vo.setLast(paging.getLast());
+		 */
+
 
 		auctions = as.auctionList();
 		
 		request.setAttribute("auctions", auctions);
+
+		//request.setAttribute("paging", paging);
+
 		
 		
 		return "auction/auctionList";

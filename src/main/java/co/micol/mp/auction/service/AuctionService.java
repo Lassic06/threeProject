@@ -16,4 +16,6 @@ public interface AuctionService {
 
 	AuctionVO auctionPriceSelect(String string);
 
+	int auctionBuyListInsert(AuctionVO vo);
+
 }

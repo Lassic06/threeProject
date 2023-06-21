@@ -22,6 +22,9 @@ public interface ProductMapper {
 	List<ProductVO> productAllSerch(ProductVO vo); // 전체검색
 
 	int productUpdate(ProductVO vo);
+	
+	ProductVO productCategory(ProductVO vo);
+	
 
 	ProductVO productCategory(ProductVO vo);
 }
