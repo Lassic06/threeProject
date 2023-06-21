@@ -17,8 +17,11 @@ public interface ProductMapper {
 
 	int listPage();
 
-	List<ProductVO> productSerch(String search); // 상품 검색기능
+	List<ProductVO> productSerch(ProductVO vo); // 상품 검색기능
+	
+	List<ProductVO> productAllSerch(ProductVO vo); // 전체검색
 
 	int productUpdate(ProductVO vo);
 
+	ProductVO productCategory(ProductVO vo);
 }

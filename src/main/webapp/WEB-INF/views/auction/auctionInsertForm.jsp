@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8" />
@@ -126,7 +127,7 @@ input#pfile.form-control{
 								<div class = "form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>
 									<div class="col-md-8">
-										<input id="auctionLastDate" name = "auctionLastDate" type="datetime-local" class="form-control" placeholder="종료시간" >
+										<input id="auctionLastDate" name = "auctionLastDate" type="datetime-local" class="form-control" placeholder="종료시간">
 									</div>
 								</div>
 								<!-- 제품설명 -->
@@ -169,5 +170,15 @@ input#pfile.form-control{
 		
 		return true;
 	}
+	
+	  var now = new Date();
+	  var year = now.getFullYear();
+	  var month = ('0' + (now.getMonth() + 1)).slice(-2);
+	  var day = ('0' + now.getDate()).slice(-2);
+	  var hour = ('0' + now.getHours()).slice(-2);
+	  var minute = ('0' + now.getMinutes()).slice(-2);
+	  var formattedDate = year + '-' + month + '-' + day + 'T' + hour + ':' + minute;
+	  
+	  document.getElementById("auctionLastDate").setAttribute("min", formattedDate);
 </script>
 </html>

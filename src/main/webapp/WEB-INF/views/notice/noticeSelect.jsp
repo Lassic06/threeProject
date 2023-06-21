@@ -248,8 +248,7 @@ section.notice {
 		</div>
 		<div>
 			<form id="frm" method="post">
-				<input type="hidden" id="noitceId" name="noticeId"
-					value="${notice.noticeId }">
+				<input type="hidden" id="noitceId" name="noticeId" value="${notice.noticeId }">
 			</form>
 		</div>
 		<script type="text/javascript">
@@ -258,7 +257,11 @@ section.notice {
 				if (str == 'E') {
 					frm.action = "noticeEdit.do"
 				} else {
-					frm.action = "noticeDelete.do"
+					if (confirm('삭제 하시겠습니까?')) {
+			            frm.action = "noticeDelete.do";
+			        } else {
+			            return;
+			        }
 				}
 				frm.submit();
 			}

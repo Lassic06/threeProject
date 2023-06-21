@@ -90,6 +90,7 @@
 								<input type="text" id="memberAddrTest" name="memberAddrTest" placeholder="Address" class="form-control" required="required" readonly><br>
 								<input type="text" id="memberAddr" name="memberAddr" placeholder="Detail Address" class="form-control" required="required">
 								
+								
 	
                             </div>
                         </div>
@@ -188,10 +189,10 @@
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById('memberAddrNumber').value = data.zonecode;
+                document.getElementById("memberAddrTest").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("memberAddr").focus();
             }
         }).open();
     }

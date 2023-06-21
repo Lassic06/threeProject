@@ -49,10 +49,19 @@
 			</div>
 		</div>
 	</section>
-  	<form>
-		<input id="search" type="search" name="search" placeholder="상품 검색">
-		<button type="submit" class="btn btn-dark" formaction="productCateSerch.do">검색</button>
+	<div class="container">
+	<form method="post">
+	    <input id="productSearch" type="search" name="productSearch" placeholder="상품 검색">
+	     <c:if test="${not empty vo.productCategory }">
+		    <input type="hidden" id="productCategory" name="productCategory" value="${vo.productCategory}">
+		    <button type="submit" class="btn btn-dark" formaction="productCateSerch.do">검색</button>
+	    </c:if>
+		<c:if test="${empty vo.productCategory }">
+		    <button type="submit" class="btn btn-dark" formaction="productAllSearch.do">검색</button>
+	    </c:if>
 	</form>
+	</div>
+
 	<!-- Page Add Section End -->
 
 	<section class="categories-page spad">
@@ -80,7 +89,7 @@
 			<!-- 상품6 -->
 			
 			<div class="container2">
-				<c:forEach items="${products }" var="p">
+				<c:forEach items="${products }" var="p">					
 					<div class="item">
 						<div class="single-product-item">
 							<figure>

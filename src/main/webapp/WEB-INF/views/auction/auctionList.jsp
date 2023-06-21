@@ -33,25 +33,47 @@ flex-wrap:wrap;
 				<c:forEach items="${auctions }" var="a">
 					<div class="item">
 						<div id="single-product-item" class="single-product-item">
-							<div onclick="auctionChois('${a.auctionId }')">
-								<figure>
-									<img id="img" src="images/${a.auctionDir}" alt="">
-								</figure>
-							</div>
-						<div id="textBox" class="product-text">						
-							<h6>${a.auctionId }</h6>			
+							<c:choose>
+							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+							   		<div>
+										<figure>
+											<img id="img" src="images/${a.auctionDir}" alt="">
+										</figure>
+									</div>
+							    </c:when>
+							    <c:otherwise>
+									<div onclick="auctionChois('${a.auctionId }')">
+										<figure>
+											<img id="img" src="images/${a.auctionDir}" alt="">
+										</figure>
+									</div>
+							    </c:otherwise>
+							</c:choose>
 
+						<div id="textBox" class="product-text">					
 							<p>
 								<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
 							</p>
-							<p>${a.auctionName }</p>
+							<c:choose>
+							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+							   		<div>
+										<p>${a.auctionName }</p><h6>(상품이 판매되었습니다.)</h6>
+									</div>
+							    </c:when>
+							    <c:otherwise>
+									<p>${a.auctionName }</p>
+							    </c:otherwise>
+							</c:choose>
+							
 							<p>
 								<span>즉시구매</span> <span>${a.auctionMax }</span> 원
 							</p>
 							<span>입찰건수</span> ${a.auctionCount }
 							<p>
-								<span> 종료일: <span>${a.auctionDate }</span>
-								</span> <span> <span>판매자 </span> ${a.auctionSeller }
+								<span>
+								 종료일: <span>${a.auctionLastDate }</span>
+								</span> 
+								<span> <span>판매자 </span> ${a.auctionSeller }
 								</span>
 							</p>
 						</div>
@@ -61,26 +83,7 @@ flex-wrap:wrap;
 			</div>
 		</div>
 
-		<!-- 페이징 -->
-		<nav aria-label="Page navigation example">
-		<ul id ="pagination" class="pagination">
-			<c:if test="${paging.startPage>1 }">
-				<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.startPage-1 })">이전</a>
-			</c:if>
-			<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
-					var="i">
-					<c:if test="${i != paging.page}">
-						<li class="page-item"><a class="page-link" href="javascript:gopage(${i})">${i}</a>
-					</c:if>
-					<c:if test="${i == paging.page}">
-						<li class="page-item active"><a class="page-link" href="#">${i}</a>
-					</c:if>
-				</c:forEach>
-				<c:if test="${paging.endPage<paging.totalPageCount}">
-					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.endPage+1})">다음</a>
-				</c:if>
-			</ul>
-		</nav>
+		
 	</section>
 	<form id="frm" action="auctionSelect.do" method="post">
 		<input type="hidden" id="auctionId" name="auctionId">

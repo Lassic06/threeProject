@@ -24,7 +24,10 @@ public class CartDelete implements Command {
 		
 		cs.cartDelete(vo);
 		
-		return "cartList.do";
+		request.setAttribute("msg", "삭제 완료하였습니다.");
+		request.setAttribute("url", "cartList.do");
+		return "alert/alert";
+		
 	}
 
 }
