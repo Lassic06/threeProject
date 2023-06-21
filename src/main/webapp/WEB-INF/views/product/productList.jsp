@@ -28,6 +28,47 @@
 #pagination{
 	padding-left: 45%;
 }
+
+#board-search .search-window {
+	padding: 15px 0;
+	background-color: #f9f7f9;
+}
+
+#board-search .search-window .search-wrap {
+	position: relative;
+	/*   padding-right: 124px; */
+	margin: 0 auto;
+	width: 80%;
+	max-width: 564px;
+}
+
+#board-search .search-window .search-wrap input {
+	height: 40px;
+	width: 100%;
+	font-size: 14px;
+	padding: 7px 14px;
+	border: 1px solid #ccc;
+}
+
+#board-search .search-window .search-wrap input:focus {
+	border-color: #333;
+	outline: 0;
+	border-width: 1px;
+}
+
+#board-search .search-window .search-wrap .btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 108px;
+	padding: 0;
+	font-size: 16px;
+}
+
+#sBtn{
+	display: inline-block;
+}
 </style>
 </head>
 <body>
@@ -49,33 +90,28 @@
 			</div>
 		</div>
 	</section>
-  	<form>
-		<input id="search" type="search" name="search" placeholder="상품 검색">
-		<button type="submit" class="btn btn-dark" formaction="productCateSerch.do">검색</button>
-	</form>
+	
+	<!-- board seach area -->
+		<div id="board-search">
+			<div class="container">
+				<div class="search-window">
+					<form action="">
+						<div class="search-wrap">
+							<form>
+								<input id="search" type="search" name="search" placeholder="상품 검색">
+								<button type="submit" id="sBtn" class="btn btn-dark" formaction="productCateSerch.do">검색</button>
+							</form>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
 	<!-- Page Add Section End -->
 
 	<section class="categories-page spad">
 		<div class="container">
-			<div class="categories-controls">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="categories-filter">
-							<div class="cf-left">
-								<form action="#">
-									<select class="sort"
-										onchange='selectOpt(this.options[this.selectedIndex].value);'>
-										<option value="">Sort by</option>
-										<option value="">Name</option>
-										<option value="">HighPrice</option>
-										<option value="">LowPrice</option>
-									</select>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 
 			<!-- 상품6 -->
 			
@@ -123,7 +159,6 @@
 				</c:if>
 			</ul>
 		</nav>
-
 
 		</div>
 	</section>

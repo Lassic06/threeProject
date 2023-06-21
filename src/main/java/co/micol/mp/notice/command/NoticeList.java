@@ -38,6 +38,7 @@ public class NoticeList implements Command {
 		notices = ns.noticeSelectList(vo);
 
 		request.setAttribute("notices", notices);
+		request.setAttribute("paging", paging);
 		
 		return "notice/noticeList";
 	}

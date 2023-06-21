@@ -17,7 +17,7 @@ public class ReviewVO {
 	private String memberId;
 	private String reviewSubject;
 	private String memberName;
-	
+
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-mm-dd")
 	private Date reviewDate;
 }

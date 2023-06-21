@@ -200,9 +200,16 @@ section.notice {
 	height: 1px;
 }
 
-#board-table{
+#board-table {
 	margin: 0 auto;
-	width:1400px;
+	width: 1400px;
+}
+
+#btn {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 20px;
 }
 </style>
 </head>
@@ -213,7 +220,7 @@ section.notice {
 				<h2 id="cart">일반상품 구매목록</h2>
 			</div>
 		</div>
-		<table  id="board-table" class="board-table">
+		<table id="board-table" class="board-table">
 			<thead>
 				<tr>
 					<th scope="col" class="th-num">제품 사진</th>
@@ -223,24 +230,28 @@ section.notice {
 					<th scope="col" class="th-num">총 가격</th>
 					<th scope="col" class="th-num">구매 날짜</th>
 				</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${buyLists }" var="bl">
-						<tr>
-							<td><img src="images/${bl.productImg }" alt="img" width="70" height="80"></td>
-							<td><a href="productForm.do?productId=${bl.productId }">${bl.productName }</a>
-							</td>
-							<td><fmt:formatNumber value="${bl.productPrice}" pattern="#,###원" /></td>
-							<td>${bl.productAmount }</td>
-							<td><fmt:formatNumber
-									value="${bl.productPrice * bl.productAmount}" pattern="#,###원" /></td>
-							<td colspan="5">${bl.buyDate }</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<button type="button" onclick="location.href='myPage.do'">마이페이지</button>
+			</thead>
+			<tbody>
+				<c:forEach items="${buyLists }" var="bl">
+					<tr>
+						<td><img src="images/${bl.productImg }" alt="img" width="70"
+							height="80"></td>
+						<td><a href="productForm.do?productId=${bl.productId }">${bl.productName }</a>
+						</td>
+						<td><fmt:formatNumber value="${bl.productPrice}"
+								pattern="#,###원" /></td>
+						<td>${bl.productAmount }</td>
+						<td><fmt:formatNumber
+								value="${bl.productPrice * bl.productAmount}" pattern="#,###원" /></td>
+						<td colspan="5">${bl.buyDate }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<div>
+			<button type="button" id="btn" class="btn btn-dark"
+				onclick="location.href='myPage.do'">마이페이지</button>
 		</div>
-	</div>
+	</section>
 </body>
 </html>

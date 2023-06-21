@@ -33,7 +33,5 @@ public class AuctionVO {
 	private String auctionBuyer;
 	private int auctionCount;
 	private String auctionDir;
-	private int first;
-	private int last;
 	
 }
