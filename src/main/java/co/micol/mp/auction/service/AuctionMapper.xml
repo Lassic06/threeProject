@@ -4,12 +4,7 @@
 	<!-- 옥션 몇 개씩 불러올지 정하는 곳 -->
 	<select id="auctionList"
 		resultType="co.micol.mp.auction.service.AuctionVO">
-			select * from(   select rownum  rn,a.* from(
-
             SELECT * FROM auction
-            order by auction_name
-            
- )  a   )where rn between #{first}  and #{last} 
 	</select>
 	
 	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
@@ -30,7 +25,8 @@
 				#{auctionText},
 				#{auctionMax},
 				SYSDATE,
-				#{auctionReview},
+				#{auctionSeller},
+				#{auctionLastDate},
 				#{auctionSeller},
 				#{auctionBuyer},
 				#{auctionCount}

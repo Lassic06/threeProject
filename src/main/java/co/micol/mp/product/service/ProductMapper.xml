@@ -20,14 +20,22 @@
 		SELECT * 
 		FROM PRODUCT
 		WHERE PRODUCT_CATEGORY = #{productCategory}
+		ORDER BY product_date desc
 	
+	</select>
+	
+	<select id="productAllSerch" 
+		resultType="co.micol.mp.product.service.ProductVO">
+            SELECT * FROM product
+            WHERE product_name LIKE '%' || #{productSearch} || '%'
+            ORDER BY product_date desc
 	</select>
 	
 	<select id ="productSerch"
 		resultType="co.micol.mp.product.service.ProductVO">
 		SELECT * 
 		FROM PRODUCT
-		WHERE PRODUCT_CATEGORY = #{productCategory} AND product_name LIKE '%' || #{Search} || '%'
+		WHERE PRODUCT_CATEGORY = #{productCategory} AND product_name LIKE '%' || #{productSearch} || '%'
 	
 	</select>
 	
@@ -85,5 +93,13 @@
 		</set>
 		WHERE PRODUCT_ID = #{productId}
 	</update>
+	
+	<select id = "productCategory"
+		resultType="co.micol.mp.product.service.ProductVO">
+		SELECT PRODUCT_CATEGORY
+		FROM PRODUCT
+		WHERE PRODUCT_CATEGORY = #{productCategory}
+	</select>
+
 
 </mapper>

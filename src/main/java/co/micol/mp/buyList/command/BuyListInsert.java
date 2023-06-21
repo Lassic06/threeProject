@@ -35,7 +35,10 @@ public class BuyListInsert implements Command {
 		bs.buyListInsert(vo);
 		cs.cartDelete(co);
 		
-		return "cartList.do";
+		request.setAttribute("msg", "구매 완료하였습니다.");
+		request.setAttribute("url", "cartList.do");
+		return "alert/alert";
+		
 	}
 
 }
