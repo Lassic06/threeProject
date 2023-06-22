@@ -41,7 +41,6 @@ public class ProductInsert implements Command {
 			System.out.println(pfile);
 			String ofile = multi.getOriginalFileName("pfile");
 			System.out.println(ofile);
-			vo.setProductId(multi.getParameter("productId"));
 			vo.setProductName(multi.getParameter("productName"));
 			vo.setProductPrice(Integer.valueOf(multi.getParameter("productPrice")));
 			vo.setProductText(multi.getParameter("productText"));

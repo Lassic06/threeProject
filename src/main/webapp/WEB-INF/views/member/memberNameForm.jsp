@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@ table {
 	border-spacing: 0;
 }
 
-section.notice {
+section.member {
 	padding: 80px 0;
 }
 
@@ -205,81 +205,86 @@ section.notice {
 	border-bottom: 1px solid #ccc;
 	text-align: center;
 }
+
+#btn {
+	text-align: center;
+}
+
+td {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc
+}
+
+#searchBtn {
+	margin: 10px;
+}
 </style>
 </head>
 <body>
-	<section class="notice">
+	<section class="member">
 		<div class="page-title">
 			<div class="container">
-				<h3>My Page</h3>
+				<h3>Name Update</h3>
 			</div>
 		</div>
 		<!-- board list area -->
-		<div id="board-list">
-			<div class="container">
-				<table class="board-table">
-					<thead>
-						<tr>
-							<th scope="col" id="border" class="th-num">ID</th>
-							<td id="cborder">${member.memberId }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">PW</th>
-							<td id="cborder">${member.memberPw }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">Name</th>
-							<td id="cborder">${member.memberName }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">Address</th>
-							<td id="cborder">${member.memberAddr }</td>
-						</tr>
-						<tr>
-							<th scope="col" id="border" class="th-num">TEL</th>
-							<td id="cborder">${member.memberTel }</td>
-						</tr>
-					</tbody>
-				</table>
-				<br>
-				<div align="center">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('E')">회원정보 수정</button>
-						<c:if test="${auth eq 'N' }">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('D')">회원탈퇴</button>
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('C')">구매내역 조회</button>
-						</c:if>
-						<c:if test="${auth eq 'A' }">
-					<button class="btn btn-dark" type="button"
-						onclick="callFunction('G')">회원관리</button>	
-						</c:if>
 
+		<form id="frm" action="memberName.do" method="post" onsubmit="return changePwValidate()">
+			<div id="board-list">
+				<div class="container">
+					<table class="board-table">
+						<thead>
+							<tr>
+								<!-- 비밀번호 수정 -->
+								<th scope="col" id="border" class="th-num">현재 이름</th>
+								<td><div class="col-md-8">
+										<input id="toName" name="toName" type="text"
+											placeholder="${name }" class="form-control" readonly="readonly">
+									</div>
+							</tr>
+							<tr>
+								<th scope="col" id="border" class="th-num">새 이름</th>
+								<td><div class="col-md-8">
+										<input id="memberName" name="memberName" type="text"
+											placeholder="새 이름" class="form-control">
+									</div></td>
+							</tr>
+						</tbody>
+					</table>
+					<div align="center">
+						<button id="searchBtn" type="submit" class="btn btn-dark">확인</button>
+						<td><button class="btn btn-dark" type="button"
+								onclick="location.href='myPage.do'">취소</button></td>
+								
+					</div>
 				</div>
 			</div>
-			<div>
-				<form id="frm" method="post">
-					<input type="hidden" id="memberId" name="memberId"
-						value="${member.memberId }">
-				</form>
-			</div>
-		</div>
-	<script type="text/javascript">
-		function callFunction(str) {
-			let frm = document.getElementById("frm");
-			if (str == 'E') {
-				frm.action = "memberUpdateForm.do"
-			} else if(str == 'C'){
-				frm.action = "buyList.do"
-			} else if(str == "G"){
-				frm.action = "memberList.do"
-			} else {
-				frm.action = "memberDeleteForm.do"
+		</form>
+		<script type="text/javascript">
+			/////////////////////////////////////////////////// 비밀번호 수정 
+			function printAlert(el, message) { // 매개변수 el은 요소
+				alert(message);
+				el.focus();
+				return false;
 			}
-			frm.submit();
-		}
-	</script>
+
+			// 전화번호 변경 제출 시 유효성 검사
+			function changePwValidate() {
+
+				// 전화번호 변경 관련 input 요소 얻어오기
+				const memberName = document.getElementsByName("memberName")[0];
+
+				// 새 전화번호 확인
+				// 미작성
+				if (memberName.value.trim().length == 0) {
+					return printAlert(memberName, "새 전화번호를 입력해주세요.");
+					memberName.focus();
+				}
+
+				return true; // 위 조건을 모두 수행하지 않은 경우 true 반환
+			}
+		</script>
 	</section>
+
+
 </body>
-</html>

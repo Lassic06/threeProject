@@ -28,6 +28,7 @@ flex-wrap:wrap;
 </style>
 </head>
 <body>
+
 <!-- Page Add Section Begin -->
 	<section class="page-add">
 		<div class="container">
@@ -66,37 +67,37 @@ flex-wrap:wrap;
 							    </c:otherwise>
 							</c:choose>
 
-						<div id="textBox" class="product-text">					
-							<p>
-								<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
-							</p>
-							<c:choose>
-							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
-							   		<div>
-										<p>${a.auctionName }</p><h6>(상품이 판매되었습니다.)</h6>
-									</div>
-							    </c:when>
-							    <c:otherwise>
-									<p>${a.auctionName }</p>
-							    </c:otherwise>
-							</c:choose>
-							
-							<p>
-								<span>즉시구매</span> <span>${a.auctionMax }</span> 원
-							</p>
-							<span>입찰건수</span> ${a.auctionCount }
-							<p>
-								<span>
-								 종료일: <span>${a.auctionLastDate }</span>
-								</span> 
-								<span> <span>판매자 </span> ${a.auctionSeller }
-								</span>
-							</p>
-						</div>
-						</div>
+
+					<div id="textBox" class="product-text">					
+						<p>
+							<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
+						</p>
+						<c:choose>
+						    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+						   		<div>
+									<p>${a.auctionName }</p><h6>(상품이 판매되었습니다.)</h6>
+								</div>
+						    </c:when>
+						    <c:otherwise>
+								<p>${a.auctionName }</p>
+						    </c:otherwise>
+						</c:choose>			
+						<p>
+							<span>즉시구매</span> <span>${a.auctionMax }</span> 원
+						</p>
+						<span>입찰건수</span> ${a.auctionCount }
+						<p>
+							<span>
+							 종료일: <span id="lastDate" >${a.auctionLastDate }</span>
+							</span> 
+							<span> <span>판매자 </span> ${a.auctionSeller }
+							</span>
+						
+						</p>
 					</div>
-				</c:forEach>
-			</div>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 		<!-- 페이징 -->
 		<nav aria-label="Page navigation example">
@@ -125,22 +126,33 @@ flex-wrap:wrap;
 		<form id="frm" action="auctionForm.do" method="post">
 			<input type="hidden" id="auctionId" name="auctionId">
 		</form>
+
 	</div>
+</section>
+ 	<div>
+	<form id="frm" action="auctionForm.do" method="post">
+		<input type="hidden" id="auctionId" name="auctionId">
+	</form>
+</div>
   
 	
 	<script type="text/javascript">
-		
-
-		function gopage(p){
-			location.href="auctionList.do?page="+p
-		}
 
 		function auctionChois(id){
 			let frm = document.getElementById("frm");
- 			frm.auctionId.value = id; 
+	 		frm.auctionId.value = id; 
 			frm.submit(); 
 		}
+r
+
+
+		function gopage(p){
+			location.href="auctionList.do?page="+p
+		}		
+
+
 	</script>
+
 
 </body>
 </html>

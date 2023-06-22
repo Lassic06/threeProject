@@ -39,6 +39,7 @@
 	
 	</select>
 	
+
 	<insert id = "productInsert">>
 <selectKey keyProperty="productId" resultType="String" order="BEFORE">
 		SELECT 'p00' || PRODUCT_SEQ.NEXTVAL FROM PRODUCT
@@ -64,8 +65,7 @@
 		FROM PRODUCT 
 		WHERE PRODUCT_ID = #{productId}
 	</select>
-	
-	
+
 	<select id="productRecentList"
 		resultType="co.micol.mp.product.service.ProductVO">
 		SELECT *  

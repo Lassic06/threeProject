@@ -9,20 +9,23 @@ import co.micol.mp.member.service.MemberService;
 import co.micol.mp.member.service.MemberVO;
 import co.micol.mp.member.serviceImpl.MemberServiceImpl;
 
-public class MemberDelete implements Command {
+public class MemberName implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 회원탈퇴
-		HttpSession session = request.getSession();
-		MemberService ms = new MemberServiceImpl();
-		MemberVO vo = new MemberVO();
-		vo.setMemberId(String.valueOf(session.getAttribute("id")));
-		session.invalidate(); //세션 삭제
+			MemberService ms = new MemberServiceImpl();
+			HttpSession session = request.getSession();
+			MemberVO vo = new MemberVO();
+			vo.setMemberId(String.valueOf(session.getAttribute("id")));
+			vo.setMemberName(request.getParameter("memberName"));
 		
-		ms.memberDelete(vo);
-		
-		return "main/main";
-	}
-
+			ms.memberName(vo);
+			
+			request.setAttribute("member", vo);
+			//세션 삭제
+			session.invalidate();
+			
+			return "main/main";
+			
+		}
 }

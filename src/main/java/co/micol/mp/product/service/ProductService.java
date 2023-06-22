@@ -24,4 +24,5 @@ public interface ProductService {
 	int productUpdate(ProductVO vo);
 	
 	ProductVO productCategory(ProductVO vo);
+
 }
