@@ -18,4 +18,10 @@ public interface MemberMapper {
 	MemberVO member(MemberVO vo); //마이페이지
 	
 	int memberPw(MemberVO vo);
+	
+	int memberTel(MemberVO vo);
+	
+	int memberName(MemberVO vo);
+	
+	int memberAddr(MemberVO vo);
 }

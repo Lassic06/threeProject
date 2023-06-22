@@ -3,7 +3,7 @@ package co.micol.mp.auction.service;
 import java.util.List;
 
 public interface AuctionService {
-	List<AuctionVO> auctionList();
+	List<AuctionVO> auctionList(AuctionVO vo);
 
 	AuctionVO auction(AuctionVO vo);
 	AuctionVO auction2(AuctionVO vo);
@@ -17,5 +17,7 @@ public interface AuctionService {
 	int auctionBuyListInsert(AuctionVO vo);
 	
 	int auctionPriceUpdate(AuctionVO vo);
+
+	int listPage();
 
 }

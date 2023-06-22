@@ -4,7 +4,13 @@
 	<!-- 옥션 몇 개씩 불러올지 정하는 곳 -->
 	<select id="auctionList"
 		resultType="co.micol.mp.auction.service.AuctionVO">
-	      SELECT * FROM auction
+	      select * from(   select rownum  rn,a.* from(
+
+            SELECT * FROM auction
+            order by auction_date desc
+            
+ )  a   )where rn between #{first}  and #{last} 
+
 	</select>
 	
 	<select id = "auction" resultType="co.micol.mp.auction.service.AuctionVO">
@@ -20,6 +26,9 @@
 	</select>
 	
 	<insert id = "auctionInsert">
+	<selectKey keyProperty="auctionId" resultType="String" order="BEFORE">
+		SELECT 'a00' || AUCTION_SEQ.NEXTVAL FROM AUCTION
+	</selectKey>
 		INSERT INTO AUCTION 
 		VALUES( #{auctionId},
 				#{auctionName},
@@ -62,10 +71,17 @@
 		
 			  )
 	</insert>
+
 	<update id="auctionPriceUpdate" parameterType="co.micol.mp.auction.service.AuctionVO">
 		UPDATE AUCTION
 		SET AUCTION_MAX = #{auctionMax}
 		WHERE AUCTION_ID = #{auctionId}
 	</update>
+
+	
+	<select id="listPage" resultType="int">
+		SELECT COUNT(*)
+		FROM auction
+	</select>
 
 </mapper>

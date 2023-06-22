@@ -13,9 +13,9 @@ public class AuctionServiceImpl implements AuctionService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private AuctionMapper map = sqlSession.getMapper(AuctionMapper.class);
 	@Override
-	public List<AuctionVO> auctionList() {
+	public List<AuctionVO> auctionList(AuctionVO vo) {
 		// TODO Auto-generated method stub
-		return map.auctionList();
+		return map.auctionList(vo);
 	}
 	
 
@@ -38,6 +38,7 @@ public class AuctionServiceImpl implements AuctionService {
 		// TODO Auto-generated method stub
 		return map.auctionInsert(vo);
 	}
+
 
 	@Override
 	public int auctionPriceInsert(AuctionVO vo) {
@@ -66,6 +67,11 @@ public class AuctionServiceImpl implements AuctionService {
 	public AuctionVO auction2(AuctionVO vo) {
 		// TODO Auto-generated method stub
 		return map.auction2(vo);
+
+	public int listPage() {
+		// TODO Auto-generated method stub
+		return map.listPage();
+
 	}
 
 }

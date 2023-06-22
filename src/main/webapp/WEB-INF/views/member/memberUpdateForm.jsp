@@ -247,7 +247,7 @@ td {
 								<th scope="col" id="border" class="th-num">PW</th>
 								<td><div class="col-md-8">
 										<input id="memberPw" name="memberPw" type="text"
-											placeholder="Pw" class="form-control" value="${pw }">
+											placeholder="${pw }" class="form-control" value="${pw }" readonly="readonly">
 										<td><button class="btn btn-dark" type="button" onclick="location.href='memberPwForm.do'">수정</button></td>
 		
 									</div></td>
@@ -258,8 +258,8 @@ td {
 								<td>
 									<div class="col-md-8">
 										<input class="form-control" id="memberName" name="memberName"
-											type="text" placeholder="Name" value="${name }">
-											
+											type="text" placeholder="${name }" value="${name }" readonly="readonly">
+										<td><button class="btn btn-dark" type="button" onclick="location.href='memberNameForm.do'">수정</button></td>	
 									</div>
 								</td>
 							</tr>
@@ -269,8 +269,9 @@ td {
 								<td>
 									<div class="col-md-8">
 										<input class="form-control" id="memberAddr" name="memberAddr"
-											type="text" placeholder="Addr" value="${addr }">
-											
+											type="text" placeholder="${addr }" value="${addr }" readonly="readonly">
+										<td><button class="btn btn-dark" type="button" onclick="location.href='memberAddrForm.do'">수정</button></td>
+
 									</div>
 								</td>
 							</tr>
@@ -279,8 +280,10 @@ td {
 								<th scope="col" id="border" class="th-num">TEL</th>
 								<td><div class="col-md-8">
 										<input id="memberTel" name="memberTel" type="text"
-											placeholder="TEL" class="form-control" value="${tel }">
+											placeholder="${tel }" class="form-control" value="${tel }" readonly="readonly">
+										<td><button class="btn btn-dark" type="button" onclick="location.href='memberTelForm.do'">수정</button></td>
 											
+
 									</div></td>
 							</tr>
 							<!-- 							<tr> -->
@@ -300,9 +303,6 @@ td {
 							<!-- 							</tr> -->
 						</tbody>
 					</table>
-					<div align="center">
-						<button id="searchBtn" type="submit" class="btn btn-dark">Submit</button>
-					</div>
 				</div>
 			</div>
 		</form>

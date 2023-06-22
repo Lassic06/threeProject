@@ -16,4 +16,10 @@ public interface MemberService {
 	MemberVO memberLogin(MemberVO vo); //멤버로그인
 	
 	int memberPw(MemberVO vo);
+	
+	int memberTel(MemberVO vo);
+
+	int memberName(MemberVO vo);
+	
+	int memberAddr(MemberVO vo);
 }

@@ -15,7 +15,6 @@ public interface ProductService {
 
 	List<ProductVO> productCateList(ProductVO vo);
 
-	
 	int listPage();
 
 	List<ProductVO> productSerch(ProductVO vo); // 상품 검색기능
@@ -25,5 +24,4 @@ public interface ProductService {
 	int productUpdate(ProductVO vo);
 	
 
-	ProductVO productCategory(ProductVO vo);
 }

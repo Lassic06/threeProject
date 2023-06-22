@@ -46,7 +46,6 @@
 
 			<div class="col">
 				<!-- Simple link -->
-				<a href="#!">Forgot password?</a>
 			</div>
 		</div>
 

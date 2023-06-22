@@ -135,7 +135,7 @@
 							</figure>
 							<div class="product-text">
 								<a href="productForm.do?productId=${p.productId }">
-									<h6>${p.productName}with details </h6>
+									<h6>${p.productName}</h6>
 								</a>
 								<p>
 									<fmt:formatNumber value="${p.productPrice}" pattern="#,###원" />
