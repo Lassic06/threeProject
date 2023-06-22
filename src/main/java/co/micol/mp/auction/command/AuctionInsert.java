@@ -43,7 +43,8 @@ public class AuctionInsert implements Command {
 					String ofile = multi.getOriginalFileName("pfile");
 					System.out.println(pfile);
 					vo.setAuctionId(multi.getParameter("auctionId"));
-					vo.setAuctionSeller(String.valueOf(session.getAttribute("id")));
+					vo.setAuctionSellerId(String.valueOf(session.getAttribute("id")));
+					vo.setAuctionSeller(String.valueOf(session.getAttribute("name")));
 					vo.setAuctionName(multi.getParameter("auctionName"));
 					vo.setAuctionPrice(Integer.valueOf(multi.getParameter("auctionPrice")));
 					vo.setAuctionMax(Integer.valueOf(multi.getParameter("auctionMax")));

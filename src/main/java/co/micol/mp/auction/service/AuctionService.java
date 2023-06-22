@@ -6,6 +6,7 @@ public interface AuctionService {
 	List<AuctionVO> auctionList(AuctionVO vo);
 
 	AuctionVO auction(AuctionVO vo);
+	AuctionVO auction2(AuctionVO vo);
 
 	int auctionInsert(AuctionVO vo);
 
@@ -14,6 +15,8 @@ public interface AuctionService {
 	AuctionVO auctionPriceSelect(String string);
 
 	int auctionBuyListInsert(AuctionVO vo);
+	
+	int auctionPriceUpdate(AuctionVO vo);
 
 	int listPage();
 

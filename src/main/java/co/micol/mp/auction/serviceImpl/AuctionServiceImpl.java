@@ -27,15 +27,18 @@ public class AuctionServiceImpl implements AuctionService {
 
 
 	@Override
+	public int auctionPriceUpdate(AuctionVO vo) {
+		// TODO Auto-generated method stub
+		return map.auctionPriceUpdate(vo);
+	}
+
+
+	@Override
 	public int auctionInsert(AuctionVO vo) {
 		// TODO Auto-generated method stub
 		return map.auctionInsert(vo);
 	}
 
-	/*
-	 * @Override public int listPage() { // TODO Auto-generated method stub return
-	 * 0; }
-	 */
 
 	@Override
 	public int auctionPriceInsert(AuctionVO vo) {
@@ -61,9 +64,14 @@ public class AuctionServiceImpl implements AuctionService {
 
 
 	@Override
+	public AuctionVO auction2(AuctionVO vo) {
+		// TODO Auto-generated method stub
+		return map.auction2(vo);
+
 	public int listPage() {
 		// TODO Auto-generated method stub
 		return map.listPage();
+
 	}
 
 }

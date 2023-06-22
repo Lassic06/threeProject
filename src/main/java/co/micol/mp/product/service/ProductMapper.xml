@@ -59,12 +59,12 @@
 				#{productCategory})
 	</insert>
 	
-	<select id="product"
-		resultType="co.micol.mp.product.service.ProductVO">
+	<select id="product" resultType="co.micol.mp.product.service.ProductVO">
 		SELECT * 
 		FROM PRODUCT 
 		WHERE PRODUCT_ID = #{productId}
 	</select>
+
 
 	<select id="productRecentList"
 		resultType="co.micol.mp.product.service.ProductVO">

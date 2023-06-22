@@ -27,8 +27,8 @@ public class ProductCateList implements Command {
 		vo.setProductCategory(productCategory);
 		products = ps.productCateList(vo);
 		
-		vo = ps.productCategory(vo);
-		request.setAttribute("vo", vo);
+//		vo = ps.productCategory(vo);
+//		request.setAttribute("vo", vo);
 		
 		request.setAttribute("products", products);
 	

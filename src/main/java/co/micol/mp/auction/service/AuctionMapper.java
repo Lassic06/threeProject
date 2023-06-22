@@ -6,6 +6,7 @@ public interface AuctionMapper {
 	List<AuctionVO> auctionList(AuctionVO vo);
 	
 	AuctionVO auction(AuctionVO vo);
+	AuctionVO auction2(AuctionVO vo);
 	
 	int auctionInsert(AuctionVO vo);
 
@@ -15,5 +16,9 @@ public interface AuctionMapper {
 	
 	int auctionBuyListInsert(AuctionVO vo);
 	
+
+	int auctionPriceUpdate(AuctionVO vo);
+
 	int listPage();
+
 }
