@@ -31,15 +31,22 @@ import co.micol.mp.main.command.MainCommand;
 import co.micol.mp.member.command.AdminDelete;
 import co.micol.mp.member.command.AjaxCheckId;
 import co.micol.mp.member.command.LoginAlert;
+import co.micol.mp.member.command.MemberAddr;
+import co.micol.mp.member.command.MemberAddrForm;
 import co.micol.mp.member.command.MemberDelete;
+import co.micol.mp.member.command.MemberDeleteForm;
 import co.micol.mp.member.command.MemberInsert;
 import co.micol.mp.member.command.MemberList;
 import co.micol.mp.member.command.MemberLogOut;
 import co.micol.mp.member.command.MemberLogin;
 import co.micol.mp.member.command.MemberLoginForm;
+import co.micol.mp.member.command.MemberName;
+import co.micol.mp.member.command.MemberNameForm;
 import co.micol.mp.member.command.MemberPw;
 import co.micol.mp.member.command.MemberPwForm;
 import co.micol.mp.member.command.MemberSelect;
+import co.micol.mp.member.command.MemberTel;
+import co.micol.mp.member.command.MemberTelForm;
 import co.micol.mp.member.command.MemberUpdate;
 import co.micol.mp.member.command.MemberUpdateForm;
 import co.micol.mp.member.command.MyPage;
@@ -57,13 +64,13 @@ import co.micol.mp.product.command.ProductCateList;
 import co.micol.mp.product.command.ProductCateSerch;
 import co.micol.mp.product.command.ProductCategory;
 import co.micol.mp.product.command.ProductDelete;
+import co.micol.mp.product.command.ProductEdit;
 import co.micol.mp.product.command.ProductForm;
 import co.micol.mp.product.command.ProductInsert;
 import co.micol.mp.product.command.ProductInsertForm;
 import co.micol.mp.product.command.ProductList;
 import co.micol.mp.product.command.ProductRecentList;
 import co.micol.mp.product.command.ProductUpdate;
-import co.micol.mp.product.command.ProductEdit;
 import co.micol.mp.review.command.AjaxReviewList;
 import co.micol.mp.review.command.DeleteReview;
 import co.micol.mp.review.command.ReviewInsert;
@@ -99,6 +106,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberUpdateForm.do", new MemberUpdateForm()); //회원정보수정 폼 호출
 		map.put("/memberUpdate.do", new MemberUpdate()); //회원정보수정 실행
 		map.put("/memberDelete.do", new MemberDelete()); //회원탈퇴
+		map.put("/memberDeleteForm.do", new MemberDeleteForm());//회원탈퇴 폼
 		map.put("/memberList.do", new MemberList()); //회원리스트
 		map.put("/memberSelect.do", new MemberSelect()); //관리자 회원 삭제
 		map.put("/adminDelete.do", new AdminDelete()); //어드민 회원 삭제 
@@ -138,6 +146,12 @@ public class FrontController extends HttpServlet {
 		map.put("/myPage.do", new MyPage());
 		map.put("/memberPwForm.do", new MemberPwForm());
 		map.put("/memberPw.do", new MemberPw());
+		map.put("/memberTel.do", new MemberTel());
+		map.put("/memberTelForm.do", new MemberTelForm());
+		map.put("/memberName.do", new MemberName());
+		map.put("/memberNameForm.do", new MemberNameForm());
+		map.put("/memberAddr.do", new MemberAddr());
+		map.put("/memberAddrForm.do", new MemberAddrForm());
 
 		//장바구니 폼
 		map.put("/cartCompare.do", new CartCompare()); // 장바구니 담기

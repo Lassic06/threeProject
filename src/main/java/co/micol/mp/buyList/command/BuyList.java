@@ -15,14 +15,14 @@ public class BuyList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		BuyListService bs = new BuyListServiceImpl();
-		HttpSession session = request.getSession();
-		
-		String memberId = String.valueOf(session.getAttribute("id"));
-		
-		List<BuyListVO> buyList = bs.productBuyList(memberId);
-		request.setAttribute("buyLists", buyList );
-		
+//		BuyListService bs = new BuyListServiceImpl();
+//		HttpSession session = request.getSession();
+//		
+//		String memberId = String.valueOf(session.getAttribute("id"));
+//		
+//		List<BuyListVO> buyList = bs.productBuyList(memberId);
+//		request.setAttribute("buyLists", buyList );
+//		
 		return "buyList/buyList";
 	}
 

@@ -14,6 +14,8 @@ table {
 
 section.member {
 	padding: 80px 0;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .page-title {
@@ -183,6 +185,7 @@ section.member {
 
 .container {
 	width: 1100px;
+	padding: 100;
 	margin: 0 auto;
 }
 
@@ -212,7 +215,8 @@ section.member {
 
 td {
 	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc
+	border-bottom: 1px solid #ccc;
+	text-align: center;
 }
 
 #searchBtn {
@@ -224,7 +228,7 @@ td {
 	<section class="member">
 		<div class="page-title">
 			<div class="container">
-				<h3>My Page Update</h3>
+				<h3>PassWord Update</h3>
 			</div>
 		</div>
 		<!-- board list area -->
@@ -265,7 +269,7 @@ td {
 						<td><button class="btn btn-dark" type="button"
 								onclick="location.href='myPage.do'">취소</button></td>
 								
-						<input type="hidden" id = "toPw" name = "toPw" value="${id }">
+						<input type="hidden" id = "toPw" name = "toPw" value="${pw }">
 					</div>
 				</div>
 			</div>
@@ -282,24 +286,26 @@ td {
 			function changePwValidate() {
 
 				// 비밀번호 변경 관련 input 요소 얻어오기
-				const toPw = document.getElementsByName("#memberPw")[0];
+				const toPw = document.getElementsByName("toPw")[0];
 				const oldPw = document.getElementsByName("oldPw")[0];
 				const newPw = document.getElementsByName("newPw")[0];
 				const memberPw = document.getElementsByName("memberPw")[0];
 
 				// 현재 비밀번호 미작성
 				if (oldPw.value.trim().length == 0) {
-					/*alert("현재 비밀번호를 입력해주세요.");
+					alert("현재 비밀번호를 입력해주세요.");
 					currentPw.focus();
-					return false;*/
+					return false;
 
 					return printAlert(oldPw, "현재 비밀번호를 입력해주세요.");
 				}
 		 		// 기존 비밀번호와 비교
-				if (oldPw.value != "${Pw}".value) {
-					PrintAlert(oldPw, "현재 비밀번호가 일치하지 않습니다.")
+				if (oldPw.value != toPw.value) {
+					alert("현재 비밀번호가 일치하지 않습니다.")
+					oldPw.value = "";
+					oldPw.focus();
 					return false;
-				} 
+				}  
 				
 				// 새 비밀번호
 				// 미작성
@@ -318,6 +324,9 @@ td {
 				// 새 비밀번호 != 새 비밀번호 확인
 				if (newPw.value != memberPw.value) {
 					return printAlert(memberPw, "새 비밀번호가 일치하지 않습니다.");
+					newPw.value = "";
+					memberPw.value = "";
+					newPw.focus();
 				}
 				return true; // 위 조건을 모두 수행하지 않은 경우 true 반환
 			}
