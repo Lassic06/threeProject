@@ -271,7 +271,7 @@ td {
 										<input class="form-control" id="memberAddr" name="memberAddr"
 											type="text" placeholder="${addr }" value="${addr }" readonly="readonly">
 										<td><button class="btn btn-dark" type="button" onclick="location.href='memberAddrForm.do'">수정</button></td>
-											
+
 									</div>
 								</td>
 							</tr>
@@ -283,6 +283,7 @@ td {
 											placeholder="${tel }" class="form-control" value="${tel }" readonly="readonly">
 										<td><button class="btn btn-dark" type="button" onclick="location.href='memberTelForm.do'">수정</button></td>
 											
+
 									</div></td>
 							</tr>
 							<!-- 							<tr> -->

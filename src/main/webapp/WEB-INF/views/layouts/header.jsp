@@ -20,7 +20,7 @@
 			<div class="container-fluid">
 				<div class="inner-header">
 					<div class="logo">
-					  <a href="main.do"><img id="logo" src="img/earthcycle.png" alt="earthcycle"></a>
+					  <a href="productRecentList.do"><img id="logo" src="img/earthcycle.png" alt="earthcycle"></a>
 					</div>
 					<div class="header-right">
 						<img src="img/icons/search.png" alt="search" class="search-trigger">
@@ -41,7 +41,7 @@
 						</c:if>
 						<c:if test="${empty id }"><!-- 로그인 안할 시 로그인 호출 -->
 						<a href="loginAlert.do">
-							<img src="img/icons/bag.png" alt="login"> <span>2</span>
+							<img src="img/icons/bag.png" alt="login">
 						</a>
 						</c:if>
 					</div>
