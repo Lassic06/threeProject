@@ -14,7 +14,6 @@ public interface ProductService {
 	int productDelete(ProductVO vo);
 
 	List<ProductVO> productCateList(ProductVO vo);
-
 	
 	int listPage();
 
@@ -25,5 +24,6 @@ public interface ProductService {
 	int productUpdate(ProductVO vo);
 	
 	ProductVO productCategory(ProductVO vo);
+
 
 }
