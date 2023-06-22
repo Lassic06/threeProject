@@ -80,10 +80,6 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 
-	@Override
-	public ProductVO productCategory(ProductVO vo) {
-		// TODO Auto-generated method stub
-		return map.productCategory(vo);
-	}
+	
 
 }

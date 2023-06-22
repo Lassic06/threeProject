@@ -41,7 +41,7 @@
 	                    <div class="product-content">
 	                        <h2>${auction.auctionName }</h2>
 	                        <div class="pc-meta">
-	                           <h5><fmt:formatNumber value="${auction.auctionPrice}" pattern="#,###원" /></h5>   
+	                           <h5>즉시 구매:<fmt:formatNumber value="${auction.auctionMax}" pattern="#,###원" /></h5>   
 	                           <p>${auction.auctionText }</p>   
                                <div class="sec7-text-box">
 								  <p class="runTimeCon">마감 날짜 : ${auction.auctionLastDate }</p>
@@ -81,6 +81,7 @@
 					<input type="hidden" id="maxPrice" name="auctionMax" value="${auction.auctionMax }">	
 					<input type="hidden" id = "auctionName" name = "auctionName" value = "${auction.auctionName }">    	
 					<input type="hidden" id = "acutionImg" name = "auctionImg" value = "${auction.auctionDir }">
+					
 				   
 				</div>  	
 			</form>
@@ -92,7 +93,7 @@
             <input type="hidden" id = "auctionName" name = "auctionName" value = "${auction.auctionName }">
             <input type="hidden" id = "auctionPrice" name = "auctionPrice" value = "${auction.auctionPrice }">
             <input type="hidden" id = "acutionImg" name = "auctionImg" value = "${auction.auctionImg }">
-            <input type="hidden">          
+                   
     	</div>
     </section>
    
@@ -109,15 +110,8 @@ function auciotnPriceInsert(){
 	var auctionPrice = $("#auctionPrice").val();
 	console.log(${auction.auctionMax});
 	var queryString = $("form[name=auctionFrm]").serialize();
-	if(${auction.auctionMax} <= auctionPrice  ){
-		if(confirm("바로 구매하시겠습니까?")==true){
-			auctionFrm.action="auctionBuyInsert.do";
-		}else{
-			return;
-		}
-		auctionFrm.submit();
-	}
-	else if(${auction.auctionPrice} < auctionPrice){		
+
+		if(${auction.auctionPrice} < auctionPrice){		
 		$.ajax({
 			url:"auctionPriceInsert.do",
 			type:"POST",
@@ -132,6 +126,15 @@ function auciotnPriceInsert(){
 				alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
 			}
 		});
+		if(${auction.auctionMax} <= auctionPrice  ){
+			if(confirm("바로 구매하시겠습니까?")==true){
+				auctionFrm.action="auctionBuyInsert.do";
+				
+			}else{
+				return;
+			}
+			auctionFrm.submit();
+		}
 	}else{
 		alert("현재 금액보다 높은 금액을 입력하세요");
 		$("#auctionPrice").val("").focus();

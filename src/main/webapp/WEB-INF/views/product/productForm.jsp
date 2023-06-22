@@ -217,7 +217,7 @@ reviewList();
  }
 	
 	function rDeleteBtn(reviewNo) {
-		  location.href = "deleteReview.do?reviewNo=" + reviewNo+"&productId="+"${product.productId }";
+		  location.href = "deleteReview.do?reviewNo=" + reviewNo;
 		}
 
 

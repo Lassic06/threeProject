@@ -27,91 +27,83 @@ flex-wrap:wrap;
 </style>
 </head>
 <body>
-	<section class="categories-page spad">
-		<div class="container">
-			<div class="container2">			
-				<c:forEach items="${auctions }" var="a">
-					<div class="item">
-						<div id="single-product-item" class="single-product-item">
-							<c:choose>
-							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
-							   		<div>
-										<figure>
-											<img id="img" src="images/${a.auctionDir}" alt="">
-										</figure>
-									</div>
-							    </c:when>
-							    <c:otherwise>
-									<div onclick="auctionChois('${a.auctionId }')">
-										<figure>
-											<img id="img" src="images/${a.auctionDir}" alt="">
-										</figure>
-									</div>
-							    </c:otherwise>
-							</c:choose>
+<section class="categories-page spad">
+	<div class="container">
+		<div class="container2">			
+			<c:forEach items="${auctions }" var="a">
+				<div class="item">
+					<div id="single-product-item" class="single-product-item">
+						<c:choose>
+						    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+						   		<div>
+									<figure>
+										<img id="img" src="images/${a.auctionDir}" alt="">
+									</figure>
+								</div>
+						    </c:when>
+						    <c:otherwise>
+								<div onclick="auctionChois('${a.auctionId }')">
+									<figure>
+										<img id="img" src="images/${a.auctionDir}" alt="">
+									</figure>
+								</div>
+						    </c:otherwise>
+						</c:choose>
 
-						<div id="textBox" class="product-text">					
-							<p>
-								<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
-							</p>
-							<c:choose>
-							    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
-							   		<div>
-										<p>${a.auctionName }</p><h6>(상품이 판매되었습니다.)</h6>
-									</div>
-							    </c:when>
-							    <c:otherwise>
-									<p>${a.auctionName }</p>
-							    </c:otherwise>
-							</c:choose>
-							
-							<p>
-								<span>즉시구매</span> <span>${a.auctionMax }</span> 원
-							</p>
-							<span>입찰건수</span> ${a.auctionCount }
-							<p>
-								<span>
-								 종료일: <span>${a.auctionLastDate }</span>
-								</span> 
-								<span> <span>판매자 </span> ${a.auctionSeller }
-								</span>
-							</p>
-						</div>
-						</div>
+					<div id="textBox" class="product-text">					
+						<p>
+							<fmt:formatNumber value="${a.auctionPrice}" pattern="#,###원" />
+						</p>
+						<c:choose>
+						    <c:when test="${a.auctionPrice eq a.auctionMax || sysdate eq a.auctionLastDate }">
+						   		<div>
+									<p>${a.auctionName }</p><h6>(상품이 판매되었습니다.)</h6>
+								</div>
+						    </c:when>
+						    <c:otherwise>
+								<p>${a.auctionName }</p>
+						    </c:otherwise>
+						</c:choose>			
+						<p>
+							<span>즉시구매</span> <span>${a.auctionMax }</span> 원
+						</p>
+						<span>입찰건수</span> ${a.auctionCount }
+						<p>
+							<span>
+							 종료일: <span id="lastDate" >${a.auctionLastDate }</span>
+							</span> 
+							<span> <span>판매자 </span> ${a.auctionSeller }
+							</span>
+						
+						</p>
 					</div>
-				</c:forEach>
-			</div>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
-
-	</section>
-	<form id="frm" action="auctionSelect.do" method="post">
-		<input type="hidden" id="auctionId" name="auctionId">
-	</form> -->
-  	<div>
-		<form id="frm" action="auctionForm.do" method="post">
-			<input type="hidden" id="auctionId" name="auctionId">
-		</form>
 	</div>
+</section>
+ 	<div>
+	<form id="frm" action="auctionForm.do" method="post">
+		<input type="hidden" id="auctionId" name="auctionId">
+	</form>
+</div>
   
 	
 	<script type="text/javascript">
 		function auctionChois(id){
-			let frm = document.getElemntById("frm");
+			let frm = document.getElementById("frm");
 	 		frm.auctionId.value = id; 
 			frm.submit(); 
 		}
 
 		function gopage(p){
 			location.href="auctionList.do?page="+p
-		}
+		}		
 
-		function auctionChois(id){
-			let frm = document.getElementById("frm");
- 			frm.auctionId.value = id; 
-			frm.submit(); 
-		}
+
 	</script>
-	</section>	
+	
 
 </body>
 </html>
