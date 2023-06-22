@@ -218,7 +218,7 @@ td{
 <body>
 	<section id="nSection" class="notice">
 		<div class="page-title">
-			<div class="container">
+			<div align="center" class="container">
 				<h2 id="cart">Cart</h2>
 			</div>
 		</div>

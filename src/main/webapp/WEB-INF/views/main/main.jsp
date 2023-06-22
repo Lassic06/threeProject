@@ -15,7 +15,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>2019</h1>
+                            <h1>2023 F/W</h1>
                             <h2>Lookbook.</h2>
                             <a href="productList.do" class="primary-btn">See More</a>
                         </div>
@@ -26,7 +26,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>2019</h1>
+                            <h1>2023 F/W</h1>
                             <h2>Lookbook.</h2>
                             <a href="productList.do" class="primary-btn">See More</a>
                         </div>
@@ -37,7 +37,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>2019</h1>
+                            <h1>2023 F/W</h1>
                             <h2>Lookbook.</h2>
                             <a href="productList.do" class="primary-btn">See More</a>
                         </div>

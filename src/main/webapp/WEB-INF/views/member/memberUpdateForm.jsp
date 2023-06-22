@@ -259,7 +259,7 @@ td {
 									<div class="col-md-8">
 										<input class="form-control" id="memberName" name="memberName"
 											type="text" placeholder="Name" value="${name }">
-											
+											<td></td>
 									</div>
 								</td>
 							</tr>
@@ -270,7 +270,7 @@ td {
 									<div class="col-md-8">
 										<input class="form-control" id="memberAddr" name="memberAddr"
 											type="text" placeholder="Addr" value="${addr }">
-											
+											<td></td>
 									</div>
 								</td>
 							</tr>
@@ -280,7 +280,7 @@ td {
 								<td><div class="col-md-8">
 										<input id="memberTel" name="memberTel" type="text"
 											placeholder="TEL" class="form-control" value="${tel }">
-											
+											<td></td>
 									</div></td>
 							</tr>
 							<!-- 							<tr> -->
