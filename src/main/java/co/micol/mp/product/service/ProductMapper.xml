@@ -40,6 +40,7 @@
 	</select>
 	
 	<insert id = "productInsert">
+		
 		INSERT INTO PRODUCT 
 		VALUES( #{productId},
 				#{productName},
@@ -60,12 +61,6 @@
 		WHERE PRODUCT_ID = #{productId}
 	</select>
 	
-	<select id = "productCategory"
-		resultType="co.micol.mp.product.service.ProductVO">
-		SELECT PRODUCT_CATEGORY
-		FROM PRODUCT
-		WHERE PRODUCT_CATEGORY = #{productCategory}
-	</select>
 	
 	<select id="productRecentList"
 		resultType="co.micol.mp.product.service.ProductVO">

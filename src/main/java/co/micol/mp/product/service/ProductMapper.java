@@ -26,5 +26,5 @@ public interface ProductMapper {
 	ProductVO productCategory(ProductVO vo);
 	
 
-	ProductVO productCategory(ProductVO vo);
+	
 }
