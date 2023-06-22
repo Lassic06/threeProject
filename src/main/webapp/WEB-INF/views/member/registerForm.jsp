@@ -36,23 +36,27 @@
     #searchBtn{
     padding: 0.3rem;
     font-size: 1.0rem;
-    margin-left: -220px;
+    margin-left: -300px;
     }
-    
+    #checkId{
+    padding: 0.3rem;
+    font-size: 1.0rem;
+    margin-top: 7px;
+    }
 </style>
 </head>
 <body>
 
 <div class="container">
 
-<div class="page-header">
+<div align="center" class="page-header">
     <h2>Resister</h2>
 </div>
 
 <!-- Contact Form - START -->
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div align="center" class="col-md-12">
             <div class="well well-sm">
                 <form class="form-horizontal" action="memberInsert.do" method="post">
                     <fieldset>
@@ -62,7 +66,7 @@
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
                                 <input id="memberId" name="memberId" type="text" placeholder="ID" class="form-control" required="required">
-                                <button type="button" id="checkId" value="No" onclick="idCheck()">중복체크</button>
+                                <button type="button" id="checkId" class="btn btn-primary btn-lg" value="No" onclick="idCheck()">중복체크</button>
                             </div>
                         </div>
                         <div class="form-group">

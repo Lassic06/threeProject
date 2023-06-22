@@ -9,15 +9,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#insertBtn{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
 
+#pInsert{
+	marign-top: 10px;
+}
+</style>
 </head>
 <body>
 	<section class="product-page">
         <div class="container">
-            <div class="product-control">
-                <a href="#">Previous</a>
-                <a href="#">Next</a>
-            </div>
+
             <form id = "frm" action="cartCompare.do" method="post"> <!-- 카다 담기위한 FORM -->
 	            <div class="row">
 	                <div class="col-lg-6">
@@ -61,20 +67,21 @@
 			            <div id ="auctionlist">
 			            	 <p>현재 경매가</p>
 			            </div>
+					<div id="pInsert">
+						<textarea rows="1" cols="10" style="resize: none;" name="auctionPrice" id="auctionPrice" class="form-control"></textarea>
+					</div>
+			            
 		            </div>
 		        </div>
             </form>
             <form name="auctionFrm">
 				<div align="center">
-					<div>
-						<textarea rows="2" cols="30" name="auctionPrice" id="auctionPrice"></textarea>
-					</div>
-					<div>
+					<div id="insertBtn">
 						<c:if test="${not empty id }">
-			            	<button type="button" class="primary-btn pc-btn" onclick="auciotnPriceInsert()">금액 입력</button>
+			            	<button type="button" class="btn btn-dark" onclick="auciotnPriceInsert()">금액 입력</button>
 			            </c:if>			            
 			            <c:if test="${empty id }">
-			            	<a href="memberLoginForm.do" class="primary-btn pc-btn">금액 입력</a>
+			            	<a href="memberLoginForm.do" class="btn btn-dark">금액 입력</a>
 			            </c:if>
 					</div>
 					<input type="hidden" id="priceCheck" name="auctionId" value="${auction.auctionId }">	    	

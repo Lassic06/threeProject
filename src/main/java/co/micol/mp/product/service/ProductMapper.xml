@@ -39,9 +39,14 @@
 	
 	</select>
 	
-	<insert id = "productInsert">
+	<insert id = "productInsert">>
+<selectKey keyProperty="productId" resultType="String" order="BEFORE">
+		SELECT 'p00' || PRODUCT_SEQ.NEXTVAL FROM PRODUCT
+	</selectKey>
+	
 		INSERT INTO PRODUCT 
-		VALUES( #{productId},
+		VALUES( 
+				#{productId},
 				#{productName},
 				#{productPrice},
 				#{productImg},
@@ -60,12 +65,6 @@
 		WHERE PRODUCT_ID = #{productId}
 	</select>
 	
-	<select id = "productCategory"
-		resultType="co.micol.mp.product.service.ProductVO">
-		SELECT PRODUCT_CATEGORY
-		FROM PRODUCT
-		WHERE PRODUCT_CATEGORY = #{productCategory}
-	</select>
 	
 	<select id="productRecentList"
 		resultType="co.micol.mp.product.service.ProductVO">

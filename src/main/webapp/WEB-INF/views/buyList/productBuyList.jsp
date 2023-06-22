@@ -248,6 +248,7 @@ section.notice {
 				</c:forEach>
 			</tbody>
 		</table>
+		
 		<div>
 			<button type="button" id="btn" class="btn btn-dark"
 				onclick="location.href='myPage.do'">마이페이지</button>

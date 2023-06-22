@@ -206,20 +206,17 @@ reviewList();
  }
  function createHTMLString(data){
 	let str="<tr>";
-		str+="<td>"+ data.memberId+"</td></tr>";
 		str+="<td>"+ data.memberName+"</td>";
 		str+="<td>"+ data.reviewSubject+"</td>";
-		str+="<td>"+ data.reviewDate+"</td></tr>";
-		
-		str+="<td class='rDelete'><button type='button' onclick='rDeleteBtn("+data.reviewNo+")'>"+"삭제"+"</button></td>"; //삭제버튼
+		str+="<td>"+ data.reviewDate+"</td>";
+		str+="<td class='rDelete'><button type='button' onclick='rDeleteBtn("+data.reviewNo+")'>"+"삭제"+"</button></td></tr>"; //삭제버튼
 	return str;
 	
  }
 	
 	function rDeleteBtn(reviewNo) {
-		  location.href = "deleteReview.do?reviewNo=" + reviewNo+"&productId="+"${product.productId }";
+		  location.href = "deleteReview.do?reviewNo=" + reviewNo + "&productId=" + "${product.productId }";
 		}
-
 
  function clickBtn(str){
 	 let frm = document.getElementById("frm");

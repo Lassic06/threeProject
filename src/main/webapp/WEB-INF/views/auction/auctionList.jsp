@@ -24,9 +24,25 @@ flex-wrap:wrap;
 #pagination{
 	padding-left: 45%;
 }
+
 </style>
 </head>
 <body>
+<!-- Page Add Section Begin -->
+	<section class="page-add">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="page-breadcrumb">
+						<h2>
+							Products<span>.</span>
+						</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="categories-page spad">
 		<div class="container">
 			<div class="container2">			
@@ -82,11 +98,29 @@ flex-wrap:wrap;
 				</c:forEach>
 			</div>
 		</div>
+		<!-- 페이징 -->
+		<nav aria-label="Page navigation example">
+			<ul id ="pagination" class="pagination">
+				<c:if test="${paging.startPage>1}">
+					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.startPage-1})">이전</a>
+				</c:if>
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
+					var="i">
+					<c:if test="${i != paging.page}">
+						<li class="page-item"><a class="page-link" href="javascript:gopage(${i})">${i}</a>
+					</c:if>
+					<c:if test="${i == paging.page}">
+						<li class="page-item active"><a class="page-link" href="#">${i}</a>
+					</c:if>
+				</c:forEach>
+				<c:if test="${paging.endPage<paging.totalPageCount}">
+					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.endPage+1})">다음</a>
+				</c:if>
+			</ul>
+		</nav>
 
 	</section>
-	<form id="frm" action="auctionSelect.do" method="post">
-		<input type="hidden" id="auctionId" name="auctionId">
-	</form> -->
+
   	<div>
 		<form id="frm" action="auctionForm.do" method="post">
 			<input type="hidden" id="auctionId" name="auctionId">
@@ -95,11 +129,7 @@ flex-wrap:wrap;
   
 	
 	<script type="text/javascript">
-		function auctionChois(id){
-			let frm = document.getElemntById("frm");
-	 		frm.auctionId.value = id; 
-			frm.submit(); 
-		}
+		
 
 		function gopage(p){
 			location.href="auctionList.do?page="+p
@@ -111,7 +141,6 @@ flex-wrap:wrap;
 			frm.submit(); 
 		}
 	</script>
-	</section>	
 
 </body>
 </html>

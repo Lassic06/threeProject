@@ -129,14 +129,14 @@ h2{
 										      <option value="shoes">👠shoes👠</option>
 										  </select>
 										
-								<!-- 제품아이디 -->
-								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"></span>
-									<div class="col-md-8">
-										<input id="productId" name="productId" type="text"
-											placeholder="ID" class="form-control" required="required">
-									</div>
-								</div>
+<!-- 								제품아이디 -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<span class="col-md-1 col-md-offset-2 text-center"></span> -->
+<!-- 									<div class="col-md-8"> -->
+<!-- 										<input id="productId" name="productId" type="text" -->
+<%-- 											placeholder="${productId}" class="form-control"> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
 								<!-- 제품이름 -->
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 text-center"></span>
