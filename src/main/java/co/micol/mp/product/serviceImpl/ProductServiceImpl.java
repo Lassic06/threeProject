@@ -79,11 +79,4 @@ public class ProductServiceImpl implements ProductService {
 		return map.productAllSerch(vo);
 	}
 
-
-	@Override
-	public ProductVO productCategory(ProductVO vo) {
-		// TODO Auto-generated method stub
-		return map.productCategory(vo);
-	}
-
 }

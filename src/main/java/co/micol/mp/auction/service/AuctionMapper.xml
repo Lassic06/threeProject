@@ -13,6 +13,12 @@
 		WHERE AUCTION_ID = #{auctionId}
 	</select>
 	
+	<select id = "auction2" resultType="co.micol.mp.auction.service.AuctionVO">
+		SELECT * 
+		FROM AUCTIONBUYLIST
+		WHERE AUCTION_ID = #{auctionId}
+	</select>
+	
 	<insert id = "auctionInsert">
 		INSERT INTO AUCTION 
 		VALUES( #{auctionId},
@@ -26,14 +32,16 @@
 				#{auctionSeller},
 				#{auctionBuyer},
 				#{auctionCount},
-				#{auctionDir}
+				#{auctionDir},
+				#{auctionSellerId},
+				#{auctionBuyerId}
 				)
 	</insert>
 	
 
 	<update id="auctionPriceInsert" parameterType="co.micol.mp.auction.service.AuctionVO">
 		UPDATE AUCTION
-		SET AUCTION_PRICE = #{auctionPrice}, AUCTION_BUYER = #{auctionBuyer}
+		SET AUCTION_PRICE = #{auctionPrice}, AUCTION_BUYER = #{auctionBuyer}, AUCTION_COUNT = AUCTION_COUNT +1, AUCTION_BUYER_ID = #{auctionBuyerId}
 		WHERE AUCTION_ID = #{auctionId}
 	</update>
 	
@@ -41,8 +49,6 @@
 		SELECT *
 		FROM AUCTION
 		WHERE AUCTION_ID = #{auctionId}
-		
-	
 	</select>
 
 	<insert id="auctionBuyListInsert">
@@ -56,5 +62,10 @@
 		
 			  )
 	</insert>
+	<update id="auctionPriceUpdate" parameterType="co.micol.mp.auction.service.AuctionVO">
+		UPDATE AUCTION
+		SET AUCTION_MAX = #{auctionMax}
+		WHERE AUCTION_ID = #{auctionId}
+	</update>
 
 </mapper>

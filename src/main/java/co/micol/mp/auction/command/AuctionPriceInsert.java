@@ -22,7 +22,8 @@ public class AuctionPriceInsert implements Command {
 		AuctionService as = new AuctionServiceImpl();
 		
 		vo.setAuctionPrice(Integer.valueOf(request.getParameter("auctionPrice")));
-		vo.setAuctionBuyer((String) session.getAttribute("id"));
+		vo.setAuctionBuyer((String) session.getAttribute("name"));
+		vo.setAuctionBuyerId((String) session.getAttribute("id"));
 		vo.setAuctionId(request.getParameter("auctionId"));
 		as.auctionPriceInsert(vo);
 		

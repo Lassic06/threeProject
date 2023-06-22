@@ -18,7 +18,7 @@ public class AuctionBuyInsert implements Command {
 		AuctionService as = new AuctionServiceImpl();
 		HttpSession session = request.getSession();
 		
-		vo.setMemberId(String.valueOf(session.getAttribute("id")));
+		vo.setMemberId((String)session.getAttribute("id"));
 		vo.setAuctionId(request.getParameter("auctionId"));
 		vo.setAuctionName(request.getParameter("auctionName"));
 		

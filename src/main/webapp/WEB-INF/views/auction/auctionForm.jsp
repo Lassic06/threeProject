@@ -67,32 +67,24 @@
             <form name="auctionFrm">
 				<div align="center">
 					<div>
-						<textarea rows="2" cols="30" name="auctionPrice" id="auctionPrice"></textarea>
+						<textarea rows="2" cols="30" name="auctionPrice" id="auctionPrice" >${auction.auctionPrice }</textarea>
 					</div>
 					<div>
 						<c:if test="${not empty id }">
 			            	<button type="button" class="primary-btn pc-btn" onclick="auciotnPriceInsert()">금액 입력</button>
 			            </c:if>			            
 			            <c:if test="${empty id }">
-			            	<a href="memberLoginForm.do" class="primary-btn pc-btn">금액 입력</a>
+			            	<a href="memberLoginForm.do" class="primary-btn pc-btn" onclick = "loginAlert.do">금액 입력</a>
 			            </c:if>
 					</div>
 					<input type="hidden" id="priceCheck" name="auctionId" value="${auction.auctionId }">	    	
-					<input type="hidden" id="maxPrice" name="auctionMax" value="${auction.auctionMax }">	
+					<input type="hidden" id="maxPrice" name="auctionMax" value="${auction.auctionMax }">
+					<input type="hidden" id = "auctionbuyerId" name = "auctionbuyerId" value="${auction.auctionBuyerId }">	
 					<input type="hidden" id = "auctionName" name = "auctionName" value = "${auction.auctionName }">    	
 					<input type="hidden" id = "acutionImg" name = "auctionImg" value = "${auction.auctionDir }">
 				   
 				</div>  	
 			</form>
-          
-           
-            <!-- 데이터 값 가져오는 기능 -->
-            <input type="hidden" id = "memberId" name = "memberId" value="${id }">
-            <input type="hidden" id = "auctionId" name = "auctionId" value = "${auction.auctionId }">
-            <input type="hidden" id = "auctionName" name = "auctionName" value = "${auction.auctionName }">
-            <input type="hidden" id = "auctionPrice" name = "auctionPrice" value = "${auction.auctionPrice }">
-            <input type="hidden" id = "acutionImg" name = "auctionImg" value = "${auction.auctionImg }">
-            <input type="hidden">          
     	</div>
     </section>
    
@@ -109,15 +101,8 @@ function auciotnPriceInsert(){
 	var auctionPrice = $("#auctionPrice").val();
 	console.log(${auction.auctionMax});
 	var queryString = $("form[name=auctionFrm]").serialize();
-	if(${auction.auctionMax} <= auctionPrice  ){
-		if(confirm("바로 구매하시겠습니까?")==true){
-			auctionFrm.action="auctionBuyInsert.do";
-		}else{
-			return;
-		}
-		auctionFrm.submit();
-	}
-	else if(${auction.auctionPrice} < auctionPrice){		
+	
+	if(${auction.auctionPrice} < auctionPrice){		
 		$.ajax({
 			url:"auctionPriceInsert.do",
 			type:"POST",
@@ -132,6 +117,14 @@ function auciotnPriceInsert(){
 				alert("code:" + request.status+"\n"+"message: " +request.responseText + "\n"+"error: " + error);
 			}
 		});
+		if(${auction.auctionMax} <= auctionPrice  ){
+			if(confirm("바로 구매하시겠습니까?")==true){
+				auctionFrm.action="auctionBuyInsert.do";
+			}else{
+				return;
+			}
+			auctionFrm.submit();
+		}
 	}else{
 		alert("현재 금액보다 높은 금액을 입력하세요");
 		$("#auctionPrice").val("").focus();
@@ -185,7 +178,7 @@ function remaindTime() {
 	    $("#d-day-hour").html('00');
 	    $("#d-day-min").html('00');
 	    $("#d-day-sec").html('00');  
-		auctionFrm.action="auctionBuyInsert.do";
+		auctionFrm.action="auctionTimeOut.do";
 		auctionFrm.submit();
    }
 }

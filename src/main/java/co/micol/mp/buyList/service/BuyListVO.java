@@ -27,7 +27,7 @@ public class BuyListVO {
 	private String productName;
 	private String auctionName;
 	private String productPrice;
-	private String auctionPrice;
+	private int auctionPrice;
 	private String productImg;
 	private String auctionImg;
 	private Date buyDate;

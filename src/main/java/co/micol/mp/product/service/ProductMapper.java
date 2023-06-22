@@ -23,7 +23,6 @@ public interface ProductMapper {
 
 	int productUpdate(ProductVO vo);
 	
-	ProductVO productCategory(ProductVO vo);
 	
 
 	ProductVO productCategory(ProductVO vo);
