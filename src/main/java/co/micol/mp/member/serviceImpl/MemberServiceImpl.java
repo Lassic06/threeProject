@@ -51,4 +51,19 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public int memberTel(MemberVO vo) {
+		return map.memberTel(vo);
+	}
+
+	@Override
+	public int memberName(MemberVO vo) {
+		return map.memberName(vo);
+	}
+
+	@Override
+	public int memberAddr(MemberVO vo) {
+		return map.memberAddr(vo);
+	}
+
 }

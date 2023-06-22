@@ -61,7 +61,6 @@
 		WHERE PRODUCT_ID = #{productId}
 	</select>
 	
-	
 	<select id="productRecentList"
 		resultType="co.micol.mp.product.service.ProductVO">
 		SELECT *  

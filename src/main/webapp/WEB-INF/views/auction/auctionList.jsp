@@ -81,6 +81,14 @@ flex-wrap:wrap;
 				</div>
 			</c:forEach>
 		</div>
+
+	</section>
+
+  	<div>
+		<form id="frm" action="auctionForm.do" method="post">
+			<input type="hidden" id="auctionId" name="auctionId">
+		</form>
+
 	</div>
 </section>
  	<div>
@@ -91,11 +99,13 @@ flex-wrap:wrap;
   
 	
 	<script type="text/javascript">
+
 		function auctionChois(id){
 			let frm = document.getElementById("frm");
 	 		frm.auctionId.value = id; 
 			frm.submit(); 
 		}
+
 
 		function gopage(p){
 			location.href="auctionList.do?page="+p
