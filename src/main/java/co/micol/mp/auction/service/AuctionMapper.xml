@@ -13,8 +13,18 @@
 	</select>
 	
 	<insert id = "auctionInsert">
-	INSERT INTO PRODUCT VALUES(#{auctionId},#{auctionName},#{auctionPrice},
-		#{auctionImg},#{auctionText},#{auctionMax},SYSDATE,#{auctionReview},#{auctionSeller},#{auctionBuyer},#{auctionCount})
+	INSERT INTO AUCTION VALUES(#{auctionId},
+							   #{auctionName},
+							   #{auctionPrice},
+							   #{auctionImg},
+							   #{auctionText},
+							   #{auctionMax},
+							   #{auctionDate},
+							   #{auctionLastDate},
+							   #{auctionSeller},
+							   null,
+							   0,
+							   #{auctionDir})
 	</insert>
 
 </mapper>

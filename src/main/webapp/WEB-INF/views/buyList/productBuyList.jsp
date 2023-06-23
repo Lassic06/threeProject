@@ -26,8 +26,7 @@
 				<tbody>
 					<c:forEach items="${buyLists }" var="bl">
 						<tr>
-							<td><img src="images/${bl.productImg }" alt="img" width="70"
-								height="80"></td>
+							<td><img src="images/${bl.productImg }" alt="img" width="70" height="80"></td>
 							<td><a href="productForm.do?productId=${bl.productId }">${bl.productName }</a>
 							</td>
 							<td><fmt:formatNumber value="${bl.productPrice}" pattern="#,###원" /></td>
@@ -39,6 +38,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<button type="button" onclick="location.href='myPage.do'">마이페이지</button>
 		</div>
 	</div>
 </body>

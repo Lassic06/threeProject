@@ -14,4 +14,6 @@ public interface ProductService {
 	int productDelete(ProductVO vo);
 	
 	List<ProductVO> productCateList(ProductVO vo);
+	
+	List<ProductVO> productSerch(String search); // 상품 검색기능
 }

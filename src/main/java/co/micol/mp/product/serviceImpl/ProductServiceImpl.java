@@ -33,6 +33,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public List<ProductVO> productSerch(String search) {
+		// TODO Auto-generated method stub
+		return map.productSerch(search);
+	}
+
+	@Override
 	public List<ProductVO> productRecentList() {
 		// TODO Auto-generated method stub
 		return map.productRecentList();

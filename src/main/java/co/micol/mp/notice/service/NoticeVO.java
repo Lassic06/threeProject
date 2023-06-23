@@ -23,5 +23,6 @@ public class NoticeVO {
 	private Date noticeDate;
 	private String noticeWriter;
 	private String noticeCount;
+	private String noticeSerch; //게시물 검색
 	
 }
